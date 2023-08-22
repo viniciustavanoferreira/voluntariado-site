@@ -66,47 +66,17 @@
         </div>
     </nav>
 
-    <div class="hero-subtitle text-black text-center mt-3 mt-lg-4">
-
-    </div>
-
     <!-- nav bar finish -->
 
     <section class="hero hero-bg cover">
-        <div class="hero-caption">
-
-            <div class="container">
-                <!-- div do espaçamento -->
-                <div class="hero-subtitle text-black text-center mt-5 mt-lg-5">
-
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-xl-9 col-xxl-8">
-                        <h1 class="text-dark text-center">
-                            A ajuda ao seu
-                            <strong>lado.</strong></h2>
-
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-       
-
+        
         <div class="slideshow">
             <div class="slideshow-image" style="background-image: url('./src/img/old-1.jpg')"></div>
             <div class="slideshow-image" style="background-image: url('./src/img/old-3.jpg')"></div>
             <div class="slideshow-image" style="background-image: url('./src/img/old-4.jpg')"></div>
             <div class="slideshow-image" style="background-image: url('./src/img/old-5.jpg')"></div>
         </div>
-        </div>
-
-        <h1 class="text-center hero-title">
-    <span style="color: var(--SecondaryColorLight)">Bom Vizinho</span>
-</h1>
+       
     </section>
 
     <div class="hero-subtitle text-black text-center mt-5 mt-lg-5">

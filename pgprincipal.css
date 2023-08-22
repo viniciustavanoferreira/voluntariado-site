@@ -162,12 +162,22 @@ h6,
 }
 
 .logo > img{
-    margin-left: 10px;
-    width: 140px;
-    height: 140px; /* Espaçamento à direita para separar o logotipo dos outros links */
+    border-radius: 50%;
+    width: 179px;
+    height: 100%; /* Espaçamento à direita para separar o logotipo dos outros links */
+}
+@media(max-width: 987px){
+    .logo > img {
+        border-radius: 50%;
+        width:85px;
+        height: 100%;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
 }
 @media(max-width:630px) {
     .logo > img {
+        border-radius: 50%;
         margin-left: 10px;
         margin-top: 10px;
         width: 70px;
