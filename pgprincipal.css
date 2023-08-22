@@ -1,3 +1,14 @@
+@font-face {
+    font-family: Zen Maru Regular;
+    src: url(fonts//ZenMaruGothic-Regular.ttf);
+    font-family: Zen Maru Bold;
+    src: url(fonts/ZenMaruGothic-Bold.ttf);
+    font-family: Zen Maru Light;
+    src: url(fonts/ZenMaruGothic-Light.ttf);
+    font-family: Zen Maru Medium;
+    src: url(fonts/ZenMaruGothic-Medium.ttf);
+}
+
 
 .root {
     --HoverTransition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -5,7 +16,7 @@
     --TextColor: #17171D;
     --MainColor: #ebac8b;
     --MainColorTransparent: #e66b6e;
-    --MainColorLight: #fff1fc;
+    --MainColorLight: #ffff;
     --SecondaryColor: #fff0d9;
     --SecondaryColorLight: #FFF8EC;
     --LightGrayColor: #dedede;
@@ -17,7 +28,7 @@
 }
 
 body {
-    font-family: 'Poppins', "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: 'Zen Maru Gothic', sans-serif;;
     color: var(--TextColor);
     font-weight: 300;
     font-feature-settings: 'kern';
@@ -124,7 +135,6 @@ h6,
 .navbar .dropdown-toggle::after {
     border: none;
     content: "\f107";
-    font-family: "Font Awesome 5 Free";
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
@@ -144,6 +154,30 @@ h6,
 .navbar.fixed-top {
     transition: .5s;
 }
+/* Logo */
+/* Estilos para o logotipo */
+.header__title {
+    display: flex;
+    align-items: center;
+}
+
+.logo > img{
+    margin-left: 10px;
+    width: 140px;
+    height: 140px; /* Espaçamento à direita para separar o logotipo dos outros links */
+}
+@media(max-width:630px) {
+    .logo > img {
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 70px;
+        height: 70px;
+        ;
+
+    }
+}
+/* Outros estilos para a barra de navegação, se necessário */
+
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav {
