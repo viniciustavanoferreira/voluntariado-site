@@ -44,9 +44,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="logo">
-                        <img src="./src/img/logo.jpg" alt="">
+                        <img src="./src/img/logosemfundo.png" alt="">
                     </div>
-            <div class="navbar-nav mx-auto p-4 p-lg-0">
+            <div class="navbar-nav mx-auto p-3 p-lg-0">
             
                 <a href="index.php" class="nav-item nav-link active text-black">Home</a>
                 <a href="./php/quem-somos.php" class="nav-item nav-link text-black">Quem Somos</a>
@@ -68,7 +68,7 @@
 
     <!-- nav bar finish -->
 
-    <section class="hero hero-bg cover">
+    <section class="hero">
         
         <div class="slideshow">
             <div class="slideshow-image" style="background-image: url('./src/img/old-1.jpg')"></div>
@@ -76,12 +76,22 @@
             <div class="slideshow-image" style="background-image: url('./src/img/old-4.jpg')"></div>
             <div class="slideshow-image" style="background-image: url('./src/img/old-5.jpg')"></div>
         </div>
+
+        
+        <div class= "imagem-celular" style="background-color:#D3D3D3;">
+            <div class="hider">
+        <img src="./src//img/logo.jpg" alt="Your Image Alt Text" class="text" />
+            </div>
+
+                
+        </div>
        
     </section>
 
     <div class="hero-subtitle text-black text-center mt-5 mt-lg-5">
 
     </div>
+
 
     <!-- About Start -->
     <div class="container-xxl py-6">
@@ -98,14 +108,14 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <h1 class="display-6 mb-2">O que somos?</h1>
+                    <h1 class="display-6 mb-2" style="color:var(--SecondaryColor)">O que somos?</h1>
                     <div class="h-100">
-                        <p class="text-primary text-uppercase mb-2 text-center">// Sobre nós</p>
+                        
                         <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                         <div class="row g-2 mb-4">
                             <div class="col-sm-6">
-                                <i class="fa fa-check text-primary me-2"></i>Manuntenção
+                                <i class="fa fa-check text-primary me-2 custom-icon-color"></i>Manuntenção
                             </div>
                             <div class="col-sm-6">
                                 <i class="fa fa-check text-primary me-2"></i>Passeio
@@ -117,26 +127,25 @@
                                 <i class="fa fa-check text-primary me-2"></i>Compras
                             </div>
                         </div>
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="">Read More</a>
+                        <a class="btn btn-primary rounded-pill py-3 px-5" href="./src/views/quemsomos.php" style="background-color:var(--MainColor)">Leia Mais</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Sobre End -->
 
     <div class="hero-subtitle text-black text-center mt-3 mt-lg-4">
         
 
     </div>
 
-    <!-- Product Start -->
-    <div class="container-xxl bg-light my-6 py-6 pt-0">
+    <!-- Serviços Start -->
+    <div class="container-xxl bg-light my-6 py-6 pt-0" style="background-color: #D3D3D3;">
         <div class="container">
 
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <p class="text-primary text-uppercase mb-2">// Nossos Serviços</p>
-                <h2 class="display-6 mb-2">cu?</h2>
+                <h2 class="display-6 mb-2" style="color:var(--SecondaryColor)">Nossos Serviços</h2>
 
             </div>
             <div class="row g-4">
@@ -182,10 +191,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div class="text-center p-4">
+                            <h4 class="mb-3">Serviços</h4>
+                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                        </div>
+                        <div class="position-relative mt-auto">
+                            <img class="img-fluid" src="./src/img/compras.jpg" alt="">
+                            <div class="product-overlay">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Product End -->
+    <!-- Serviços End -->
 
     <?php
     include("./php/footer.php")
@@ -193,7 +216,7 @@
 </main>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top custom"><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top custom "><i class="bi bi-arrow-up"></i></a>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

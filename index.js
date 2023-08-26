@@ -18,13 +18,14 @@
 
   // Fixed Navbar
   $('.fixed-top').css('top', $('.top-bar').height());
-  $(window).scroll(function () {
-      if ($(this).scrollTop()) {
-          $('.fixed-top').addClass('bg-transparent').css('top', 0);
-      } else {
-          $('.fixed-top').removeClass('bg-transparent').css('top', $('.top-bar').height());
-      }
-  });
+$(window).scroll(function () {
+    if ($(this).scrollTop()) {
+        $('.fixed-top').addClass('bg-white').css('top', 0).css('background-color', 'var(--SecondaryColorLight)');
+    } else {
+        $('.fixed-top').removeClass('bg-white').css('top', $('.top-bar').height()).css('background-color', 'transparent');
+    }
+});
+
   
   
   // Back to top button
@@ -39,6 +40,8 @@
       $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
       return false;
   });
+
+
 
 
   // Header carousel

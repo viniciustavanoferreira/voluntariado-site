@@ -15,10 +15,10 @@
     --HoverOpacity: 0.6;
     --TextColor: #17171D;
     --MainColor: #ebac8b;
-    --MainColorTransparent: #e66b6e;
+
     --MainColorLight: #ffff;
-    --SecondaryColor: #fff0d9;
-    --SecondaryColorLight: #FFF8EC;
+    --SecondaryColor: #e66b6e;
+    --SecondaryColorLight: navajowhite;
     --LightGrayColor: #dedede;
         --primary: #EAA636;
         --secondary: #545454;
@@ -40,6 +40,7 @@ body {
 a {
     color: var(--MainColor);
     text-decoration: none;
+    font: size 300px;
 }
 
 a:hover {
@@ -127,6 +128,13 @@ h6,
     opacity: .7;
 }
 
+/* Elementos do escopo */
+.btn.btn-primary {
+    border: none;
+}
+.custom-button {
+    color: var(--MainColor)
+}
 
 
 
@@ -154,6 +162,7 @@ h6,
 .navbar.fixed-top {
     transition: .5s;
 }
+
 /* Logo */
 /* Estilos para o logotipo */
 .header__title {
@@ -172,20 +181,26 @@ h6,
         width:85px;
         height: 100%;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 50px;
+        left:0px;
+        top:0px;
+        display: none;
     }
 }
 @media(max-width:630px) {
     .logo > img {
+        display: none;
         border-radius: 50%;
         margin-left: 10px;
-        margin-top: 10px;
+        margin-top: 50px;
         width: 70px;
         height: 70px;
         ;
 
     }
 }
+
+
 /* Outros estilos para a barra de navegação, se necessário */
 
 
@@ -193,12 +208,27 @@ h6,
     .navbar .navbar-nav {
         margin-top: 10px;
         border-top: 1px solid rgba(255, 255, 255, .3);
-        background: var(--MainColor);
+        background: transparent;
+    }
+
+    .navbar-nav {
+        position: inherit;
+    top: 30px;
     }
 
     .navbar .navbar-nav .nav-link {
         padding: 10px 0;
+        
     }
+    .navbar-collapse{
+        position:absolute;
+        left:0px;
+        top:0px;
+    }
+    .hero{
+        background-color: var(--SecondaryColorLight);
+    }
+    
 }
 
 @media (min-width: 992px) {
@@ -219,6 +249,7 @@ h6,
         opacity: 1;
     }
 }
+
 
 
 /* Animação */
@@ -436,6 +467,74 @@ h6,
     }
   }
  
+  @media(max-width: 903px){
+    .slideshow{
+        display: none;
+    }
+    .imagem-celular{
+        display: flex;
+        background-repeat: no-repeat;
+        background-color: var(--MainColor);
+    }
+
+    .hider {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        overflow: hidden;
+    }
+    
+    .hider > img {
+        transform: translate3d(0, 100%, 0);
+        animation: slide-up-1 3s infinite, slide-up-2 3s infinite 3s;
+        width: 400px; /* Adjust the width of your image */
+        height: auto; /* This ensures that the image maintains its aspect ratio */
+    }
+    
+    @keyframes slide-up-1 {
+        0% {
+            transform: translate3d(0, 100%, 0);
+            opacity: 0; /* Start with opacity 0 */
+        }
+        50% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1; /* Fade in the image at 50% */
+        }
+        100% {
+            transform: translate3d(0, 100%, 0);
+            opacity: 0; /* Fade out the image at 100% */
+        }
+    }
+    
+    @keyframes slide-up-2 {
+        0% {
+            transform: translate3d(0, 100%, 0);
+            opacity: 0; /* Start with opacity 0 */
+        }
+        50% {
+            transform: translate3d(0, 0, 0);
+            opacity: 1; /* Fade in the image at 50% */
+        }
+        100% {
+            transform: translate3d(0, 100%, 0);
+            opacity: 0; /* Fade out the image at 100% */
+        }
+    }
+    
+      
+      /* Add more keyframes for different colors as needed */
+      
+  }
+/* Imagem Celular */
+
+@media(max-width:1920){
+    .imagem-celular .hider .text{
+        display: none;
+    }
+    }
+
+
 
 
 /* Hero - Section central */
@@ -554,701 +653,6 @@ h6,
 }
 
 
-
-
-
-@media screen and (max-width: 1736px) {
-    .hero-boxed-content {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .hero-boxed-info-list-container {
-        left: 0;
-    }
-    .hero-boxed-info-card-small {
-        top: 14%;
-    }
-    .hero-boxed-icon-circle-2 {
-        bottom: 140px;
-        right: 200px;
-    }
-}
-@media screen and (max-width: 1679px) {
-    .hero-center-carousel {
-        width: 43%;
-    }
-    .hero-stats-item:nth-child(1) {
-        right: 16%;
-    }
-    .hero-stats-item:nth-child(2) {
-        right: 19%;
-    }
-    .hero-stats-item:nth-child(3) {
-        right: 22%;
-    }
-    .hero-boxed-content {
-        margin-left: -80px;
-        margin-right: -80px;
-    }
-    .hero-boxed-icon-circles {
-        display: none;
-    }
-    .info-fig {
-        padding-bottom: 60px;
-        padding-right: 120px;
-    }
-    .info-fig-image, 
-    .info-fig::before {
-        height: 500px;
-    }
-    .info-fig::before {
-        left: 60px;
-        right: 60px;
-    }
-}
-@media screen and (max-width: 1599px) {
-    .pl-80 {
-        padding-left: 0;
-    }
-    .hero 
-     {
-        font-size: 64px;
-        line-height: 72px;
-        letter-spacing: -2px;
-    }
-    .hero-card,
-    .hero-card-dark,
-    .hero-card-light {
-        height: 46vh;
-        min-height: 460px;
-    }
-    .hero-right-bg-card {
-        width: 56%;
-    }
-    .dashboard-stats-card-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 20px;
-        font-size: 36px;
-    }
-    .dashboard-stats-card-info-number {
-        font-size: 36px;
-        line-height: 36px;
-    }
-}
-@media screen and (max-width: 1456px) {
-    .hero-boxed-content {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 60px;
-    }
-    .hero-boxed-icon-circles {
-        display: block;
-    }
-    .hero-boxed-info-cards {
-        display: none;
-    }
-    .dashboard-stats-card-icon {
-        width: 70px;
-        height: 70px;
-        border-radius: 10px;
-        font-size: 28px;
-    }
-    .dashboard-stats-card {
-        padding: 20px;
-    }
-    .dashboard-stats-card-info {
-        padding-left: 10px;
-    }
-    .dashboard-stats-card-info-number {
-        font-size: 28px;
-        line-height: 28px;
-    }
-}
-@media screen and (max-width: 1399px) {
-    .hero-boxed-icon-circles {
-        display: none;
-    }
-    .search-container {
-        width: 50%;
-    }
-    .testimonials-1-circles-item.item-1 {
-        width: 80px;
-        height: 80px;
-        left: 5%;
-    }
-    .testimonials-1-circles-item.item-2 {
-        width: 90px;
-        height: 90px;
-        left: 12%;
-    }
-    .testimonials-1-circles-item.item-3 {
-        width: 160px;
-        height: 160px;
-    }
-    .testimonials-1-circles-item.item-4 {
-        width: 80px;
-        height: 80px;
-        top: 280px;
-    }
-    .testimonials-1-circles-item.item-5 {
-        width: 60px;
-        height: 60px;
-        left: 13%;
-    }
-    .testimonials-1-circles-item.item-6 {
-        width: 100px;
-        height: 100px;
-        right: 10%;
-    }
-    .testimonials-1-circles-item.item-7 {
-        width: 70px;
-        height: 70px;
-        right: 5%;
-    }
-    .testimonials-1-circles-item.item-8 {
-        width: 160px;
-        height: 160px;
-    }
-    .testimonials-1-circles-item.item-10 {
-        width: 90px;
-        height: 90px;
-        right: 10%;
-    }
-    .jobs-list-side-filter.with-details .list-side-filter-panel {
-        display: none;
-    }
-    .dashboard-inbox-messages-container {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1030;
-        display: none;
-        background-color: #fff;
-        height: auto;
-        border-radius: 0;
-    }
-    .dashboard-inbox-messages-container.show {
-        display: block;
-    }
-    .dashboard-inbox-list {
-        height: auto;
-        overflow-y: visible;
-    }
-    .dashboard-inbox-list ul li.active .dashboard-inbox-list-item {
-        background-color: #fff;
-    }
-    .dashboard-inbox-messages-close-btn {
-        background-color: #fff;
-        color: var(--TextColor);
-        border: 1px solid var(--TextColor);
-        font-size: 15px;
-        font-weight: 500;
-        transition: var(--HoverTransition);
-        transition-property: color, background-color;
-        margin-left: 20px;
-    }
-    .dashboard-inbox-messages-close-btn:hover {
-        background-color: var(--TextColor);
-        color: #fff;
-    }
-    .dashboard-inbox-list-item {
-        padding: 0 0 30px 0;
-    }
-}
-@media screen and (max-width: 1139px) {
-    
-}
-@media screen and (max-width: 991px) {
-    .hero h1 {
-        font-size: 48px;
-        line-height: 56px;
-        letter-spacing: -2px;
-    }
-    .section-h2,
-    .page-header-simple h1,
-    .blog-hero h1 {
-        font-size: calc(1.325rem + .9vw);
-        letter-spacing: -1px;
-    }
-    .promo-img {
-        border-radius: 30px;
-        padding-left: 40px;
-    }
-    .promo-img.pb-100 {
-        padding-bottom: 60px;
-    }
-    .promo-img.pt-100 {
-        padding-top: 60px;
-    }
-    .info-caption-list,
-    .info-caption-cta {
-        margin-top: 40px;
-    }
-    .list-side-filter-panel {
-        display: none;
-    }
-    .jobs-tab-content {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1030;
-        overflow-y: auto;
-        display: none;
-    }
-    .jobs-tab-content.show {
-        display: block;
-    }
-    .jobs-tab-content .tab-pane {
-        border-radius: 0;
-    }
-    .jobs-tab-pane-cover {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    .jobs-card-4.active {
-        background-color: #fff;
-        border-color: var(--LightGrayColor);
-    }
-    .jobs-card-4.active .jobs-card-4-company-logo {
-        border: 0 none;
-    }
-    .jobs-card-4.active .jobs-card-4-title, 
-    .jobs-card-4.active .jobs-card-4-location, 
-    .jobs-card-4.active .jobs-card-4-type, 
-    .jobs-card-4.active .jobs-card-4-company, 
-    .jobs-card-4.active .jobs-card-4-date {
-        color: var(--TextColor);
-    }
-    .jobs-tab-pane-close-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1031;
-        background-color: #fff;
-        color: var(--TextColor);
-        border: 1px solid var(--TextColor);
-        font-size: 15px;
-        font-weight: 500;
-        transition: var(--HoverTransition);
-        transition-property: color, background-color;
-    }
-    .jobs-tab-pane-close-btn:hover {
-        background-color: var(--TextColor);
-        color: #fff;
-    }
-    .single-job-content h1 {
-        font-size: 28px;
-    }
-    .dashboard-content {
-        margin: 80px 0.75rem 0 0.75rem;
-    }
-    .dashboard-content-details {
-        margin-right: 0;
-    }
-    .dashboard-content-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        padding: 0 0.75rem;
-        height: 80px;
-        background-color: var(--MainColorLight);
-        z-index: 1030;
-    }
-    .dashboard-content-header.is-candidate {
-        background-color: var(--SecondaryColorLight);
-    }
-    .dashboard-content-details h1 {
-        font-size: 28px;
-        letter-spacing: -1px;
-    }
-    .posts-card-2 {
-        flex-direction: column;
-        height: auto;
-    }
-    .posts-card-2-fig,
-    .posts-card-2-fig .cover {
-        width: 100%;
-        margin: 0;
-    }
-    .posts-card-2-summary {
-        display: block;
-    }
-    .hero-subtitle {
-        font-size: 16px;
-    }
-    .single-blog-content h2 {
-        font-size: 20px;
-    }
-    .page-image-hero h1 {
-        font-size: calc(1.625rem + .9vw);
-        letter-spacing: -1px;
-    }
-    .footer-social ul li {
-        margin-left: 0;
-        margin-right: 34px;
-    }
-}
-@media screen and (max-width: 767px) {
-    .mt-100 {
-        margin-top: 60px;
-    }
-    .hero-form-round.bigger {
-        height: auto;
-        padding: 20px;
-    }
-    .hero-form-round.bigger form {
-        height: auto;
-    }
-    .hero-form-round.bigger form .has-left-border {
-        border-left: 0 none;
-    }
-    .hero-form-round.bigger form .form-control, 
-    .hero-form-round.bigger form .form-select {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .hero-form-round.bigger .form-floating > label {
-        padding-left: 0;
-    }
-    .hero-form-round.bigger form button {
-        width: 100%;
-        margin-right: 0;
-    }
-    .hero-boxed-content {
-        padding: 40px;
-        border-radius: 30px;
-    }
-    .hero h1 {
-        font-size: 36px;
-        line-height: 44px;
-        letter-spacing: -1px;
-    }
-    .testimonials-1-carousel-container {
-        position: relative;
-    }
-    .testimonials-1-carousel-container,
-    .testimonials-1-carousel-container > .row {
-        height: auto;
-    }
-    .jobs-card-3 {
-        padding: 20px;
-    }
-    .single-job-cover {
-        height: 300px;
-    }
-    .single-job-cover-logo {
-        width: 80px;
-        height: 80px;
-    }
-    .single-company-hero-logo {
-        width: 80px;
-        height: 80px;
-    }
-    .single-company-hero,
-    .page-image-hero {
-        height: 380px;
-    }
-    .single-company-hero-title h1 {
-        font-size: 28px;
-    }
-    .single-company-content h2 {
-        font-size: 22px;
-    }
-    .subsection-h2 {
-        font-size: 22px;
-    }
-    .dashboard-content-details h2 {
-        font-size: 22px;
-    }
-    .dashboard-content-details {
-        padding: 30px;
-    }
-    .company-dashboard-messages-item-avatar {
-        width: 40px;
-        height: 40px;
-    }
-    .dashboard-inbox-messages-header {
-        padding: 20px;
-    }
-    .dashboard-inbox-messages-content {
-        padding: 130px 20px;
-    }
-    .dashboard-inbox-messages-footer {
-        padding: 20px;
-    }
-    .single-candidate-hero-avatar {
-        width: 80px;
-        height: 80px;
-    }
-    .single-candidate-hero {
-        height: 380px;
-    }
-    .single-candidate-hero-name h1 {
-        font-size: 28px;
-    }
-    .single-candidate-content h2 {
-        font-size: 22px;
-    }
-    .dashboard-chart-container {
-        padding: 20px;
-    }
-    .pb-100 {
-        padding-bottom: 60px;
-    }
-    .pt-100 {
-        padding-top: 60px;
-    }
-}
-@media screen and (max-width: 575px) {
-    .logo > a {
-        font-size: 20px;
-    }
-    .nav-trigger {
-        flex: 0!important;
-    }
-    .hero-form-round {
-        height: auto;
-        padding: 20px;
-    }
-    .hero-form-round form {
-        height: auto;
-    }
-    .hero-form-round form .has-left-border {
-        border-left: 0 none;
-    }
-    .hero-form-round form .form-control, 
-    .hero-form-round form .form-select {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .hero-form-round.large .form-control,
-    .hero-form-round.large .form-select {
-        padding: .375rem .75rem;
-    }
-    .hero-form-round form button {
-        width: 100%;
-    }
-    .header-right {
-        display: none;
-    }
-    .hero-boxed-content {
-        padding: 20px;
-    }
-    .info-stats {
-        display: none;
-    }
-    .info-fig-image, 
-    .info-fig::before {
-        height: 400px;
-    }
-    .info-fig {
-        padding-bottom: 20px;
-        padding-right: 20px;
-    }
-    .info-fig::before {
-        left: 20px;
-        right: 0;
-    }
-    .dashboard-content-details {
-        padding: 20px;
-    }
-    .nav-trigger {
-        margin-left: 20px;
-    }
-    .user-nav .nav-btn {
-        display: none;
-    }
-    .companies-list-top .form-select,
-    .jobs-list-top .form-select,
-    .candidates-list-top .form-select {
-        padding-left: 0;
-    }
-    .companies-card-1.has-border {
-        padding: 20px;
-    }
-    .hero-form-round {
-        border-radius: 30px;
-    }
-    .companies-list-top h2,
-    .jobs-list-top h2,
-    .candidates-list-top h2 {
-        font-size: 20px;
-    }
-    .companies-card-1-bottom {
-        margin-top: 20px;
-    }
-    .jobs-card-1, 
-    .jobs-card-2, 
-    .jobs-card-3 {
-        padding: 20px;
-    }
-    .jobs-card-1-company-logo, 
-    .jobs-card-2-company-logo, 
-    .jobs-card-3-company-logo {
-        width: 60px;
-        height: 60px;
-    }
-    .promo-img {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    .promo-img.pt-100 {
-        padding-top: 40px;
-    }
-    .promo-img.pb-100 {
-        padding-bottom: 40px;
-    }
-    .companies-card-1-company-logo {
-        width: 60px;
-        height: 60px;
-    }
-    .posts-card-1-info {
-        padding: 20px;
-    }
-    .posts-card-1-content {
-        padding: 20px 20px 0;
-    }
-    .posts-card-1-cta {
-        padding: 0 20px 20px;
-    }
-    .posts-card-1-bottom {
-        margin-top: 20px;
-    }
-    .cities-card-2-info {
-        padding: 20px;
-    }
-    .candiadates-card-1 {
-        padding: 20px;
-    }
-    .candiadates-card-1-name,
-    .candiadates-card-1-location,
-    .candiadates-card-1-bottom {
-        margin-top: 20px;
-    }
-    .plans-card-1 {
-        padding: 20px;
-    }
-    .plans-card-1-list,
-    .plans-card-1-bottom {
-        margin-top: 30px;
-    }
-    .plans-card-1-price {
-        margin-top: 10px;
-    }
-    .list-side-filter-header-label {
-        font-size: 18px;
-    }
-    .jobs-list-side-filter h3 {
-        font-size: 16px;
-    }
-    .jobs-list-side-filter {
-        padding: 20px;
-    }
-    .jobs-card-2-top {
-        display: block;
-    }
-    .jobs-card-2-info {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .jobs-card-2-bottom {
-        display: block;
-    }
-    .jobs-card-4 {
-        padding: 20px;
-    }
-    .jobs-card-4-company-top {
-        display: block;
-    }
-    .jobs-card-4-info {
-        padding-left: 0;
-        margin-top: 10px;
-    }
-    .jobs-tab-pane-logo {
-        width: 80px;
-        height: 80px;
-        margin-top: -40px;
-    }
-    .jobs-tab-pane-content h3 {
-        font-size: 22px;
-    }
-    .single-job-cover-logo {
-        margin-top: -40px;
-        margin-left: 40px;
-    }
-    .single-job-content h1 {
-        font-size: 22px;
-    }
-    .companies-list-side-filter {
-        padding: 20px;
-    }
-    .companies-list-side-filter h3 {
-        font-size: 16px;
-    }
-    .single-company-hero-content {
-        display: block;
-    }
-    .single-company-hero-title {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .single-company-hero-caption {
-        bottom: 40px;
-    }
-    .single-company-side-panel {
-        padding: 20px;
-    }
-    .single-job-side-panel {
-        padding: 20px;
-    }
-    .candidates-list-side-filter {
-        padding: 20px;
-    }
-    .candidates-list-side-filter h3 {
-        font-size: 16px;
-    }
-    .single-candidate-hero-content {
-        display: block;
-    }
-    .single-candidate-hero-name {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .single-candidate-hero-caption {
-        bottom: 40px;
-    }
-    .single-candidate-side-panel {
-        padding: 20px;
-    }
-    .single-candidate-hero.boxed .single-candidate-hero-caption {
-        right: 30px;
-    }
-    .featured-posts-item-summary {
-        display: none;
-    }
-    .featured-posts-item-title {
-        font-size: 22px;
-    }
-    .blogs-list-side-panel {
-        padding: 20px;
-    }
-    .hero h1 {
-        font-size: 24px;
-    }
-    .categories-card-3-text {
-        padding: 10px 20px;
-    }
-}
-
 /*** About ***/
 .img-twice::before {
     position: absolute;
@@ -1300,3 +704,50 @@ h6,
     height: 100%;
     opacity: 1;
 }
+
+/*footer */
+
+.nav
+
+.image-container {
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Cor de fundo preta com transparência */
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('./src/img/texture-bg.jpg');
+    
+    background-size: cover;
+    background-position: center;
+  }
+
+  .text-effect {
+    font-size: 24px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.937);
+    letter-spacing: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .text-effect:hover {
+    color: #FDF5EB;
+    text-shadow: 0 0 5px var(--MainColorLight), 0 0 25px var(--MainColorLight), 0 0 50px var(--MainColorLight), 0 0 100px #ffff;
+  }
+  
+
+  
+  
+  
