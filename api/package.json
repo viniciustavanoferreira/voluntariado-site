@@ -1,7 +1,7 @@
 {
   "name": "bomvizinho",
   "version": "1.0.0",
-  "description": "--Projeto Final TCC - ETEC",
+  "description": "--Bom Vizinho - Sistema de voluntariado",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
