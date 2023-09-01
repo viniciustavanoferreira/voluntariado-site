@@ -227,7 +227,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="meta-index.js"></script>
+    <script src="app.js"></script>
 </body>
 
 
