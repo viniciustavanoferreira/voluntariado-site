@@ -2,7 +2,7 @@
   "name": "bomvizinho",
   "version": "1.0.0",
   "description": "--Projeto Final TCC - ETEC",
-  "main": "index.js",
+  "main": "meta-index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile-scss": "node-sass slide.scss slide.css"
