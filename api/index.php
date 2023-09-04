@@ -211,7 +211,7 @@
     <!-- Serviços End -->
 
     <?php
-    include("./php/footer.php")
+    include("footer.php")
     ?>
 </main>
 
