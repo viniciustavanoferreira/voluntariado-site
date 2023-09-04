@@ -210,9 +210,7 @@
     </div>
     <!-- Serviços End -->
 
-    <?php
-    include("./php/footer.php")
-    ?>
+    <?php include __DIR__ . '/php/footer.php'; ?>
 </main>
 
     <!-- Back to Top -->
