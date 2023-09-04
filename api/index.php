@@ -12,11 +12,11 @@
 
     <!-- Principal CSS -->
 
-    <link rel="stylesheet" href="pgprincipal.css" />
+    <link rel="stylesheet" href="./pgprincipal.css" />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="./lib/animate/animate.min.css" rel="stylesheet">
+    <link href="./lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -220,14 +220,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./lib/wow/wow.min.js"></script>
+    <script src="./lib/easing/easing.min.js"></script>
+    <script src="./lib/waypoints/waypoints.min.js"></script>
+    <script src="./lib/counterup/counterup.min.js"></script>
+    <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="app.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 
