@@ -44,7 +44,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="logo">
-                        <img src="./src/img/logosemfundo.png" alt="">
+                        <img src="./img/logosemfundo.png" alt="">
                     </div>
             <div class="navbar-nav mx-auto p-3 p-lg-0">
             
@@ -71,10 +71,10 @@
     <section class="hero">
         
         <div class="slideshow">
-            <div class="slideshow-image" style="background-image: url('./src/img/old-1.jpg')"></div>
-            <div class="slideshow-image" style="background-image: url('./src/img/old-3.jpg')"></div>
-            <div class="slideshow-image" style="background-image: url('./src/img/old-4.jpg')"></div>
-            <div class="slideshow-image" style="background-image: url('./src/img/old-5.jpg')"></div>
+            <div class="slideshow-image" style="background-image: url('./img/old-1.jpg')"></div>
+            <div class="slideshow-image" style="background-image: url('./img/old-3.jpg')"></div>
+            <div class="slideshow-image" style="background-image: url('./img/old-4.jpg')"></div>
+            <div class="slideshow-image" style="background-image: url('./img/old-5.jpg')"></div>
         </div>
 
         
@@ -100,10 +100,10 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="row img-twice position-relative h-100">
                         <div class="col-6">
-                            <img class="img-fluid rounded" src="./src/img/old-3.jpg" alt="">
+                            <img class="img-fluid rounded" src="./img/old-3.jpg" alt="">
                         </div>
                         <div class="col-6 align-self-end">
-                            <img class="img-fluid rounded" src="./src/img/old-4.jpg" alt="">
+                            <img class="img-fluid rounded" src="./img/old-4.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="./src/img/ferramentas.jpg" alt="">
+                            <img class="img-fluid" src="./img/ferramentas.jpg" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -170,7 +170,7 @@
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="./src/img/passeio.jpg" alt="">
+                            <img class="img-fluid" src="./img/passeio.jpg" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -184,7 +184,7 @@
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="./src/img/compras.jpg" alt="">
+                            <img class="img-fluid" src="./img/compras.jpg" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -198,7 +198,7 @@
                             <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
                         </div>
                         <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="./src/img/compras.jpg" alt="">
+                            <img class="img-fluid" src="./img/compras.jpg" alt="">
                             <div class="product-overlay">
                                 <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
                             </div>
@@ -211,7 +211,7 @@
     <!-- Serviços End -->
 
     <?php
-    include("footer.php")
+    include("./php/footer.php")
     ?>
 </main>
 
