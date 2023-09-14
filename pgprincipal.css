@@ -755,3 +755,313 @@ h6,
   
 /*Quem Somos */
 
+
+/*Pagina=Perfil*/
+@font-face {
+  font-family: Zen Maru Regular;
+  src: url(fonts//ZenMaruGothic-Regular.ttf);
+  font-family: Zen Maru Bold;
+  src: url(fonts/ZenMaruGothic-Bold.ttf);
+  font-family: Zen Maru Light;
+  src: url(fonts/ZenMaruGothic-Light.ttf);
+  font-family: Zen Maru Medium;
+  src: url(fonts/ZenMaruGothic-Medium.ttf);
+}
+:root {
+  --HoverTransition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  --HoverOpacity: 0.6;
+  --TextColor: #17171d;
+  --MainColor: #ebac8b;
+  --MainColorLight: #ffff;
+  --SecondaryColor: #e66b6e;
+  --SecondaryColorLight: navajowhite;
+  --LightGrayColor: #dedede;
+  --primary: #eaa636;
+  --secondary: #545454;
+  --light: #fdf5eb;
+  --dark: #1e1916;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family:'Lucida Grande';
+  background-color: var(--MainColorLight);
+  color: aliceblue;
+}
+
+.header {
+  width: 100%;
+  height: 20vh;
+  margin: 0;
+  /* background-color: var(--MainColorLight); */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header .header__title {
+  color: var(--secondary);
+  font-size: 2.125rem;
+  margin-right: 1rem;
+}
+
+.header img {
+  width: 200px;
+  margin-left: 0.4rem;
+}
+
+.border{
+  border: 1px solid red;
+}
+
+.sidebar{
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 240px;
+  height: 100%;
+  padding: 40px 10px 30px 10px;
+  border-right: 1px solid white;
+  transition: all 0.35s;
+  background-color: var(--MainColor);
+  
+}
+
+.sidebar > nav{
+  /* border: 1px red solid; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.sidebar__navgation{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.sidebar-header{
+  width: 100%;
+  margin-bottom: 16px;
+
+}
+
+.logo-img{
+  width: 50px;
+  min-width: 8_0px;
+  border-radius: 50%;
+  object-fit: cover; 
+  transition: transform 0.4s;
+  margin-left: 10px;
+}
+
+.logo-img:hover{
+  transform: scale(1.5);
+}
+
+.sidebar button{
+  height: 60px;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+
+}
+
+.sidebar button > span { 
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 16px 0 12px;
+  border-radius: 24px;
+  line-height: 1;
+  transition: all 0.2;
+}
+
+.sidebar button:hover > span { 
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar button i { /* tamanho do icone no menu lateral */
+  position: relative;
+  font-size: 28px;
+  transition: 0.2s;
+}
+
+.sidebar button span {
+  font-size: 16px; /* tamanho do texto no menu lateral */
+}
+
+.sidebar > nav {
+  /* flex-grow: quanto vai crescer esse item */
+  /* flex-swing: segundo numero 1, define o valor de redução*/
+  
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main{
+  margin-left: 250px;
+  margin-right: 6px;
+  overflow: hidden;
+}
+
+.main-title {
+  color: var(--secondary);    
+}
+.main__servicos {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.main__servicos__card {
+  background-color: var(--MainColor);
+  box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  width: 400px;
+  transition: ease-in-out 0.5s;
+}
+.main__servicos__card .card__text h4 {
+  color: var(--SecondaryColor);
+  font-size: 1.525rem;
+  font-weight: 500;
+  margin: 0.725rem 1rem;
+}
+.main__servicos__card .card__text p {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0 1rem;
+  width: 80%;
+}
+.main__servicos__card .card__button {
+  display: flex;
+  justify-content: flex-end;
+}
+.main__servicos__card .card__button a {
+  color: var(--SecondaryColor);
+  font-size: 1.315rem;
+  font-weight: 400;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem 1rem;
+  transition: ease-in-out 0.2s;
+}
+.main__servicos__card .card__button a:hover {
+  color: var(--light);
+  background-color: var(--SecondaryColor);
+} /*# sourceMappingURL=servicos.css.map */
+
+
+/* ajustando sidebar, apenas os icones em telas menores */
+@media (width < 920px){
+  .sidebar{
+      width: 72px;
+  }
+
+  .sidebar button > span{
+      width: 50px;
+  }
+
+  .sidebar button > span > span{
+      opacity: 0;
+      visibility: hidden;
+  }
+
+  .main{
+      transition: margin 0.4s;
+      margin-left: 78px;
+  }
+
+}
+
+/*para esconder o menu mobile quando a pagina estiver grande*/
+
+.button-mobile{
+      display: none;
+      align-self: flex-start;
+      align-items: center;
+      margin: 16px;
+      background: transparent;
+      color: aliceblue;
+      border: 0;
+}
+
+.button-mobile span{
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.button-close span i{
+  font-size: 42px;
+}
+
+.menu-mobile{
+  display: none;
+}
+
+.menu-mobile-active{
+  width: 100vw;
+  height: 100vh;
+  background-color: pink;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-mobile-active button{
+  background: transparent;
+  border: 0;
+  color: pink;
+  margin-bottom: 16px;
+}
+
+.menu-mobile-active button > span{
+  display: inline-flex;
+  align-items: center;
+}
+
+.mobile-text{
+  font-size: 24px;
+  margin-left: 10px;
+
+}
+
+@media (max-width: 480px){
+  .sidebar{
+      display: none;
+  }
+
+  .button-mobile{
+      display: flex;
+  }
+
+  .main{
+      margin-left: 6px;
+  }
+}
