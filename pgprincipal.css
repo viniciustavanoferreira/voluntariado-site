@@ -757,41 +757,7 @@ h6,
 
 
 /*Pagina=Perfil*/
-@font-face {
-  font-family: Zen Maru Regular;
-  src: url(fonts//ZenMaruGothic-Regular.ttf);
-  font-family: Zen Maru Bold;
-  src: url(fonts/ZenMaruGothic-Bold.ttf);
-  font-family: Zen Maru Light;
-  src: url(fonts/ZenMaruGothic-Light.ttf);
-  font-family: Zen Maru Medium;
-  src: url(fonts/ZenMaruGothic-Medium.ttf);
-}
-:root {
-  --HoverTransition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
-  --HoverOpacity: 0.6;
-  --TextColor: #17171d;
-  --MainColor: #ebac8b;
-  --MainColorLight: #ffff;
-  --SecondaryColor: #e66b6e;
-  --SecondaryColorLight: navajowhite;
-  --LightGrayColor: #dedede;
-  --primary: #eaa636;
-  --secondary: #545454;
-  --light: #fdf5eb;
-  --dark: #1e1916;
-}
 
-*{
-  box-sizing: border-box;
-}
-
-body{
-  margin: 0;
-  font-family:'Lucida Grande';
-  background-color: var(--MainColorLight);
-  color: aliceblue;
-}
 
 .header {
   width: 100%;

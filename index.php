@@ -49,7 +49,7 @@
                 <div class="navbar-nav mx-auto p-3 p-lg-0">
 
                     <a href="index.php" class="nav-item nav-link active text-black">Home</a>
-                    <a href="./php/que.php" class="nav-item nav-link text-black">Quem Somos</a>
+                    <a href="./php/quemsomos.php" class="nav-item nav-link text-black">Quem Somos</a>
                     <a href="./php/contato.php" class="nav-item nav-link text-black">Contato</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggl text-blacke" data-bs-toggle="dropdown">Serviços</a>
