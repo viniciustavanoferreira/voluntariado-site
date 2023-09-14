@@ -796,7 +796,7 @@ h6,
   padding: 40px 10px 30px 10px;
   border-right: 1px solid white;
   transition: all 0.35s;
-  background-color: var(--MainColor);
+  
   
 }
 
@@ -887,6 +887,9 @@ h6,
 
 .main-title {
   color: var(--secondary);    
+  display: flex;
+  margin-left: 25px;
+
 }
 .main__servicos {
   display: flex;

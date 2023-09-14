@@ -106,6 +106,26 @@
                     <a href="#">Aceitar</a>
                 </div>
             </div>
+
+            <div class="main__servicos__card">
+                <div class="card__text">
+                    <h4>Ana Francisca</h4>
+                    <p>Serviço de Bate papo</p>
+                </div>
+                <div class="card__button">
+                    <a href="#">Aceitar</a>
+                </div>
+            </div>
+
+            <div class="main__servicos__card">
+                <div class="card__text">
+                    <h4>Ana Francisca</h4>
+                    <p>Serviço de Bate papo</p>
+                </div>
+                <div class="card__button">
+                    <a href="#">Aceitar</a>
+                </div>
+            </div>
         </section>
 
     </main>

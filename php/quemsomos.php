@@ -8,6 +8,10 @@
 
 <link rel="stylesheet" href="../src/css/quem-somos.css" />
 
+<!-- Customized CSS -->
+
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+
 
 
 <!-- Font Styles -->
