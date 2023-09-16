@@ -35,7 +35,7 @@
                     </label>
                     
                     
-                    <button class="btn btn-second">Entrar</button>     
+                    <button class="btn btn-second" onclick="login()">Entrar</button>     
                     <a class="password" href="#">Esqueceu sua senha?</a>   
                 </form>
             </div><!-- second column -->
