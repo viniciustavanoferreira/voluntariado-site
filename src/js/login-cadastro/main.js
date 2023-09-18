@@ -25,7 +25,7 @@ function login() {
      redirect: 'follow'
    };
 
-   fetch("https://sistema-voluntariado-backend.onrender.com/v1/api/login/email/teste@gmail.com/password/@ahuo123HakDk", requestOptions)
+   fetch("https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/login/email/teste@gmail.com/password/@ahuo123HakDk", requestOptions)
      .then(response => response.text())
      .then(result => console.log(result))
      .catch(error => console.log('error', error));
