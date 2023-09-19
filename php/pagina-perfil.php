@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="../pgprincipal.css">
-    
+
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -26,7 +27,7 @@
         <header class="sidebar-header">
             <img class="logo-img" src="../src/img/et.png" alt="Foto do usuário">
         </header>
-        
+
         <nav>
             <div class="sidebar__navgation">
                 <button>
@@ -74,7 +75,7 @@
                 <span class="mobile-text">Home</span>
             </span>
         </button>
-    
+
         <button>
             <span>
                 <i class="material-symbols-outlined"> tag </i>
@@ -96,7 +97,7 @@
                     <a href="#">Aceitar</a>
                 </div>
             </div>
-            
+
             <div class="main__servicos__card">
                 <div class="card__text">
                     <h4>Ana Francisca</h4>
@@ -129,8 +130,8 @@
         </section>
 
     </main>
-    
-    <script src="../src/js/pagina-perfil.js"></script>
-</body>
-</html>
 
+    <script type="module" src="../src/js/perfil-voluntario/pagina-perfil.js"></script>
+</body>
+
+</html>
