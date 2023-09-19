@@ -49,7 +49,7 @@ async function register(cadastro) {
   return conexaoResposta;
 }
 
-export const connection = {
+export const connectionLoginRegister = {
   login,
   register,
 };

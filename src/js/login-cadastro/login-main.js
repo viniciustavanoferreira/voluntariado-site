@@ -1,4 +1,4 @@
-import { connection } from "./connect-api.js";
+import { connectionLoginRegister } from "./connect-api.js";
 
 const btnSignin = document.querySelector("#signin");
 const btnSignup = document.querySelector("#signup");
@@ -20,7 +20,10 @@ btnSignup.addEventListener("click", async (event) => {
   // console.log(emailElement.value);
   // console.log(password.value);
   try {
-    resposta = await connection.login("teste@gmail.com", "@ahuo123HakDk");
+    resposta = await connectionLoginRegister.login(
+      "teste@gmail.com",
+      "@ahuo123HakDk"
+    );
     // console.log(resposta);
     if (resposta.perfil === "VOLUNTARIO")
       console.log("Mover para page de Voluntario");
