@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bom Vizinho</title>
+    <title> Bom Vizinho</title>
+    <link rel="icon" type="image/png" href="./src/img/logosemfundo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <!-- Customized CSS -->
 
@@ -38,7 +39,7 @@
 
     <!-- nav bar start -->
     <main class="root">
-        <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: var(--MainColorLight);">
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -116,19 +117,19 @@
 
                             <div class="row g-2 mb-4">
                                 <div class="col-sm-6">
-                                    <i class="fa fa-check text-primary me-2 custom-icon-color"></i>Pequenas Trocas
+                                <i class="bi bi-list i-textos"></i> Pequenas Trocas
                                 </div>
                                 <div class="col-sm-6">
-                                    <i class="fa fa-check text-primary me-2"></i>Passeio
+                                <i class="bi bi-list i-textos"></i> Passeio
                                 </div>
                                 <div class="col-sm-6">
-                                    <i class="fa fa-check text-primary me-2"></i>Pequenos Consertos
+                                <i class="bi bi-list i-textos"></i> Pequenos Consertos
                                 </div>
                                 <div class="col-sm-6">
-                                    <i class="fa fa-check text-primary me-2"></i>Guias
+                                <i class="bi bi-list i-textos""></i> Guias
                                 </div>
                             </div>
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="./src/views/quemsomos.php" style="background-color:var(--MainColor)">Leia Mais</a>
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="./php/quemsomos.php" style="background-color:var(--MainColor)">Leia Mais</a>
                         </div>
                     </div>
                 </div>
@@ -159,7 +160,7 @@
                             <div class="position-relative mt-auto">
                                 <img class="img-fluid" src="./src/img/lampada-frent-1.jpeg" alt="">
                                 <div class="product-overlay">
-                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -173,7 +174,7 @@
                             <div class="position-relative mt-auto">
                                 <img class="img-fluid" src="./src/img/passeio.jpg" alt="">
                                 <div class="product-overlay">
-                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="bi bi-eye"></i></i></a>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +188,7 @@
                             <div class="position-relative mt-auto">
                                 <img class="img-fluid" src="./src/img/encanador-frent-2.jpg" alt="">
                                 <div class="product-overlay">
-                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -201,7 +202,7 @@
                             <div class="position-relative mt-auto">
                                 <img class="img-fluid" src="./src/img/compras.jpg" alt="">
                                 <div class="product-overlay">
-                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="fa fa-eye text-primary"></i></a>
+                                    <a class="btn btn-lg-square btn-outline-light rounded-circle" href=""><i class="bi bi-eye"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +218,7 @@
     </main>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top custom "><i class="bi bi-arrow-up"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top custom disable-bootstrap-styles "><i class="bi bi-arrow-up-circle-fill"></i></a>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>

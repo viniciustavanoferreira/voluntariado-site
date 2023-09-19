@@ -25,7 +25,10 @@
         --light: #FDF5EB;
         --dark: #1E1916;
     
+    
 }
+
+
 
 body {
     font-family: 'Zen Maru Gothic', sans-serif;;
@@ -137,7 +140,12 @@ h6,
     color: var(--MainColor)
 }
 
-
+.i-textos{
+color: #FF5733;
+text-transform: uppercase;
+letter-spacing: 2px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 
 
 /*** Navbar ***/
@@ -748,6 +756,15 @@ h6,
     color: #FDF5EB;
     text-shadow: 0 0 5px var(--MainColorLight), 0 0 25px var(--MainColorLight), 0 0 50px var(--MainColorLight), 0 0 100px #ffff;
   }
+
+  .disable-bootstrap-styles {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    text-decoration: none;
+    padding: 0;
+  }
+  
   
 
   
