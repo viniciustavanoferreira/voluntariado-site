@@ -20,9 +20,9 @@
   $('.fixed-top').css('top', $('.top-bar').height());
 $(window).scroll(function () {
     if ($(this).scrollTop()) {
-        $('.fixed-top').addClass('bg-white').css('top', 0).css('background-color', 'var(--SecondaryColorLight)');
+        $('.fixed-top').addClass('bg-white').css('top', 0).css('background-color', 'white');
     } else {
-        $('.fixed-top').removeClass('bg-white').css('top', $('.top-bar').height()).css('background-color', 'transparent');
+        $('.fixed-top').removeClass('bg-white').css('top', $('.top-bar').height()).css('background-color', 'var(--MainColorLight)');
     }
 });
 
