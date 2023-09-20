@@ -1,3 +1,4 @@
+/* Fontes para o CSS */
 @font-face {
     font-family: Zen Maru Regular;
     src: url(fonts//ZenMaruGothic-Regular.ttf);
@@ -9,7 +10,7 @@
     src: url(fonts/ZenMaruGothic-Medium.ttf);
 }
 
-
+/* variaveis para serem usadas no código */
 .root {
     --HoverTransition: 300ms cubic-bezier(0.215, 0.61, 0.355, 1);
     --HoverOpacity: 0.6;
@@ -29,7 +30,7 @@
 }
 
 
-
+/* estilização do body e tag "a"/"a:hover" */
 body {
     font-family: 'Zen Maru Gothic', sans-serif;;
     color: var(--TextColor);
@@ -50,7 +51,7 @@ a {
 a:hover {
     color: var(--MainColorTransparent);
 }
-
+/* estilização do container */
 .container {
     width: 100%;
     padding-right: .75rem;
@@ -58,7 +59,7 @@ a:hover {
     margin-right: auto;
     margin-left: auto;
 }
-
+/* estilização dos titulos */
 h4,
 h5,
 h6,
@@ -67,7 +68,7 @@ h6,
 .h6 {
     font-weight: 600 !important;
 }
-
+/* paddings e margins a ser utilizados */
 .py-6 {
     padding-top: 6rem;
     padding-bottom: 6rem;
