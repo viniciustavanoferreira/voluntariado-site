@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  :root{
+    --salmao-color: #ebac8b;
+    --rosa-color: #e66b6e;
+    --cinza-color: #d3d3d3;
+}
+
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #f1ece9 0%, #e66b6e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .header {
+    background-color: #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .form {
+    padding: 20px;
+  }
+  
+  .form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .form-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .form-control input {
+    border: 2px solid #f0f0f0;
+    display: block;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .form-control i {
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    visibility: hidden;
+  }
+  
+  .form-control small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+  }
+  
+  .form button {
+    background-color: #e66b6e;
+    border: 2px solid #ebac8b;
+    color: #fff;
+    font-size: 14px;
+    width: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Error and Success */
+  .form-control.success input {
+    border-color: #2ecc71;
+  }
+  
+  .form-control.error input {
+    border-color: #e74c3c;
+  }
+  
+  .form-control.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+  }
+  
+  .form-control.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+  }
+  
+  .form-control.error small {
+    visibility: visible;
+    color: #e74c3c;
+  }
+
+.form-opcao{
+  display: flex;
+  margin-left: 1rem;
+  gap: 1rem;          /* Defina o intervalo entre linhas e entre colunas */
+  padding: 5px;
+}
+
+.box-botao{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 5px;
+}
+
+.botao{
+  font-size: 1rem;
+  width: 100%;
+}
+
+.botao_apagar{
+  width: 136px;
+  background-color: #ebeeee;
+  border-color: #6c7374;;
+}
+
+.botao_enviar {
+  background-color: #e66b6e;
+  border: 2px solid #f3ece9;
+  color: #fff;
+  font-size: 20px;
+ 
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  align-self: center;
+  font-weight: bold;
+} 
+
+.botao .botao_enviar {
+  width: 20%;
+}
+
+h2{
+  color: #e66b6e;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px;
+}
+
+.texto_crime{
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
