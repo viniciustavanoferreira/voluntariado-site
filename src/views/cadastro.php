@@ -38,8 +38,15 @@
 
     <form id="form" class="form">
       <div class="form-control">
-        <label for="username">Nome de usuário</label>
+        <label for="username">Nome</label>
         <input type="text" id="username" placeholder="Digite seu nome completo." />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
+      <div class="form-control">
+        <label for="usernick">Nome de usuário</label>
+        <input type="text" id="usernick" placeholder="Digite um nome de usuário" />
         <i class="fas fa-exclamation-circle"></i>
         <i class="fas fa-check-circle"></i>
         <small>Mensagem de erro</small>

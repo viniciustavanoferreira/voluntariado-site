@@ -23,7 +23,7 @@ async function login(email, password) {
 // função assincrona para requisição POST  para a API do nosso backend
 async function register(cadastro) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
-  console.log(cadastro);
+  // console.log(cadastro);
   const requestOptions = {
     method: "POST",
     headers: {

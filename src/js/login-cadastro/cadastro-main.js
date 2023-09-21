@@ -2,6 +2,7 @@ import { connectionLoginRegister } from "./connect-api.js";
 
 const form = document.getElementById("form");
 const username = document.getElementById("username");
+const usernick = document.getElementById("usernick");
 const email = document.getElementById("email");
 const cep = document.getElementById("cep");
 const endereco = document.getElementById("endereco");
@@ -35,16 +36,21 @@ form.addEventListener("submit", (e) => {
 
 function checkInputs() {
   const usernameValue = username.value;
+  const usernickValue = usernick.value;
   const emailValue = email.value;
   const passwordValue = password.value;
   const passwordConfirmationValue = passwordConfirmation.value;
 
   if (usernameValue === "") {
-    setErrorFor(username, "O nome de usuário é obrigatório.");
+    setErrorFor(username, "O seu nome é obrigatório.");
   } else {
     setSuccessFor(username);
   }
-
+  if (usernickValue === "") {
+    setErrorFor(usernick, "É necessário criar um nome de usuário.");
+  } else {
+    setSuccessFor(usernick);
+  }
   if (emailValue === "") {
     setErrorFor(email, "O email é obrigatório.");
   } else if (!checkEmail(emailValue)) {
@@ -92,7 +98,7 @@ function setForm() {
     telefone: telefone.value,
     cep: cep.value,
     endereco: `${endereco.value} ${bairro.value} ${complemento.value}`,
-    usuario: "teste",
+    usuario: usernick.value,
     // bairro: bairro.value,
     // complemento: complemento.value,
     senha: password.value,
