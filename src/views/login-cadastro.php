@@ -37,7 +37,7 @@
 
 
                     <button id="signup" class="btn btn-second">Entrar</button>
-                    <a class="password" href="#">Esqueceu sua senha?</a>
+                    <a id="forgot-password-link" class="password" href="#">Esqueceu sua senha?</a>
                 </form>
             </div><!-- second column -->
         </div><!-- first content -->
