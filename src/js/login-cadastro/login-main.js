@@ -48,3 +48,16 @@ btnSignup.addEventListener("click", async (event) => {
   // body.className = "sign-up-js";
 });
 console.log("teste");
+
+// Invoca Redefinir Senha.
+document.addEventListener("DOMContentLoaded", function () {
+  const forgotPasswordLink = document.getElementById("forgot-password-link");
+
+  if (forgotPasswordLink) {
+    forgotPasswordLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = "./redefinir-senha.php";
+    });
+  }
+});
+
