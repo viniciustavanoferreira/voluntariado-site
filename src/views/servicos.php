@@ -35,6 +35,77 @@
         <img src="../img/logo.jpg" alt="">
         <h2 class="header__title">Seja bem vindo, visitante!</h2>
     </header>
+
+    <div class="sidebar__navgation">
+                <button id ="mostrar-perfil">
+                    <span>
+                        <i class="material-symbols-outlined">SERVIÇO</i>
+                        
+                    </span>
+
+                </button>
+
+    <div class="teste">
+    <div id="registration-form" class="hidden" style="display: flex;
+    justify-content: center;">
+
+                    <form>
+                        <div class="form-icon">
+                            <span><i class="icon icon-user"></i></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="username" placeholder="Tipo de Serviço">
+                        </div>
+                        <div class="form-group">
+                            <!-- // linkar quem é esse tipo de usuario -->
+                            <input type="password" class="form-control item" id="password" placeholder="Usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="email" placeholder="Ordem">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="phone-number" placeholder="Inicio do Serviço">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="birth-date" placeholder="Fim do Serviço">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Destino">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Status">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-block create-account">Salvar</button>
+                        </div>
+            
+                    </form>
+            </div>
+            
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mainContent = document.querySelector(".main");
+
+        const mostrarPerfilButton = document.getElementById("mostrar-perfil");
+        const registrationForm = document.getElementById("registration-form");
+        const saveButton = document.querySelector("#registration-form button.create-account");
+
+        mostrarPerfilButton.addEventListener("click", function () {
+            
+            registrationForm.classList.toggle("hidden");
+            
+            mainContent.style.display = "none";
+        });
+    });
+
+
+    </script>
+
     <div class="container-servicos">
         <aside class="aside">Lateral</aside>
         <main class="main">

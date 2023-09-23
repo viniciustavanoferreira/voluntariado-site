@@ -21,7 +21,7 @@
 <body>
 
     <header class="header">
-        <h1 class="header__title">Seja bem vindo, voluntário!</h1>
+        <h1 class="header__title">Seja bem vindo, gente boa!</h1>
         <img src="../src/img/logo.jpg" alt="logo-site">
     </header>
 
@@ -127,13 +127,13 @@
                             <input type="password" class="form-control item" id="password" placeholder="Disponibilidade">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="idUsuarioVoluntario">
+                            <input type="password" class="form-control item" id="password" placeholder="idUsuarioIdoso">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Preferencia">
+                            <input type="password" class="form-control item" id="password" placeholder="Condicão de Saude">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Habilidade">
+                            <input type="password" class="form-control item" id="password" placeholder="Assitencia Requirida">
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-block create-account">Salvar</button>
