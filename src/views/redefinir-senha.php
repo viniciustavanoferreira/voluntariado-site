@@ -6,7 +6,7 @@
         <div class="container">
             <img src="../img/logosemfundo.png" alt="Logo" class="logo">
             <h1>Redefinir Senha</h1>
-            <p>Por favor, digite o seu e-mail para receber o link de redefinição de senha.</p>
+            <p>Por favor, digite o seu e-mail para receber o link visando redefinir a senha.</p>
             <form class="form" id="form">
                 <div class="form-group">
                     <label for="email" class="form-label">E-mail:</label>
