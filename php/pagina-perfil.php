@@ -4,6 +4,8 @@
 <head>
     <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="../pgprincipal.css">
+    
+    
 
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -30,12 +32,14 @@
 
         <nav>
             <div class="sidebar__navgation">
-                <button>
+                <button id ="mostrar-perfil">
                     <span>
                         <i class="material-symbols-outlined">Home</i>
-                        <span>Home</span>
+                        <span>Profile</span>
                     </span>
+
                 </button>
+                
 
                 <button>
                     <span>
@@ -84,6 +88,80 @@
         </button>
     </nav>
 
+    <div class="teste">
+    <div id="registration-form" class="hidden" style="display: flex;
+    justify-content: center;">
+
+                    <form>
+                        <div class="form-icon">
+                            <span><i class="icon icon-user"></i></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="username" placeholder="Usuário">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Senha">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="idSenha">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="phone-number" placeholder="Endereço">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control item" id="birth-date" placeholder="Nascimento">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Bloco">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Numero">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Visitante?">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="Disponibilidade">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control item" id="password" placeholder="idUsuarioIdoso">
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-block create-account">Salvar</button>
+                        </div>
+            
+                    </form>
+            </div>
+            
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mainContent = document.querySelector(".main");
+
+        const mostrarPerfilButton = document.getElementById("mostrar-perfil");
+        const registrationForm = document.getElementById("registration-form");
+        const saveButton = document.querySelector("#registration-form button.create-account");
+
+        mostrarPerfilButton.addEventListener("click", function () {
+            // Show the registration form when the button is clicked
+            registrationForm.classList.toggle("hidden");
+            
+
+            // Show the "Salvar" button
+        
+
+            // Hide the main content
+            mainContent.style.display = "none";
+        });
+    });
+
+
+    </script>
+
     <main class="main">
         <h2 class="main-title">Serviços Disponiveis</h2>
 
@@ -96,6 +174,9 @@
                 <div class="card__button">
                     <a href="#">Aceitar</a>
                 </div>
+                <div class="card__button">
+                    <a href="#">Rejeitar</a>
+                </div>
             </div>
 
             <div class="main__servicos__card">
@@ -106,6 +187,9 @@
                 <div class="card__button">
                     <a href="#">Aceitar</a>
                 </div>
+                <div class="card__button">
+                    <a href="#">Rejeitar</a>
+                </div>
             </div>
 
             <div class="main__servicos__card">
@@ -116,6 +200,9 @@
                 <div class="card__button">
                     <a href="#">Aceitar</a>
                 </div>
+                <div class="card__button">
+                    <a href="#">Rejeitar</a>
+                </div>
             </div>
 
             <div class="main__servicos__card">
@@ -125,6 +212,9 @@
                 </div>
                 <div class="card__button">
                     <a href="#">Aceitar</a>
+                </div>
+                <div class="card__button">
+                    <a href="#">Rejeitar</a>
                 </div>
             </div>
         </section>
