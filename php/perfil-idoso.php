@@ -100,10 +100,10 @@
                             <input type="text" class="form-control item" id="username" placeholder="Usuário">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Senha">
+                            <input type="text" class="form-control item" id="password" placeholder="Senha">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="idSenha">
+                            <input type="text" class="form-control item" id="password" placeholder="idSenha">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control item" id="email" placeholder="Email">
@@ -115,25 +115,25 @@
                             <input type="text" class="form-control item" id="birth-date" placeholder="Nascimento">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Bloco">
+                            <input type="text" class="form-control item" id="password" placeholder="Bloco">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Numero">
+                            <input type="text" class="form-control item" id="password" placeholder="Numero">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Visitante?">
+                            <input type="text" class="form-control item" id="password" placeholder="Visitante?">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Disponibilidade">
+                            <input type="text" class="form-control item" id="password" placeholder="Disponibilidade">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="idUsuarioIdoso">
+                            <input type="text" class="form-control item" id="password" placeholder="idUsuarioIdoso">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Condicão de Saude">
+                            <input type="text" class="form-control item" id="password" placeholder="Condicão de Saude">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Assitencia Requirida">
+                            <input type="text" class="form-control item" id="password" placeholder="Assitencia Requirida">
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-block create-account">Salvar</button>

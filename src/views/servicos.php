@@ -58,10 +58,10 @@
                         </div>
                         <div class="form-group">
                             <!-- // linkar quem é esse tipo de usuario -->
-                            <input type="password" class="form-control item" id="password" placeholder="Usuario">
+                            <input type="text" class="form-control item" id="password" placeholder="Usuario">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Nome">
+                            <input type="text" class="form-control item" id="password" placeholder="Nome">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control item" id="email" placeholder="Ordem">
@@ -73,10 +73,10 @@
                             <input type="text" class="form-control item" id="birth-date" placeholder="Fim do Serviço">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Destino">
+                            <input type="text" class="form-control item" id="password" placeholder="Destino">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control item" id="password" placeholder="Status">
+                            <input type="text" class="form-control item" id="password" placeholder="Status">
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-block create-account">Salvar</button>
