@@ -54,15 +54,18 @@ p {
 .form-button {
     width: 200px;
     height: 40px;
-    border: none;
-    background-color: #ebac8b;
-    color: white;
+    color: #fff;
     font-weight: bold;
     cursor: pointer;
     margin: 50px auto;
     border-radius: 10px;
+    background-color: #e66b6e;
+    border: 1px solid #e66b6e;
+    transition: background-color .5s;
 }
 
 .form-button:hover {
-    background-color: #e5804a;
+    background-color: #fff;
+    border: 1px solid #e66b6e;
+    color: #e66b6e;
 }
