@@ -7,7 +7,7 @@ async function getServices(email) {
   };
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
-    `https://sistema-voluntariado-backend.onrender.com/v1/api/servico/voluntario/${email}`,
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/servico/voluntario/email/${email}`,
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
