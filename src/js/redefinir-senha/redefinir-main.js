@@ -4,7 +4,7 @@ form.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevenir o comportamento padrão do formulário.
     var email = document.getElementById("email").value;
     if (email) {
-        fetch("http://sistema-voluntariado-backend.onrender.com/v1/api/usuario/resetar/email/" + email, {
+        fetch("https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/redefinir-senha/email/" + email, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
