@@ -17,14 +17,25 @@
 
 
   // Fixed Navbar
-  $('.fixed-top').css('top', $('.top-bar').height());
-$(window).scroll(function () {
-    if ($(this).scrollTop()) {
-        $('.fixed-top').addClass('bg-white').css('top', 0).css('background-color', 'white');
-    } else {
-        $('.fixed-top').removeClass('bg-white').css('top', $('.top-bar').height()).css('background-color', 'var(--MainColorLight)');
+  $(document).ready(function () {
+    // Initial setup
+    adjustNavbar();
+
+    // Function to adjust the navbar based on screen width
+    function adjustNavbar() {
+        if ($(window).width() <= 992) {
+            $('.fixed-top').css('top', 0).addClass('bg-white').css('background-color', 'white');
+        } else {
+            $('.fixed-top').css('top', $('.top-bar').height()).removeClass('bg-white').css('background-color', 'var(--MainColorLight)');
+        }
     }
+
+    // Call the function on page load and when the window is resized
+    $(window).on('load resize', function () {
+        adjustNavbar();
+    });
 });
+
 
   
   

@@ -55,13 +55,13 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggl text-blacke" data-bs-toggle="dropdown">Serviços</a>
                         <div class="dropdown-menu m-0">
-                            <a href="a.php" class="dropdown-item text-black">Manuntenção</a>
-                            <a href="a.php" class="dropdown-item text-black">Compras</a>
-                            <a href="a.php" class="dropdown-item text-black">Passeio</a>
+                            <a href="#lampadas" class="dropdown-item text-black">Manuntenção</a>
+                            <a href="#passeios" class="dropdown-item text-black">Passeio</a>
+                            <a href="#servicos" class="dropdown-item text-black">Outros</a>
                         </div>
                     </div>
-                    <a href="login.php" class="nav-item nav-link text-black ">Login</a>
-                    <a href="cadastro.php" class="nav-item nav-link text-black ">Cadastra-se</a>
+                    <a href="./src/views/login-cadastro.php" class="nav-item nav-link text-black ">Login</a>
+                    <a href="./src/views/cadastro.php" class="nav-item nav-link text-black ">Cadastra-se</a>
 
                 </div>
             </div>
@@ -126,7 +126,7 @@
                                 <i class="bi bi-list i-textos"></i> Pequenos Consertos
                                 </div>
                                 <div class="col-sm-6">
-                                <i class="bi bi-list i-textos""></i> Guias
+                                <i class="bi bi-list i-textos"></i> Guias
                                 </div>
                             </div>
                             <a class="btn btn-primary rounded-pill py-3 px-5" href="./php/quemsomos.php" style="background-color:var(--MainColor)">Leia Mais</a>
@@ -152,7 +152,7 @@
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div id="lampadas" class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                             <div class="text-center p-4">
                                 <h3 class="mb-3">Troca de Lâmpadas Altas</h3>
                                 <span>Substituir lâmpadas em locais de difícil acesso, proporcionando iluminação adequada e segurança.</span>
@@ -166,7 +166,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div id="passeios"class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                             <div class="text-center p-4">
                                 <h3 class="mb-3">Passeio</h3>
                                 <span>Ajudar a garantir que os animais de estimação dos idosos tenham seu tempo de lazer e exercício, trazendo alegria e aliviando o fardo.</span>
@@ -180,7 +180,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
+                        <div id="servicos" class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                             <div class="text-center p-4">
                                 <h4 class="mb-3">Pequenos Reparos</h4>
                                 <span>Auxiliar em reparos simples, como consertar uma torneira que pinga ou ajustar uma prateleira instável, melhorando o conforto do ambiente.</span>

@@ -218,7 +218,11 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     .navbar .navbar-nav {
         margin-top: 10px;
         border-top: 1px solid rgba(255, 255, 255, .3);
-        background: transparent;
+        
+    }
+
+    .navbar.navbar-expand-lg.navbar-dark.fixed-top.py-lg-0.px-lg-5.wow.fadeIn {
+      background-color: transparent !important;
     }
 
     .navbar-nav {
