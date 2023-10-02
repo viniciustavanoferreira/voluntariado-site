@@ -13,17 +13,25 @@
         <p>Insira sua nova senha:</p>
         <form class="form" id="form">
             <div class="form-group">
-                <label for="password" class="form-label">Senha:</label>
+                <label for="email" class="form-label">Email:</label>
+                <div class="input-box">
+                    <input type="email" id="email" name="email" class="form-input" placeholder="seuemail@email.com" required>
+                    <button type="button" class="visibility" value="password">
+                        <!-- <span id="visibility-a" class="material-symbols-outlined">visibility_off</span> -->
+                    </button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Nova senha:</label>
                 <div class="input-box">
                     <input type="password" id="password" name="password" class="form-input" required>
                     <button type="button" class="visibility" value="password">
                         <!-- <span id="visibility-a" class="material-symbols-outlined">visibility_off</span> -->
                     </button>
                 </div>
-
             </div>
             <div class="form-group">
-                <label for="password-r" class="form-label">Insira novamente:</label>
+                <label for="password-r" class="form-label">Confirme sua senha:</label>
                 <div class="input-box">
                     <input type="password" id="password-r" name="password-r" class="form-input" required>
                     <button type="button" class="visibility" value="password-r">
