@@ -1,6 +1,6 @@
 // função assincrona para requisição GET de login para a API do nosso backend
 async function getServices(email) {
-  // tipo de requisição que vai ser feita 
+  // tipo de requisição que vai ser feita
   const requestOptions = {
     method: "GET",
     redirect: "follow",
@@ -24,7 +24,7 @@ async function getServices(email) {
 //   console.log("teste");
 // }
 
-// exportando constante que terá as funções de conexão de serviços do Voluntário para uso do js que manipulará a pagina perfil-voluntario 
+// exportando constante que terá as funções de conexão de serviços do Voluntário para uso do js que manipulará a pagina perfil-voluntario
 export const connectServicesV = {
   getServices,
   // teste,

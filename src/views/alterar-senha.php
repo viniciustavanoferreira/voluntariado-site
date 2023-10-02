@@ -15,7 +15,7 @@
             <div class="form-group">
                 <label for="email" class="form-label">Email:</label>
                 <div class="input-box">
-                    <input type="email" id="email" name="email" class="form-input" placeholder="seuemail@email.com" required>
+                    <input type="email" id="email" name="email" class="form-input" required>
                     <button type="button" class="visibility" value="password">
                         <!-- <span id="visibility-a" class="material-symbols-outlined">visibility_off</span> -->
                     </button>
