@@ -36,3 +36,4 @@ async function getCards() {
 }
 getCards();
 // connectServicesV.teste();
+
