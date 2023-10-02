@@ -32,9 +32,9 @@
 
 /* estilização do body e tag "a"/"a:hover" */
 body {
-    font-family: 'Zen Maru Gothic', sans-serif;;
+    font-family: 'Zen Maru Gothic', sans-serif !important;;
     color: var(--TextColor);
-    font-weight: 300;
+    font-weight: 400;
     font-feature-settings: 'kern';
     -moz-font-feature-settings: 'kern';
     -webkit-font-smoothing: antialiased;
@@ -163,7 +163,9 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     color: var(--MainColor);
     outline: none;
 }
-
+.navbar-nav > a {
+  font-weight: 500 !important;
+}
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
     color: var(--MainColor);
@@ -798,13 +800,14 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .header img {
-  width: 200px;
+  width: 150px;
   margin-left: 0.4rem;
 }
 
-.border{
-  border: 1px solid red;
-}
+.custom-border{
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;}
+
+
 
 .sidebar{
   position: fixed;
@@ -816,7 +819,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   width: 240px;
   height: 100%;
   padding: 40px 10px 30px 10px;
-  border-right: 1px solid white;
+  /* border-right: 1px solid white; */
   transition: all 0.35s;
   
   
@@ -891,6 +894,13 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-size: 16px; /* tamanho do texto no menu lateral */
 }
 
+/* Botão da sidebar de perfil */
+.button-container{  margin-top: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .sidebar > nav {
   /* flex-grow: quanto vai crescer esse item */
   /* flex-swing: segundo numero 1, define o valor de redução*/
@@ -905,17 +915,27 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin-left: 250px;
   margin-right: 6px;
   overflow: hidden;
+  font-weight: 300px;
+  display: flex;
+  
 }
 
 .main-title {
-  color: var(--secondary);    
+  color: #545454;    
   display: flex;
   margin-left: 25px;
+  justify-content: flex-start;
+    font-weight: 400;
+    padding-top: 10px;
 
+}
+
+.main-title > span{
+  gap: 15px ;
 }
 .main__servicos {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
@@ -923,7 +943,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .main__servicos__card {
-  background-color: var(--MainColor);
+  background-color: #fdf5eb;
   box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
   display: flex;
   flex-direction: column;
@@ -932,8 +952,9 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   width: 400px;
   transition: ease-in-out 0.5s;
 }
+
 .main__servicos__card .card__text h4 {
-  color: var(--SecondaryColor);
+  color: #e66b6e;
   font-size: 1.525rem;
   font-weight: 500;
   margin: 0.725rem 1rem;
@@ -947,21 +968,33 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 .main__servicos__card .card__button {
   display: flex;
-  justify-content: flex-end;
+  
 }
 .main__servicos__card .card__button a {
-  color: var(--SecondaryColor);
+  color:  #e66b6e;
   font-size: 1.315rem;
   font-weight: 400;
   padding: 0.2rem 1rem;
   margin: 0.5rem 1rem;
   transition: ease-in-out 0.2s;
+  text-decoration: none !important;
 }
 .main__servicos__card .card__button a:hover {
-  color: var(--light);
-  background-color: var(--SecondaryColor);
+  color: #fdf5eb;
+  background-color: #e66b6e;
 } /*# sourceMappingURL=servicos.css.map */
 
+.card__button-group {
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
+  justify-content: space-between; /* Alinhamento dos botões no espaço disponível */
+}
+
+/* criar serviço card */
+#make-service{
+  margin: 15px;
+  
+}
 
 /* ajustando sidebar, apenas os icones em telas menores */
 @media (width < 920px){
@@ -1058,104 +1091,72 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* formulario idoson-voluntario-servico shoow */
-
-
-.registration-form{
-padding: 50px 0;
-}
-
-.registration-form form{
-  background-color: #fff;
-  max-width: 600px;
+/* Style for the form within the card */
+.card__form {
+  background-color: #fdf5eb;
+  box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  width: 400px;
   margin: auto;
-  padding: 50px 70px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+    top: 20px;
+    position: relative;
+    gap: 10px;
+  transition: ease-in-out 0.5s;
 }
 
-.registration-form .form-icon{
-text-align: center;
-  background-color: #5891ff;
-  border-radius: 50%;
-  font-size: 40px;
-  color: white;
-  width: 100px;
-  height: 100px;
-  margin: auto;
-  margin-bottom: 50px;
-  line-height: 100px;
+.card__form .form-icon {
+  margin: 0.725rem 1rem;
 }
 
-.registration-form .item{
-border-radius: 20px;
-  margin-bottom: 25px;
-  padding: 10px 20px;
+.card__form .form-icon span {
+  color: #e66b6e;
 }
 
-.registration-form .create-account{
-  border-radius: 30px;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  background-color: #5791ff;
+.card__form .form-group {
+  margin: 0.5rem 1rem;
+}
+
+.card__form .form-group input {
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.2rem 0.5rem;
   border: none;
-  color: white;
-  margin-top: 20px;
+  background-color: #fdf5eb;
+  border-bottom: 2px solid #e66b6e;
+  width: 100%; /* Make input fields 100% width within the form */
 }
 
-.registration-form .social-media{
-  max-width: 600px;
-  background-color: #fff;
-  margin: auto;
-  padding: 35px 0;
-  text-align: center;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-  color: #9fadca;
-  border-top: 1px solid #dee9ff;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+.card__form .form-group input::placeholder {
+  color: var(--secondary);
 }
 
-.registration-form .social-icons{
-  margin-top: 30px;
-  margin-bottom: 16px;
+.card__form .form-group button {
+  color: #e66b6e;
+  font-size: 1.315rem;
+  font-weight: 400;
+  justify-content: center;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem 1rem;
+  transition: ease-in-out 0.2s;
+  text-decoration: none !important;
+  border: 2px solid #e66b6e;
+  background-color: transparent;
 }
 
-.registration-form .social-icons a{
-  font-size: 23px;
-  margin: 0 3px;
-  color: #5691ff;
-  border: 1px solid;
-  border-radius: 50%;
-  width: 45px;
-  display: inline-block;
-  height: 45px;
-  text-align: center;
-  background-color: #fff;
-  line-height: 45px;
+.card__form .form-group button:hover {
+  color: #fdf5eb;
+  background-color: #e66b6e;
 }
 
-.registration-form .social-icons a:hover{
-  text-decoration: none;
-  opacity: 0.6;
-}
 
-@media (max-width: 576px) {
-  .registration-form form{
-      padding: 50px 20px;
-  }
-
-  .registration-form .form-icon{
-      width: 70px;
-      height: 70px;
-      font-size: 30px;
-      line-height: 70px;
-  }
-}
 .hidden {
   visibility: hidden;
   position: absolute;
   left: -9999px; /* Move the element off-screen instead of hiding */
   
 }
+
+
