@@ -372,6 +372,7 @@ main{
   padding: 1rem;
 }
 
+/* estilo de cards serviços e perfil dentro da main*/
 .main__servicos__card {
   background-color: #fdf5eb;
   box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
@@ -428,8 +429,8 @@ main{
 
 
 
-/* formulario idoson-voluntario-servico shoow */
-/* Style for the form within the card */
+
+/* Cards com outros estilos e forms */
 .card__form, .card__form_serv, .card__form_perfil {
   background-color: #fdf5eb;
   box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
@@ -486,11 +487,11 @@ main{
   font-size: 1.315rem;
   font-weight: 400;
   padding: 0.2rem 1rem;
-  margin: 0.5rem 0; /* Ajuste as margens para centralizar */
+
   transition: ease-in-out 0.2s;
   text-decoration: none !important;
   border: 2px solid #e66b6e;
-  background-color: transparent;
+  
 }
 
 .card__form ,.card__form_serv.form-group button:hover {
@@ -531,3 +532,13 @@ main{
 .logo-img:hover{
   transform: scale(1.5);
 }
+
+/* responsabilidade do botão da main_serviços _card */
+@media (max-width: 480px){
+  .card__button-group, .card__button {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: stretch; /* Stretch buttons to full width */
+}
+  }
+
+  
