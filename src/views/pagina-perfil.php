@@ -80,10 +80,10 @@
             </ul>
         </nav>
 
-        <div class="container">
+        <!-- <div class="container">
         <div class="row"
-        <main class="main" style="" id="servico-main-content">
-            <!-- Criar servico -->
+        <main class="main" style="" id="servico-main-content"> 
+             Criar servico
             <h2 class="main-title" id="criar-servico-title">
                 <span> <i class="bi bi-pen"></i>
                     Criar Serviço
@@ -101,8 +101,7 @@
                     </div>
 
                 </div>
-
-                <!-- Histórico -->
+                
                 <h2 class="main-title" id="historico-title">
                     <span> <i class="bi bi-book"></i>
                         Histórico
@@ -187,7 +186,7 @@
 
         </main>
         </div>
-    </div>
+    </div> -->
 
 
         <!-- Contéudo -->
@@ -203,6 +202,44 @@
 
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
+
+
+                        <!-- Editar senha trigger  -->
+<!-- 
+                        <div class="card__form" id="form-senha-usuario" style="padding:30px">
+                            <form>
+                                <div class="form-icon">
+                                    <span><i class="icon icon-user"></i></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control item" id="antigo-senha" placeholder="Antiga Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control item" id="nova-senha" placeholder="Nova Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <button class="form-control item" type="button" id="btnSalvarSenha" style="margin-top:10px" >Salvar</button>
+                                </div> -->
+
+
+                        <!-- Editar usuario trigger  -->
+
+                        <!-- <div class="card__form" id="form-senha-usuario" style="padding:30px">
+                            <form>
+                                <div class="form-icon">
+                                    <span><i class="icon icon-user"></i></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="antigo-usuario" placeholder="Antigo Usuário" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="novo-usuario" placeholder="Novo Usuário" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                </div>
+                               
+                                <div class="form-group">
+                                    <button class="form-control item" type="button" id="btnSalvarUsuario" style="margin-top:10px"  >Salvar</button>
+                                </div> -->
 
                         <!-- Formulario de Perfil
                         <div class="card__form_perfil" id="registration-form-perfil" style="height:fit-content;visibility:hidden;">
