@@ -28,7 +28,7 @@ html { height: 100%;}
 #sidebar-wrapper {
 
   z-index: 1000;
-  left: 220px;
+  left: 190px;
   width: 0;
   height: 100%;
   margin-left: -220px;
@@ -63,11 +63,7 @@ display: none;
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 
-*,
-*::before,
-*::after {
-    box-sizing: content-box !important;
-}
+
 
 .navbar {
 padding: 0;
@@ -145,7 +141,7 @@ margin-right: 10px;
   display: inline-block;
 }
 .sidebar-brand {
-  height: 65px;
+  height: 100px;
   position: relative;
   background:#212531;
   background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
@@ -345,6 +341,176 @@ display: block;
 /* 
 Conteudo */
 
+main{
+  margin-left: 250px;
+  margin-right: 6px;
+  overflow: hidden;
+  font-weight: 300px;
+  display: flex;
+  
+}
+
+.main-title {
+  color: #545454;    
+  display: flex;
+  margin-left: 25px;
+  justify-content: flex-start;
+    font-weight: 400;
+    padding-top: 10px;
+
+}
+
+.main-title > span{
+  gap: 15px ;
+}
+.main__servicos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.main__servicos__card {
+  background-color: #fdf5eb;
+  box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: space-between;
+  width: 400px;
+  transition: ease-in-out 0.5s;
+}
+
+.main__servicos__card .card__text h4 {
+  color: #e66b6e;
+  font-size: 1.525rem;
+  font-weight: 500;
+  margin: 0.725rem 1rem;
+}
+.main__servicos__card .card__text p {
+  color: var(--secondary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin: 0 1rem;
+  width: 80%;
+}
+.main__servicos__card .card__button {
+  display: flex;
+  
+}
+.main__servicos__card .card__button a {
+  color:  #e66b6e;
+  font-size: 1.315rem;
+  font-weight: 400;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem 1rem;
+  transition: ease-in-out 0.2s;
+  text-decoration: none !important;
+}
+.main__servicos__card .card__button a:hover {
+  color: #fdf5eb;
+  background-color: #e66b6e;
+} /*# sourceMappingURL=servicos.css.map */
+
+.card__button-group {
+  display: flex;
+  gap: 10px; /* Espaço entre os botões */
+  justify-content: space-between; /* Alinhamento dos botões no espaço disponível */
+}
+
+/* criar serviço card */
+#make-service{
+  margin: 15px;
+  
+}
+
+
+
+/* formulario idoson-voluntario-servico shoow */
+/* Style for the form within the card */
+.card__form, .card__form_serv, .card__form_perfil {
+  background-color: #fdf5eb;
+  box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
+  display: flex;
+    justify-content: center;
+  height: 300px;
+  max-width: 400px; /* Defina a largura máxima */
+  margin: auto;
+  top: 20px;
+  position: relative;
+  gap: 10px;
+  transition: ease-in-out 0.5s;
+  text-align: center; /* Centralize o conteúdo horizontalmente */
+  padding: 20px;
+}
+
+
+
+
+.form-control{
+ background-color:  #fff !important;
+}
+
+
+
+.card__form, .card__form_serv, .card__form_perfil .form-icon span {
+  color: #e66b6e;
+}
+
+.card__form .form-group {
+  margin: 0.5rem 0; /* Ajuste as margens para centralizar */
+  
+}
+
+
+
+.card__form .form-group input {
+  font-size: 1.25rem;
+  font-weight: 400;
+  padding: 0.2rem 0.5rem;
+  border: none;
+  background-color: #fdf5eb;
+  border-bottom: 2px solid #e66b6e;
+  width: 100%;
+}
+
+.card__form .form-group input::placeholder {
+  color: var(--secondary);
+}
+
+
+.card__form, .card__form_serv .form-group button {
+  color: #e66b6e;
+  font-size: 1.315rem;
+  font-weight: 400;
+  padding: 0.2rem 1rem;
+  margin: 0.5rem 0; /* Ajuste as margens para centralizar */
+  transition: ease-in-out 0.2s;
+  text-decoration: none !important;
+  border: 2px solid #e66b6e;
+  background-color: transparent;
+}
+
+.card__form ,.card__form_serv.form-group button:hover {
+  color: #fdf5eb;
+  background-color: #e66b6e;
+}
+
+
+.hidden, .hidden-serv {
+  visibility: hidden;
+  position: absolute;
+  left: -9999px; /* Move the element off-screen instead of hiding */
+  
+}
+
+.card__form_perfil.hidden {
+  display: none;
+}
+
+
 .sidebar-header{
   width: 100%;
   margin-bottom: 16px;
@@ -353,7 +519,7 @@ Conteudo */
 
 .logo-img{
   width: 50px;
-  min-width: 8_0px;
+  min-width: 60px;
   border-radius: 50%;
   object-fit: cover; 
   transition: transform 0.4s;
