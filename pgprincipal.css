@@ -912,7 +912,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .main{
-  margin-left: 250px;
+
   margin-right: 6px;
   overflow: hidden;
   font-weight: 300px;
@@ -948,9 +948,10 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   height: 300px;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 400px;
   transition: ease-in-out 0.5s;
+  margin-top: 20px;
 }
 
 .main__servicos__card .card__text h4 {
@@ -996,119 +997,26 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   
 }
 
-/* ajustando sidebar, apenas os icones em telas menores */
-@media (width < 920px){
-  .sidebar{
-      width: 72px;
-  }
 
-  .sidebar button > span{
-      width: 50px;
-  }
-
-  .sidebar button > span > span{
-      opacity: 0;
-      visibility: hidden;
-  }
-
-  .main{
-      transition: margin 0.4s;
-      margin-left: 78px;
-  }
-
-}
-
-/*para esconder o menu mobile quando a pagina estiver grande*/
-
-.button-mobile{
-      display: none;
-      align-self: flex-start;
-      align-items: center;
-      margin: 16px;
-      background: transparent;
-      color: aliceblue;
-      border: 0;
-}
-
-.button-mobile span{
-  font-size: 24px;
-  margin-left: 10px;
-}
-
-.button-close span i{
-  font-size: 42px;
-}
-
-.menu-mobile{
-  display: none;
-}
-
-.menu-mobile-active{
-  width: 100vw;
-  height: 100vh;
-  background-color: pink;
-  z-index: 99;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.menu-mobile-active button{
-  background: transparent;
-  border: 0;
-  color: pink;
-  margin-bottom: 16px;
-}
-
-.menu-mobile-active button > span{
-  display: inline-flex;
-  align-items: center;
-}
-
-.mobile-text{
-  font-size: 24px;
-  margin-left: 10px;
-
-}
-
-@media (max-width: 480px){
-  .sidebar{
-      display: none;
-  }
-
-  .button-mobile{
-      display: flex;
-  }
-
-  .main{
-      margin-left: 6px;
-  }
-}
 
 /* formulario idoson-voluntario-servico shoow */
 /* Style for the form within the card */
-.card__form {
+.card__form, .card__form_serv, .card__form_perfil {
   background-color: #fdf5eb;
   box-shadow: 5px 10px 5px 3px rgba(255, 216, 216, 0.6588235294);
-  display: flex;
-  flex-direction: column;
   height: 300px;
-  justify-content: center;
-  width: 400px;
+  max-width: 400px; /* Defina a largura máxima */
   margin: auto;
-    top: 20px;
-    position: relative;
-    gap: 10px;
+  top: 20px;
+  position: relative;
+  gap: 10px;
   transition: ease-in-out 0.5s;
+  text-align: center; /* Centralize o conteúdo horizontalmente */
 }
 
 .card__form .form-icon {
-  margin: 0.725rem 1rem;
+  margin: 0.725rem 0;
+   /* Ajuste as margens para centralizar */
 }
 
 .card__form .form-icon span {
@@ -1116,7 +1024,8 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .card__form .form-group {
-  margin: 0.5rem 1rem;
+  margin: 0.5rem 0; /* Ajuste as margens para centralizar */
+  
 }
 
 .card__form .form-group input {
@@ -1126,20 +1035,20 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   border: none;
   background-color: #fdf5eb;
   border-bottom: 2px solid #e66b6e;
-  width: 100%; /* Make input fields 100% width within the form */
+  width: 100%;
 }
 
 .card__form .form-group input::placeholder {
   color: var(--secondary);
 }
 
+
 .card__form .form-group button {
   color: #e66b6e;
   font-size: 1.315rem;
   font-weight: 400;
-  justify-content: center;
   padding: 0.2rem 1rem;
-  margin: 0.5rem 1rem;
+  margin: 0.5rem 0; /* Ajuste as margens para centralizar */
   transition: ease-in-out 0.2s;
   text-decoration: none !important;
   border: 2px solid #e66b6e;
@@ -1152,11 +1061,16 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 
-.hidden {
+.hidden, .hidden-serv {
   visibility: hidden;
   position: absolute;
   left: -9999px; /* Move the element off-screen instead of hiding */
   
 }
+
+.card__form_perfil.hidden {
+  display: none;
+}
+
 
 
