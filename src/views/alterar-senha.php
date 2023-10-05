@@ -13,7 +13,7 @@
         <p>Insira sua nova senha:</p>
         <form class="form" id="form">
             <div class="form-group">
-                <label for="username" class="form-label">Usuário:</label>
+                <label for="username" class="form-label">Usuario:</label>
                 <div class="input-box">
                     <input type="text" id="username" name="username" class="form-input" required>
                     <button type="button" class="visibility" value="password">
