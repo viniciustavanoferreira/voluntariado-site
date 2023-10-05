@@ -13,9 +13,9 @@
         <p>Insira sua nova senha:</p>
         <form class="form" id="form">
             <div class="form-group">
-                <label for="email" class="form-label">Email:</label>
+                <label for="username" class="form-label">Usuário:</label>
                 <div class="input-box">
-                    <input type="email" id="email" name="email" class="form-input" required>
+                    <input type="text" id="username" name="username" class="form-input" required>
                     <button type="button" class="visibility" value="password">
                         <!-- <span id="visibility-a" class="material-symbols-outlined">visibility_off</span> -->
                     </button>
