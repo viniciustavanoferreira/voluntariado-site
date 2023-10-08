@@ -37,7 +37,7 @@ async function register(cadastro) {
       cep: cadastro.cep,
       endereco: cadastro.endereco,
       bairro: cadastro.bairro,
-      cidade: endereco.cidade,
+      cidade: cadastro.cidade,
       estado: cadastro.estado,
       complemento: cadastro.complemento,
       bloco: cadastro.bloco,
