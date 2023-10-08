@@ -7,12 +7,12 @@ async function login(email, password) {
   };
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
-    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/login/email/${email}/password/${password}`,
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/login/id-usuario/${email}/senha/${password}`,
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
   if (!conexao.ok) {
-    throw new Error("Não foi possível conexão. Tente novamente");
+    throw new Error("Não foi possível conexão. Tente novamente em instantes");
   }
   // constante que será armazenada o arquivo .json que vem da API como um objeto.
   const conexaoTexto = await conexao.json();
@@ -31,20 +31,27 @@ async function register(cadastro) {
     },
     body: JSON.stringify({
       nome: cadastro.nome,
-      dataNascimento: cadastro.dataNascimento,
-      email: cadastro.email,
-      telefone: cadastro.telefone,
-      cep: cadastro.cep,
-      endereco: cadastro.endereco,
       usuario: cadastro.usuario,
       senha: cadastro.senha,
+      email: cadastro.email,
+      cep: cadastro.cep,
+      endereco: cadastro.endereco,
+      bairro: cadastro.bairro,
+      cidade: endereco.cidade,
+      estado: cadastro.estado,
+      complemento: cadastro.complemento,
+      bloco: cadastro.bloco,
+      numeroAp: cadastro.numeroAp,
+      telefone: cadastro.telefone,
+      dataNascimento: cadastro.dataNascimento,
       perfil: cadastro.perfil,
+      disponibilidade: cadastro.disponibilidade,
     }),
     redirect: "follow",
   };
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
-    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/${cadastro.perfil}`,
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario`,
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
@@ -58,8 +65,14 @@ async function register(cadastro) {
   return conexaoResposta;
 }
 
+async function getCEP(cep) {
+  const conexao = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+  if (!conexao.ok) {
+    throw new Error("Não foi possível conexão. Tente novamente");
+  }
+  const dadosCEP = await conexao.json();
+  return dadosCEP;
+}
+
 // exportando constante que terá as funções de login e register para uso do js que manipulará a pagina login-main
-export const connectionLoginRegister = {
-  login,
-  register,
-};
+export { login, register, getCEP };

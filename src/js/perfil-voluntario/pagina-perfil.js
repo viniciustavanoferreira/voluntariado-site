@@ -13,6 +13,8 @@ function toggleMenu() {
   }
 }
 
+console.log("Chegando");
+
 async function getCards() {
   console.log("Chegando");
   try {
@@ -36,4 +38,3 @@ async function getCards() {
 }
 getCards();
 // connectServicesV.teste();
-

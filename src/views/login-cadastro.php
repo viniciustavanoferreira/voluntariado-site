@@ -27,12 +27,12 @@
 
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
-                        <input name="txEmail" type="email" placeholder="Email">
+                        <input name="txEmail" type="email" placeholder="Email" required>
                     </label>
 
                     <label class="label-input" for="">
                         <i class="fas fa-lock icon-modify"></i>
-                        <input name="txPassword" type="password" placeholder="Password">
+                        <input name="txPassword" type="password" placeholder="Password" required>
                     </label>
 
 

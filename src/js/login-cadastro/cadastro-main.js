@@ -1,4 +1,4 @@
-import { connectionLoginRegister } from "./connect-api.js";
+import { register, getCEP } from "./connect-api";
 
 const form = document.getElementById("form");
 const username = document.getElementById("username");
@@ -14,6 +14,8 @@ const passwordConfirmation = document.getElementById("password-confirmation");
 const opcoes = document.querySelectorAll("[name=drone]");
 const box_botao = document.querySelector(".box-botao");
 const texto_antecedente = document.querySelector(".texto_crime");
+
+console.log(register);
 
 opcoes.forEach((opcao) => {
   opcao.addEventListener("click", () => {
@@ -33,6 +35,37 @@ form.addEventListener("submit", (e) => {
   checkInputs();
   setForm();
 });
+
+cep.addEventListener("blur", async () => {
+  const valorCEP = removeSimbolos(cep.value);
+  let resposta = "";
+  if (valorCEP.length === 8) {
+    resposta = await getCEP(valorCEP);
+    // console.log(resposta);
+    endereco.value = resposta.logradouro;
+    bairro.value = resposta.bairro;
+    // cidade.value = resposta.localidade;
+    // estado.valuee = resposta.uf;
+  }
+});
+
+function removeSimbolos(value) {
+  let newValue = "";
+  let i = 0;
+  while (value[i]) {
+    if (value[i] >= "0" && value[i] <= "9") newValue += value[i];
+    i++;
+  }
+  return newValue;
+}
+function isNumeric(value) {
+  let i = 0;
+  while (value[i]) {
+    if (!(value[i] >= "0" && value[i] <= "9")) return false;
+    i++;
+  }
+  return true;
+}
 
 function checkInputs() {
   const usernameValue = username.value;
@@ -93,20 +126,26 @@ function setForm() {
   });
   const form = {
     nome: username.value,
-    dataNascimento: dataNasc.value,
-    email: email.value,
-    telefone: telefone.value,
-    cep: cep.value,
-    endereco: `${endereco.value} ${bairro.value} ${complemento.value}`,
     usuario: usernick.value,
-    // bairro: bairro.value,
-    // complemento: complemento.value,
     senha: password.value,
+    email: email.value,
+    cep: cep.value,
+    endereco: endereco.value,
+    bairro: bairro.value,
+    cidade: "TODO",
+    estado: "TODO",
+    complemento: complemento.value,
+    bloco: "TODO",
+    numeroAp: "TODO",
+    telefone: telefone.value,
+    dataNascimento: dataNasc.value,
     perfil: registerType,
+    disponibilidade: "TODO",
   };
 
   // console.log(form);
-  connectionLoginRegister.register(form);
+  // chamando função aonde será registrado
+  register(form);
 }
 
 function setErrorFor(input, message) {
