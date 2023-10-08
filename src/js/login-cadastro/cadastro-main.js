@@ -138,7 +138,7 @@ function setForm() {
     bloco: "TODO",
     numeroAp: "TODO",
     telefone: telefone.value,
-    dataNascimento: dataNasc.value,
+    dataNascimento: new Date(dataNasc.value).toISOString(),
     perfil: registerType,
     disponibilidade: "TODO",
   };
