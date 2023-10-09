@@ -1,4 +1,4 @@
-import { connectionLoginRegister } from "./connect-api.js";
+import { login } from "./connect-api";
 // import da constant connectionLoginRegister que terá as funções para conexão com a API
 
 // atribuição dos elementos HTML em constantes para manipulação da página
@@ -23,15 +23,12 @@ btnSignup.addEventListener("click", async (event) => {
   // variavél que armazenará o objeto json
   let resposta;
   // teste para ver se está chegando os valores dos campos
-  console.log(emailElement.value);
-  console.log(password.value);
+  // console.log(emailElement.value);
+  // console.log(password.value);
 
   // try catch para fazer requisição com login e senha e, caso feito com sucesso, será redirecionado para a página devida
   try {
-    resposta = await connectionLoginRegister.login(
-      "teste@gmail.com",
-      "@ahuo123HakDk"
-    );
+    resposta = await login(emailElement.value, password.value);
     console.log(resposta);
     // condição para redirecionamento a página voluntario
     if (resposta.perfil === "VOLUNTARIO") {
@@ -44,10 +41,10 @@ btnSignup.addEventListener("click", async (event) => {
   } catch (err) {
     //catch para caso de erro
     console.warn(err);
+    alert(err);
   }
   // body.className = "sign-up-js";
 });
-console.log("teste");
 
 // Invoca Redefinir Senha.
 document.addEventListener("DOMContentLoaded", function () {
@@ -60,4 +57,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
