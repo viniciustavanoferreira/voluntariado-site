@@ -533,6 +533,12 @@ main{
   transform: scale(1.5);
 }
 
+ /* Intuito de esconder as divs */
+.esconder{
+display: none;
+}
+
+
 /* responsabilidade do botão da main_serviços _card */
 @media (max-width: 480px){
   .card__button-group, .card__button {
@@ -540,5 +546,6 @@ main{
     align-items: stretch; /* Stretch buttons to full width */
 }
   }
+
 
   

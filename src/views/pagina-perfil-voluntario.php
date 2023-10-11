@@ -52,12 +52,12 @@
                     </div>
                 </div>
                 <li>
-                    <a href="#registration-form-perfil" id="#btnMostrar-perfil-link">
+                    <a href="#registration-form-perfil" id="btnMostrar-perfil-link">
                         <i class="bi bi-house-door"></i> Perfil
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#" id="btnMostrar-servicos-link">
                         <i class="bi bi-clock-history"></i> Serviços
 
                     </a>
@@ -67,9 +67,9 @@
                     <a href="#works" class="dropdown-toggle" data-toggle="dropdown"><i class="bi bi-tools"></i> Configurações <span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                         <div class="dropdown-header">Menu</div>
-                        <li><a href="#">Editar Perfil</a></li>
-                        <li><a href="#">Senha</a></li>
-                        <li><a href="#">Exclusão</a></li>
+                        <li><a href="#" id="btnEditar-perfil-link">Editar Perfil</a></li>
+                        <li><a href="#" id="btnEditar-senha-link">Senha</a></li>
+                        <li><a href="# " id="btnDeletar-perfil-link">Exclusão</a></li>
                         <li><a href="#">Biblioteca</a></li>
                         <li><a href="">Eventos</a></li>
                     </ul>
@@ -80,27 +80,11 @@
             </ul>
         </nav>
 
-        <!-- <div class="container">
+        <div class="container">
         <div class="row"
-        <main class="main" style="" id="servico-main-content"> 
-             Criar servico
-            <h2 class="main-title" id="criar-servico-title">
-                <span> <i class="bi bi-pen"></i>
-                    Criar Serviço
-            </h2>
-            <span>
-
-                <div class="main__servicos__card" id="make-service">
-                    <div class="card__text">
-                        <h4>Ação</h4>
-                        <p>Cadastre seu serviço</p>
-                    </div>
-
-                    <div class="card__button" id="btnFazerCard" style="justify-content: center;">
-                        <a href="#">Fazer</a>
-                    </div>
-
-                </div>
+        
+        <main class="main esconder" style="" id="servico-main-content"> 
+             <!-- Criar servico -->
                 
                 <h2 class="main-title" id="historico-title">
                     <span> <i class="bi bi-book"></i>
@@ -110,7 +94,7 @@
 
 
                     <section class="main__servicos">
-                        <div class="main__servicos__card">
+                        <div class="main__servicos__card " id="mostrar-servico-card">
                             <div class="card__text">
                                 <h4>Eustáquio</h4>
                                 <p>Serviço de Troca de lampada</p>
@@ -119,15 +103,15 @@
                                 <div class="card__button" id="btnAceitarServi">
                                     <a href="#">Aceitar</a>
                                 </div>
-                                <div class="card__button" id="btnEditaServ">
-                                    <a href="#">Editar</a>
+                                <div class="card__button" id="btnMostrarServ">
+                                    <a href="#">Mostrar</a>
                                 </div>
                                 <div class="card__button" id="btnEXcluirServ">
                                     <a href="#">Excluir</a>
                                 </div>
                             </div>
                         </div>
-
+<!-- 
                         <div class="main__servicos__card">
                             <div class="card__text">
                                 <h4>Ana Francisca</h4>
@@ -180,13 +164,15 @@
                                     <a href="#">Excluir</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </section>
 
 
         </main>
         </div>
-    </div> -->
+    </div>
+    </div>
+    
 
 
         <!-- Contéudo -->
@@ -205,8 +191,8 @@
 
 
                         <!-- Editar senha trigger  -->
-<!-- 
-                        <div class="card__form" id="form-senha-usuario" style="padding:30px">
+
+                        <div class="card__form esconder" id="form-senha-usuario" style="padding:30px">
                             <form>
                                 <div class="form-icon">
                                     <span><i class="icon icon-user"></i></span>
@@ -220,12 +206,12 @@
                                
                                 <div class="form-group">
                                     <button class="form-control item" type="button" id="btnSalvarSenha" style="margin-top:10px" >Salvar</button>
-                                </div> -->
+                                </div> 
 
 
                         <!-- Editar usuario trigger  -->
 
-                        <!-- <div class="card__form" id="form-senha-usuario" style="padding:30px">
+                        <div class="card__form esconder" id="form-senha-usuario" style="padding:30px">
                             <form>
                                 <div class="form-icon">
                                     <span><i class="icon icon-user"></i></span>
@@ -239,10 +225,10 @@
                                
                                 <div class="form-group">
                                     <button class="form-control item" type="button" id="btnSalvarUsuario" style="margin-top:10px"  >Salvar</button>
-                                </div> -->
+                                </div> 
 
-                        <!-- Formulario de Perfil
-                        <div class="card__form_perfil" id="registration-form-perfil" style="height:fit-content;visibility:hidden;">
+                         <!-- Formulario de Perfil -->
+                        <div class="card__form_perfil esconder" id="registration-form-perfil" style="height:fit-content;">
                             <form style="width:80%;">
                                 <div class="form-icon">
                                     <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin:20px;"></span>
@@ -291,42 +277,41 @@
                                     <input type="text" class="form-control item" id="preferencia-perfil" placeholder="Preferência" readonly>
                                 </div>
 
-
+                                 <div class="form-group">
+                            <button type="button" class="btn btn-block create-account">Salvar</button>
+                        </div>
                             </form>
-                        </div> -->
+                        </div> 
 
-                        <!-- Formulario de serviço
-                        <div class="card__form_serv" id="registration-form-servico" style="">
+
+
+                         <!-- Formulario de serviço -->
+                        <div class="card__form_serv esconder" id="registration-form-servico" style="">
                             <form>
                                 <div class="form-icon">
                                     <span><i class="icon icon-user"></i></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control item" id="destino-form" placeholder="Destino" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                <input type="text" class="form-control item" id="destino-form" placeholder="Destino" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control item" id="ordem-descricao-form" placeholder="Descrição" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                                    <input type="text" class="form-control item" id="ordem-descricao-form" placeholder="Descrição" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="serviceSelect">Selecione o Serviço:</label>
-                                    <select id="serviceSelect-form" class="form-control" style="background-color:#fdf5eb;">
-                                        <option value="1">Lâmpadas</option>
-                                        <option value="2">Pequenos Reparos</option>
-                                        <option value="3">Passeio</option>
-                                        <option value="4">Outros Serviços</option>
-                                    </select>
+                                    <input type="text" class="form-control item" id="estado-perfil" placeholder="Status" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" >Salvar</button>
+                                    <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade" readonly>
                                 </div>
+                               
                             </form>
                             <div id="validationMessage" style="color: red;"></div>
-                        </div> -->
+                        </div> 
 
 
                         <!-- Edição de Servicos -->
 
-                        <!-- <div class="card__form_serv" id="registration-form-editar" style="">
+                        <div class="card__form_serv esconder" id="registration-form-editar" style="">
                             
                                 <form>
                                 <div class="form-icon">
@@ -353,7 +338,7 @@
                             
                             </form>
                             <div id="validationMessage" style="color: red;"></div>
-                        </div> -->
+                        </div>
 
 
 
@@ -372,7 +357,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="../js/pagina-perfil/pagina-perfil.js"></script>
+        <script src="../js/pagina-perfil/pagina-perfil-voluntario.js"></script>
         </body>
 
 </html>
