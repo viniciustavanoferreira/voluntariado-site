@@ -82,10 +82,45 @@
         <i class="fas fa-check-circle"></i>
         <small>Mensagem de erro</small>
       </div>
+      <div class="form-control">
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" placeholder="Digite seu cidade." />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
+      <div class="form-control">
+        <label for="estado">Estado</label>
+        <input type="text" id="estado" placeholder="Digite seu estado." />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
 
       <div class="form-control">
         <label for="complemento">Complemento</label>
-        <input type="text" id="complemento" placeholder="Ex: Apto 99, Bloco A" />
+        <input type="text" id="complemento" placeholder="Numero da rua, etc" />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
+      <div class="form-control">
+        <label for="bloco">Bloco</label>
+        <input type="text" id="bloco" placeholder="Ex: Bloco A" />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
+      <div class="form-control">
+        <label for="Apto">Apto</label>
+        <input type="text" id="Apto" placeholder="Ex: Apto 99" />
+        <i class="fas fa-exclamation-circle"></i>
+        <i class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+      </div>
+      <div class="form-control">
+        <label for="disponibilidade">Disponibilidade</label>
+        <input type="text" id="disponibilidade" placeholder="Ex: Manhã, Tarde, Noite" />
         <i class="fas fa-exclamation-circle"></i>
         <i class="fas fa-check-circle"></i>
         <small>Mensagem de erro</small>
