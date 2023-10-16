@@ -1,3 +1,5 @@
+import { updateVoluntario } from "./connect-api.js";
+
 $(document).ready(function () {
   var trigger = $(".hamburger"),
     overlay = $(".overlay"),
