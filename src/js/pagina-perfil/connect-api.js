@@ -2,7 +2,7 @@
 // >>>>> Utilizar para página perfil-voluntario e perfil-idoso <<<<<
 async function updateIdoso(cadastro) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
-  // console.log(cadastro);
+  console.log(cadastro);
 
   const requestOptions = {
     method: "PUT",
@@ -13,7 +13,7 @@ async function updateIdoso(cadastro) {
       condicaoSaude: cadastro.idosoResponseDTO.condicaoSaude,
       assistenciaRequerida: cadastro.idosoResponseDTO.assistenciaRequerida,
       preferenciaDia: cadastro.idosoResponseDTO.preferenciaDia,
-      usuarioResponseDTO: {
+      usuarioRequestDTO: {
         nome: cadastro.usuarioResponseDTO.nome,
         usuario: cadastro.usuarioResponseDTO.usuario,
         senha: cadastro.usuarioResponseDTO.senha,
@@ -62,7 +62,7 @@ async function updateVoluntario(cadastro) {
     body: JSON.stringify({
       preferencia: cadastro.voluntarioResponseDTO.preferencia,
       habilidade: cadastro.voluntarioResponseDTO.habilidade,
-      usuarioResponseDTO: {
+      usuarioRequestDTO: {
         nome: cadastro.usuarioResponseDTO.nome,
         usuario: cadastro.usuarioResponseDTO.usuario,
         senha: cadastro.usuarioResponseDTO.senha,
