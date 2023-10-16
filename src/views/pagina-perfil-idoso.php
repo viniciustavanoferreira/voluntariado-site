@@ -213,7 +213,7 @@
 
                     <!-- Editar senha trigger  -->
 
-                    <div class="card__form esconder" id="form-senha-usuario" style="padding:30px">
+                    <div class="card__form" id="form-senha-usuario" style="padding:30px">
                         <form>
                             <div class="form-icon">
                                 <span><i class="icon icon-user"></i></span>
@@ -229,10 +229,10 @@
                                 <button class="form-control item" type="button" id="btnSalvarSenha" style="margin-top:10px">Salvar</button>
                             </div>
 
+                        </form>
+                        <!-- Editar usuario trigger  -->
 
-                            <!-- Editar usuario trigger  -->
-
-                            <!-- <div class="card__form " id="form-senha-usuario" style="padding:30px">
+                        <!-- <div class="card__form " id="form-senha-usuario" style="padding:30px">
                             <form>
                                 <div class="form-icon">
                                     <span><i class="icon icon-user"></i></span>
@@ -248,64 +248,69 @@
                                     <button class="form-control item" type="button" id="btnSalvarUsuario" style="margin-top:10px"  >Salvar</button>
                                 </div>  -->
 
-                            <!-- Formulario de Perfil -->
-                            <div class="card__form_perfil esconder" id="registration-form-perfil" style="height:fit-content;">
-                                <form style="width:80%;">
-                                    <div class="form-icon">
-                                        <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin:20px;"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="usuario-perfil" placeholder="Usuário" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="nome-perfil" placeholder="Nome" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="email-perfil" placeholder="E-mail" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="numero-perfil" placeholder="Telefone" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="endereço-perfil" placeholder="Endereço" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="bloco-perfil" placeholder="Bloco" readonly>
-                                    </div>
+                        <!-- Formulario de Perfil -->
+                        <div class="card__form_perfil " id="registration-form-perfil" style="height:fit-content;">
+                            <form id="form-alt" style="width:100%;">
+                                <div class="form-icon">
+                                    <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin:20px;"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="usuario-perfil" placeholder="Usuário">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="nome-perfil" placeholder="Nome">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="email-perfil" placeholder="E-mail">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="telefone-perfil" placeholder="Telefone">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="endereco-perfil" placeholder="Endereço">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="complemento-perfil" placeholder="Complemento">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="bloco-perfil" placeholder="Bloco">
+                                </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="número-perfil" placeholder="Número" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="bairro-perfil" placeholder="Bairro" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="cidade-perfil" placeholder="Cidade" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="assRequerida-perfil" placeholder="Assistencia Requerida" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="condicao-perfil" placeholder="Condição Saúde" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="preferencia-perfil" placeholder="Preferência" readonly>
-                                    </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="numero-perfil" placeholder="Número">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="bairro-perfil" placeholder="Bairro">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="cidade-perfil" placeholder="Cidade">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="assRequerida-perfil" placeholder="Assistencia Requerida">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="condicao-perfil" placeholder="Condição Saúde">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control item" id="preferencia-perfil" placeholder="Preferência">
+                                </div>
+                                <div>
+                                    <button type="submit">Salvar</button>
+                                </div>
+                            </form>
+
+                        </div>
 
 
-                                </form>
-                            </div>
 
-
-
-                            <!-- Formulario de serviço -->
-                            <!-- <div class="card__form_serv" id="registration-form-servico" style="">
+                        <!-- Formulario de serviço -->
+                        <div class="card__form_serv esconder" id="registration-form-servico" style="">
                             <form>
                                 <div class="form-icon">
                                     <span><i class="icon icon-user"></i></span>
@@ -326,16 +331,16 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="button" >Salvar</button>
+                                    <button type="button">Salvar</button>
                                 </div>
                             </form>
                             <div id="validationMessage" style="color: red;"></div>
-                        </div>  -->
+                        </div>
 
 
-                            <!-- Edição de Servicos -->
+                        <!-- Edição de Servicos -->
 
-                            <!-- <div class="card__form_serv " id="registration-form-editar" style="">
+                        <!-- <div class="card__form_serv " id="registration-form-editar" style="">
 
                                 <form>
                                 <div class="form-icon">
@@ -381,7 +386,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="../js/pagina-perfil/pagina-perfil.js"></script>
+        <script type="module" src="../js/pagina-perfil/pagina-perfil.js"></script>
         </body>
 
 </html>

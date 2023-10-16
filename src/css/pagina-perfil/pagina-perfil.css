@@ -5,8 +5,8 @@ body {
 }
 body,
 html { height: 100%;}
-.nav .open > a, 
-.nav .open > a:hover, 
+.nav .open > a,
+.nav .open > a:hover,
 .nav .open > a:focus {background-color: transparent;}
 
 /*-------------------------------*/
@@ -79,7 +79,7 @@ padding: 0;
 }
 
 .sidebar-nav li {
-  position: relative; 
+  position: relative;
   line-height: 20px;
   display: inline-block;
   width: 100%;
@@ -120,7 +120,7 @@ margin-right: 10px;
   display: block;
   color: #ddd;
   text-decoration: none;
-  padding: 10px 15px 10px 30px;    
+  padding: 10px 15px 10px 30px;
 }
 
 .sidebar-nav li a:hover,
@@ -231,7 +231,7 @@ color: #0084b4;
 
 .hamburger {
 position: fixed;
-top: 20px;  
+top: 20px;
 z-index: 999;
 display: block;
 width: 32px;
@@ -280,8 +280,8 @@ width: 100%;
 .hamburger.is-closed .hamb-bottom {
 background-color: #1a1a1a;
 }
-.hamburger.is-closed .hamb-top { 
-top: 5px; 
+.hamburger.is-closed .hamb-top {
+top: 5px;
 -webkit-transition: all .35s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
@@ -289,7 +289,7 @@ top: 50%;
 margin-top: -2px;
 }
 .hamburger.is-closed .hamb-bottom {
-bottom: 5px;  
+bottom: 5px;
 -webkit-transition: all .35s ease-in-out;
 }
 
@@ -309,9 +309,9 @@ background-color: #1a1a1a;
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-bottom {
 top: 50%;
-margin-top: -2px;  
+margin-top: -2px;
 }
-.hamburger.is-open .hamb-top { 
+.hamburger.is-open .hamb-top {
 -webkit-transform: rotate(45deg);
 -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
 }
@@ -338,7 +338,7 @@ display: block;
 -webkit-transform: translate3d(-100px,0,0);
 -webkit-transition: all .35s ease-in-out;
 }
-/* 
+/*
 Conteudo */
 
 main{
@@ -347,11 +347,11 @@ main{
   overflow: hidden;
   font-weight: 300px;
   display: flex;
-  
+
 }
 
 .main-title {
-  color: #545454;    
+  color: #545454;
   display: flex;
   margin-left: 25px;
   justify-content: flex-start;
@@ -399,7 +399,7 @@ main{
 }
 .main__servicos__card .card__button {
   display: flex;
-  
+
 }
 .main__servicos__card .card__button a {
   color:  #e66b6e;
@@ -424,7 +424,7 @@ main{
 /* criar serviço card */
 #make-service{
   margin: 15px;
-  
+
 }
 
 
@@ -447,7 +447,10 @@ main{
   padding: 20px;
 }
 
-
+.card__form_perfil{
+  flex-direction: column;
+  /*  border: 1px solid red; */
+}
 
 
 .form-control{
@@ -462,7 +465,7 @@ main{
 
 .card__form .form-group {
   margin: 0.5rem 0; /* Ajuste as margens para centralizar */
-  
+
 }
 
 
@@ -491,7 +494,7 @@ main{
   transition: ease-in-out 0.2s;
   text-decoration: none !important;
   border: 2px solid #e66b6e;
-  
+
 }
 
 .card__form ,.card__form_serv.form-group button:hover {
@@ -504,7 +507,7 @@ main{
   visibility: hidden;
   position: absolute;
   left: -9999px; /* Move the element off-screen instead of hiding */
-  
+
 }
 
 .card__form_perfil.hidden {
@@ -522,7 +525,7 @@ main{
   width: 50px;
   min-width: 60px;
   border-radius: 50%;
-  object-fit: cover; 
+  object-fit: cover;
   transition: transform 0.4s;
   margin-top: 2px;
   border-color: #CFD8DC;
@@ -546,6 +549,3 @@ display: none;
     align-items: stretch; /* Stretch buttons to full width */
 }
   }
-
-
-  
