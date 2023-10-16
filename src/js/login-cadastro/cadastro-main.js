@@ -1,4 +1,4 @@
-import { register, getCEP } from "./connect-api";
+import { register, getCEP } from "./connect-api.js";
 
 const form = document.getElementById("form");
 const username = document.getElementById("username");
@@ -7,15 +7,19 @@ const email = document.getElementById("email");
 const cep = document.getElementById("cep");
 const endereco = document.getElementById("endereco");
 const bairro = document.getElementById("bairro");
+const cidade = document.getElementById("cidade");
+const estado = document.getElementById("estado");
 const complemento = document.getElementById("complemento");
+const bloco = document.getElementById("bloco");
+const numeroAp = document.getElementById("Apto");
 const telefone = document.getElementById("telefone");
 const dataNasc = document.getElementById("dataNasc");
+const password = document.getElementById("password");
 const passwordConfirmation = document.getElementById("password-confirmation");
+const disponibilidade = document.getElementById("disponibilidade");
 const opcoes = document.querySelectorAll("[name=drone]");
 const box_botao = document.querySelector(".box-botao");
 const texto_antecedente = document.querySelector(".texto_crime");
-
-console.log(register);
 
 opcoes.forEach((opcao) => {
   opcao.addEventListener("click", () => {
@@ -32,6 +36,7 @@ opcoes.forEach((opcao) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log("Clicou");
   checkInputs();
   setForm();
 });
@@ -44,8 +49,8 @@ cep.addEventListener("blur", async () => {
     // console.log(resposta);
     endereco.value = resposta.logradouro;
     bairro.value = resposta.bairro;
-    // cidade.value = resposta.localidade;
-    // estado.valuee = resposta.uf;
+    cidade.value = resposta.localidade;
+    estado.value = resposta.uf;
   }
 });
 
@@ -132,20 +137,26 @@ function setForm() {
     cep: cep.value,
     endereco: endereco.value,
     bairro: bairro.value,
-    cidade: "TODO",
-    estado: "TODO",
+    cidade: cidade.value,
+    estado: estado.value,
     complemento: complemento.value,
-    bloco: "TODO",
-    numeroAp: "TODO",
+    bloco: bloco.value || " ",
+    numeroAp: numeroAp.value || " ",
     telefone: telefone.value,
     dataNascimento: new Date(dataNasc.value).toISOString(),
     perfil: registerType,
-    disponibilidade: "TODO",
+    disponibilidade: disponibilidade.value,
   };
 
-  // console.log(form);
+  console.log(form);
   // chamando função aonde será registrado
-  register(form);
+  // try {
+  //   console.log("Registrando");
+  //   register(form);
+  //   window.location.href = "./login-cadastro.php";
+  // } catch (err) {
+  //   console.log("Erro ao registrar");
+  // }
 }
 
 function setErrorFor(input, message) {

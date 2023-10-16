@@ -16,6 +16,7 @@ async function login(email, password) {
   }
   // constante que será armazenada o arquivo .json que vem da API como um objeto.
   const conexaoTexto = await conexao.json();
+  console.log(conexaoTexto.usuarioResponseDTO);
   // retorno da constante com o json transformado em objeto
   return conexaoTexto;
 }
