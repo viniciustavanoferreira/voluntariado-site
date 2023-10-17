@@ -39,6 +39,7 @@ form.addEventListener("submit", (e) => {
   console.log("Clicou");
   checkInputs();
   setForm();
+  // window.location.href = "./login-main.js";
 });
 
 cep.addEventListener("blur", async () => {
@@ -149,14 +150,15 @@ function setForm() {
   };
 
   console.log(form);
-  // chamando função aonde será registrado
-  // try {
-  //   console.log("Registrando");
-  //   register(form);
-  //   window.location.href = "./login-cadastro.php";
-  // } catch (err) {
-  //   console.log("Erro ao registrar");
-  // }
+  //chamando função aonde será registrado
+  try {
+    console.log("Registrando");
+    register(form);
+    alert("Usuário registrado com sucesso");
+    window.location.href = "./login-cadastro.php";
+  } catch (err) {
+    console.log("Erro ao registrar");
+  }
 }
 
 function setErrorFor(input, message) {
