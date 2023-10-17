@@ -29,14 +29,14 @@ $(document).ready(function () {
   });
 });
 
-// constante que vai armazenar o usuário logado
-const user = JSON.parse(localStorage.getItem("user"));
-// comentar para teste
-console.log(user);
-//condição para redirecionamento a página de login caso não tenha usuário logado
-if (!user) {
-  window.location.href = "./login-cadastro.php";
-}
+// // constante que vai armazenar o usuário logado
+// const user = JSON.parse(localStorage.getItem("user"));
+// // comentar para teste
+// console.log(user);
+// //condição para redirecionamento a página de login caso não tenha usuário logado
+// if (!user) {
+//   window.location.href = "./login-cadastro.php";
+// }
 
 // criação de variáveis para armazenar no card dados de serviços do usuário
 user.servicoResponseDTOList.forEach((servico) => {
@@ -96,7 +96,8 @@ condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
 
 // constants que vão armazenar os elementos do html
 const btnMostrarPerfil = document.querySelector("#btnMostrar-perfil-link");
-const perfilContainer = document.querySelector("#registration-form-perfil");
+const perfilContainer = document.querySelector("#registration-form-perfil-display");
+const bemvindoContainer = document.querySelector("#content-bemvindo");
 const btnServicos = document.querySelector("#btnMostrar-servicos-link");
 const mainTitleCriar = document.querySelector("#criar-servico-title");
 const mainTitleHistorico = document.querySelector("#historico-title");
@@ -111,7 +112,9 @@ console.log(btnSair);
 
 // eventos de click
 btnMostrarPerfil.addEventListener("click", () => {
-  perfilContainer.className = "card__form_perfil";
+perfilContainer.classList.remove('esconder');
+bemvindoContainer.classList.add('esconder');
+
 });
 
 btnServicos.addEventListener("click", () => {

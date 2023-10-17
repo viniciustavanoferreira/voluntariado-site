@@ -54,12 +54,12 @@
                 </div>
 
                 <li>
-                    <a href="#" id="btnMostrar-perfil-link">
+                    <a href="#" id="btnHome-perfil-link">
                         <i class="bi bi-house"></i> Home
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnHome-perfil-link">
+                    <a href="#" id="btnMostrar-perfil-link">
                         <i class="bi bi-house-door"></i> Perfil
                     </a>
                 </li>
@@ -75,14 +75,14 @@
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                         <div class="dropdown-header">Menu</div>
                         <li><a href="#" id="btnEditar-perfil-link">Editar Perfil</a></li>
-                        <li><a href="#" id="btnEditar-senha-link">Senha</a></li>
-                        <li><a href="# " id="btnDeletar-perfil-link">Exclusão</a></li>
+                        <li><a href="#" id="btnEditar-senha-link">Modificar Senha</a></li>
+                        <li><a href="# " id="btnDeletar-perfil-link">Excluir Perfil</a></li>
                         <li><a href="#">Biblioteca</a></li>
                         <li><a href="">Eventos</a></li>
                     </ul>
                 </li>
                 <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li>
-                <li><a href="#"><i class="bi bi-door-closed"></i> Sair</a></li>
+                <li><a href="#" id="btnSair-perfil-link" ><i class="bi bi-door-closed"></i> Sair</a></li>
 
             </ul>
         </nav>
@@ -108,7 +108,7 @@
                         <div class="card__button" id="btnMostrarServ">
                             <a href="#">Mostrar</a>
                         </div>
-                        <div class="card__button" id="btnEXcluirServ">
+                        <div class="card__button" id="btnRejeitarServ">
                             <a href="#">Rejeitar</a>
                         </div>
                     </div>
@@ -130,13 +130,13 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnMostrarServ">
                                     <a href="#">Mostrar</a>
                                 </div>
-                                <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Rejeitar</a>
+                                <div class="card__button" id="btnExcluirServ">
+                                    <a href="#">Inutil</a>
                                 </div>
                             </div>
                         </div>
@@ -148,13 +148,13 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnEditarServi">
-                                    <a href="#">Editar</a>
+                                    <a href="#">Mostrar</a>
                                 </div>
                                 <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Excluir</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +319,7 @@
 
                 <!-- Editar usuario trigger  -->
 
-                <div class="card__form esconder" id="form-usuario-senha" style="padding:30px">
+                <div class="card__form esconder" id="form-usuario-editar" style="padding:30px">
                     <form>
                         <div class="form-icon">
                             <span><i class="icon icon-user"></i></span>

@@ -54,12 +54,12 @@
                 </div>
 
                 <li>
-                    <a href="#" id="btnMostrar-perfil-link">
+                    <a href="#" id="btnHome-perfil-link">
                         <i class="bi bi-house"></i> Home
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnHome-perfil-link">
+                    <a href="#" id="btnMostrar-perfil-link">
                         <i class="bi bi-house-door"></i> Perfil
                     </a>
                 </li>
@@ -93,24 +93,17 @@
             <section class="main__servicos">
                 <h2 class="main-title " id="criar-servico-title">
                     <span> <i class="bi bi-search"></i>
-                        Buscar Serviços
+                        Cadastrar 
                 </h2>
+
                 <div class="container historico-card" style="display:grid; gap:2rem;">
                     <div class="main__servicos__card " id="mostrar-servico-card">
                         <div class="card__text">
-                            <h4>Eustáquio</h4>
-                            <p>Serviço de Troca de lampada</p>
+                            <h4>Ação</h4>
+                            <p>Cadastre seu serviço</p>
                         </div>
-                        <div class="card__button-group">
-                            <div class="card__button" id="btnAceitarServi">
-                                <a href="#">Aceitar</a>
-                            </div>
-                            <div class="card__button" id="btnMostrarServ">
-                                <a href="#">Mostrar</a>
-                            </div>
-                            <div class="card__button" id="btnEXcluirServ">
-                                <a href="#">Rejeitar</a>
-                            </div>
+                        <div class="card__button" id="btnFazerCard" style="justify-content: center;">
+                            <a href="#">Criar</a>
                         </div>
                     </div>
                 </div>
@@ -122,7 +115,7 @@
                             Histórico
                     </h2>
 
-                    <div class="container historico-card" style="display:grid; gap:2rem;">
+                    <div class="container historico-card" style="display:grid; gap:2rem; padding:15px;">
                         <div class="main__servicos__card " id="mostrar-servico-card">
                             <div class="card__text">
                                 <h4>Eustáquio</h4>
@@ -133,7 +126,7 @@
                                     <a href="#">Aceitar</a>
                                 </div>
                                 <div class="card__button" id="btnMostrarServ">
-                                    <a href="#">Mostrar</a>
+                                    <a href="#">Editar</a>
                                 </div>
                                 <div class="card__button" id="btnEXcluirServ">
                                     <a href="#">Rejeitar</a>
@@ -203,7 +196,7 @@
 
 
     <!-- Bem vindo contéudo -->
-    <!-- <div class="container-xxl bg-light my-6 py-6 pt-0 conteudo-bemvindo esconder" style="background-color: #D3D3D3;" id="content-bemvindo">
+ <div class="container-xxl bg-light my-6 py-6 pt-0 conteudo-bemvindo" style="background-color: #D3D3D3;" id="content-bemvindo">
         <div class="input-group" style="justify-content: flex-end ; margin-top: 5px;">
             <div class="form-outline">
                 <input id="search-input" type="search" class="form-control" placeholder="Buscar Usuário" />
@@ -279,7 +272,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
 
 
     <!-- Contéudo -->

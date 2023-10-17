@@ -28,37 +28,118 @@ $(document).ready(function () {
   });
 });
 
-const user = JSON.parse(localStorage.getItem("user"));
-// console.log(user);
-//condição para redirecionamento a página de login caso não tenha usuário logado
-if (!user) {
-  window.location.href = "./login-cadastro.php";
-}
+// const user = JSON.parse(localStorage.getItem("user"));
+// // console.log(user);
+// //condição para redirecionamento a página de login caso não tenha usuário logado
+// if (!user) {
+//   window.location.href = "./login-cadastro.php";
+// }
 
+// Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
+
+// Botões sidebar
+const btnHome = document.querySelector("#btnHome-perfil-link");
 const btnMostrarPerfil = document.querySelector("#btnMostrar-perfil-link");
-const perfilContainer = document.querySelector("#registration-form-perfil");
-console.log(perfilContainer);
-const servicosContainer = document.querySelector("#mostrar-servico-card");
 const btnServicos = document.querySelector("#btnMostrar-servicos-link");
-const btnSair = document.querySelector("#btnSair-perfil-link");
-console.log(btnSair);
+const btnEditarPerfil = document.querySelector("#btnEditar-perfil-link");
+const btnEditarSenha = document.querySelector("#btnEditar-senha-link");
+const btnDeletarPerfil = document.querySelector("#btnDeletar-perfil-link");
+const btnSairPerfil = document.querySelector("#btnSair-perfil-link");
+
+
+// Botões de card
+const btnAceitaServ = document.querySelector("#btnAceitarServi");
+const btnMostrarServ = document.querySelector("#btnMostrarServi");
+const btnRejeitarServ = document.querySelector("#btnRejeitarServi");
+
+
+//Containers que lidam conteúdo
+
+const bemvindoContainer = document.querySelector("#content-bemvindo");
+const perfilCardDisplay = document.querySelector("#registration-form-perfil-display");
+const perfilCardAtualizar = document.querySelector("#registration-form-perfil-atualizar");
+const mostrarServicoCard = document.querySelector("#servico-main-content");
+const editarSenhaCard = document.querySelector("#form-senha-usuario");
+const editarUsuarioCard = document.querySelector("#form-usuario-editar");
+const deletarUsuarioCard = document.querySelector("#exclusao-card");
+const criarServicoCard = document.querySelector("#registration-form-servico");
+// esse card só é usado para exibir para o respectivo usuário, as informações de seu serviço
+const mostrarServicoAceitoCard = document.querySelector("#registration-form-servico");
+const editarServiçoCard = document.querySelector("#registration-form-editar");
+
+
+// função que esconde contéudo anterior e sobrepõe aquela do evento
+
+
+
+
+
+
+// eventos de click
+
+btnHome.addEventListener("click",() =>{
+  esconderTodosConteudos();
+  bemvindoContainer.classList.toggle('visivel');
+});
+
 
 btnMostrarPerfil.addEventListener("click", () => {
-  perfilContainer.classList.remove("esconder");
-  console.log(perfilContainer);
+  esconderTodosConteudos();
+  perfilCardDisplay.classList.toggle('visivel');
+
 });
 
-btnServicos.addEventListener("click", () => {
-  console.log("Clicou");
-  servicosContainer.classList.remove("esconder");
-
-  perfilContainer.classList.add("esconder");
-  console.log(perfilContainer);
-  console.log(servicosContainer);
+btnServicos.addEventListener("click",() =>{
+  esconderTodosConteudos();
+  mostrarServicoCard.classList.toggle('visivel')
+  
+  
 });
 
-btnSair.addEventListener("click", () => {
-  console.log("Clicou");
-  localStorage.removeItem("user");
-  window.location.href = "./login-cadastro.php";
-});
+// btnEditarPerfil.addEventListener("click",() =>{
+//   esconderTodosConteudos();
+//   perfilContainerAtualizar.classList.remove('esconder')
+// });
+
+// btnEditarSenha.addEventListener("click",() =>{
+//   esconderTodosConteudos();
+//   editarSenhaContainer.classList.remove('esconder')
+// })
+
+
+
+// btnSairPerfil.addEventListener("click", () => {
+//   console.log("Clicou");
+//   localStorage.removeItem("user");
+//   window.location.href = "./login-cadastro.php";
+// });
+
+function esconderTodosConteudos() {
+  if (perfilCardDisplay) {
+      perfilCardDisplay.classList.add('esconder');
+  }
+  if (perfilCardAtualizar) {
+      perfilCardAtualizar.classList.add('esconder');
+  }
+  if (mostrarServicoCard) {
+      mostrarServicoCard.classList.add('esconder');
+  }
+  if (editarSenhaCard) {
+      editarSenhaCard.classList.add('esconder');
+  }
+  if (editarUsuarioCard) {
+      editarUsuarioCard.classList.add('esconder');
+  }
+  if (deletarUsuarioCard) {
+      deletarUsuarioCard.classList.add('esconder');
+  }
+  if (criarServicoCard) {
+      criarServicoCard.classList.add('esconder');
+  }
+  if (mostrarServicoAceitoCard) {
+      mostrarServicoAceitoCard.classList.add('esconder');
+  }
+  if (editarServiçoCard) {
+      editarServiçoCard.classList.add('esconder');
+  }
+};

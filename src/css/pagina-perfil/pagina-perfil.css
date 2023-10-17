@@ -542,6 +542,10 @@ main{
 display: none !important;
 }
 
+.visivel{
+  display: block !important;
+}
+
 
 /* responsabilidade do botão da main_serviços _card */
 @media (max-width: 480px){
