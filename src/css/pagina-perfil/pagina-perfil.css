@@ -310,6 +310,7 @@ background-color: #1a1a1a;
 .hamburger.is-open .hamb-bottom {
 top: 50%;
 margin-top: -2px;
+margin-left: 200px;
 }
 .hamburger.is-open .hamb-top {
 -webkit-transform: rotate(45deg);
@@ -448,7 +449,7 @@ main{
 }
 
 .card__form_perfil{
-  flex-direction: column;
+  /* flex-direction: column; */
   /*  border: 1px solid red; */
 }
 
@@ -538,7 +539,7 @@ main{
 
  /* Intuito de esconder as divs */
 .esconder{
-display: none;
+display: none !important;
 }
 
 
@@ -549,3 +550,6 @@ display: none;
     align-items: stretch; /* Stretch buttons to full width */
 }
   }
+
+  /* ids testes */
+ 
