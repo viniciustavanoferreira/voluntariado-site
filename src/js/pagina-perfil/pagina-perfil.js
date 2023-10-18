@@ -71,32 +71,33 @@ const endereco = document.getElementById("endereco-perfil");
 const bairro = document.getElementById("bairro-perfil");
 const cidade = document.getElementById("cidade-perfil");
 const estado = document.getElementById("estado-perfil");
-const complemento = document.getElementById("complemento-perfil");
+// const complemento = document.getElementById("complemento-perfil");
 const bloco = document.getElementById("bloco-perfil");
 const numeroAp = document.getElementById("numero-perfil");
-const telefone = document.getElementById("telefone-perfil");
+const telefone = document.getElementById("numero-perfil");
 const idade = document.getElementById("idade-perfil");
-const assRequerida = document.getElementById("assRequerida-perfil");
-const condicaoPerfil = document.getElementById("condicao-perfil");
-const preferencia = document.getElementById("preferencia-perfil");
+// const assRequerida = document.getElementById("assRequerida-perfil");
+// const condicaoPerfil = document.getElementById("condicao-perfil");
+// const preferencia = document.getElementById("preferencia-perfil");
 
 // associando os valores do usuário logado aos campos do formulário
 usernick.value = user.usuarioResponseDTO.usuario;
 username.value = user.usuarioResponseDTO.nome;
 email.value = user.usuarioResponseDTO.email;
 // cep.value = user.usuarioResponseDTO.cep;
-endereco.value = user.usuarioResponseDTO.endereco;
+// endereco.value = user.usuarioResponseDTO.endereco;
+console.log(endereco);
 bairro.value = user.usuarioResponseDTO.bairro;
 cidade.value = user.usuarioResponseDTO.cidade;
 estado.value = user.usuarioResponseDTO.estado;
-complemento.value = user.usuarioResponseDTO.complemento;
+// complemento.value = user.usuarioResponseDTO.complemento;
 numeroAp.value = user.usuarioResponseDTO.numeroAp;
 bloco.value = user.usuarioResponseDTO.bloco;
 telefone.value = user.usuarioResponseDTO.telefone;
 idade.value = user.usuarioResponseDTO.idade;
 // idade.value = user.idosoResponseDTO.dataNascimento;
-assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
-condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
+// assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
+// condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
 
 // evento para a relação de atualização
 
@@ -135,7 +136,7 @@ form.addEventListener("submit", async (event) => {
     const resposta = await updateIdoso(cadastro);
     console.log(resposta);
     // redirecionamento para a página de perfil
-    window.location.href = "./pagina-perfil.php";
+    window.location.href = "./pagina-perfil-idoso.php";
   } catch (error) {
     // mensagem de erro caso a requisição não seja feita
     alert(error.message);
@@ -259,7 +260,7 @@ function esconderTodosConteudos() {
 
 
 // evento para dar logout do usuário
-btnSair.addEventListener("click", () => {
+btnSairPerfil.addEventListener("click", () => {
   localStorage.removeItem("user");
   window.location.href = "./login-cadastro.php";
 });

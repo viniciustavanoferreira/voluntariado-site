@@ -46,7 +46,7 @@ const username = document.getElementById("nome-perfil");
 console.log(username);
 const email = document.getElementById("email-perfil");
 // const cep = document.getElementById("cep-perfil");
-const endereco = document.getElementById("endereco-perfil");
+const endereco = document.getElementById("endereço-perfil");
 const bairro = document.getElementById("bairro-perfil");
 const cidade = document.getElementById("cidade-perfil");
 const estado = document.getElementById("estado-perfil");
@@ -69,7 +69,7 @@ endereco.value = user.usuarioResponseDTO.endereco;
 bairro.value = user.usuarioResponseDTO.bairro;
 cidade.value = user.usuarioResponseDTO.cidade;
 estado.value = user.usuarioResponseDTO.estado;
-complemento.value = user.usuarioResponseDTO.complemento;
+// complemento.value = user.usuarioResponseDTO.complemento;
 numeroAp.value = user.usuarioResponseDTO.numeroAp;
 bloco.value = user.usuarioResponseDTO.bloco;
 telefone.value = user.usuarioResponseDTO.telefone;
@@ -113,7 +113,7 @@ form.addEventListener("submit", async (event) => {
     const resposta = await updateVoluntario(cadastro);
     console.log(resposta);
     // redirecionamento para a página de perfil
-    window.location.href = "./pagina-perfil.php";
+    window.location.href = "./pagina-perfil-voluntario.php";
   } catch (error) {
     // mensagem de erro caso a requisição não seja feita
     alert(error.message);
