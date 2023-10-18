@@ -196,7 +196,7 @@
 
 
     <!-- Bem vindo contéudo -->
- <div class="container-xxl bg-light my-6 py-6 pt-0 conteudo-bemvindo" style="background-color: #D3D3D3;" id="content-bemvindo">
+ <div class="container-xxl bg-light my-6 py-6 pt-0 conteudo-bemvindo esconder" style="background-color: #D3D3D3;" id="content-bemvindo">
         <div class="input-group" style="justify-content: flex-end ; margin-top: 5px;">
             <div class="form-outline">
                 <input id="search-input" type="search" class="form-control" placeholder="Buscar Usuário" />
@@ -543,7 +543,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type="module" src="../js/pagina-perfil/pagina-perfil-voluntario.js"></script>
+        <script type="module" src="../js/pagina-perfil/pagina-perfil.js"></script>
         </body>
 
 </html>

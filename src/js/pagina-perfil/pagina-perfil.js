@@ -56,8 +56,11 @@ user.servicoResponseDTOList.forEach((servico) => {
   </div>`;
 });
 
-// constants com os elementos do formulário paara aalteração
-const form = document.getElementById("form-alt");
+
+// ATUALIZAÇÃO
+
+// constants com os elementos do formulário para alteração
+const form = document.getElementById("registration-form-perfil-atualizar");
 console.log(form);
 const usernick = document.getElementById("usuario-perfil");
 const username = document.getElementById("nome-perfil");
@@ -68,31 +71,77 @@ const endereco = document.getElementById("endereco-perfil");
 const bairro = document.getElementById("bairro-perfil");
 const cidade = document.getElementById("cidade-perfil");
 const estado = document.getElementById("estado-perfil");
-const complemento = document.getElementById("complemento-perfil");
+// const complemento = document.getElementById("complemento-perfil");
 const bloco = document.getElementById("bloco-perfil");
 const numeroAp = document.getElementById("numero-perfil");
-const telefone = document.getElementById("telefone-perfil");
+const telefone = document.getElementById("numero-perfil");
 const idade = document.getElementById("idade-perfil");
-const assRequerida = document.getElementById("assRequerida-perfil");
-const condicaoPerfil = document.getElementById("condicao-perfil");
-const preferencia = document.getElementById("preferencia-perfil");
+// const assRequerida = document.getElementById("assRequerida-perfil");
+// const condicaoPerfil = document.getElementById("condicao-perfil");
+// const preferencia = document.getElementById("preferencia-perfil");
 
 // associando os valores do usuário logado aos campos do formulário
 usernick.value = user.usuarioResponseDTO.usuario;
 username.value = user.usuarioResponseDTO.nome;
 email.value = user.usuarioResponseDTO.email;
 // cep.value = user.usuarioResponseDTO.cep;
-endereco.value = user.usuarioResponseDTO.endereco;
+// endereco.value = user.usuarioResponseDTO.endereco;
+console.log(endereco);
 bairro.value = user.usuarioResponseDTO.bairro;
 cidade.value = user.usuarioResponseDTO.cidade;
 estado.value = user.usuarioResponseDTO.estado;
-complemento.value = user.usuarioResponseDTO.complemento;
+// complemento.value = user.usuarioResponseDTO.complemento;
 numeroAp.value = user.usuarioResponseDTO.numeroAp;
 bloco.value = user.usuarioResponseDTO.bloco;
 telefone.value = user.usuarioResponseDTO.telefone;
+idade.value = user.usuarioResponseDTO.idade;
 // idade.value = user.idosoResponseDTO.dataNascimento;
-assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
-condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
+// assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
+// condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
+
+// evento para a relação de atualização
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  // constante que vai armazenar o valor do campo do formulário
+  const cadastro = {
+    idosoResponseDTO: {
+      condicaoSaude: condicaoPerfil.value,
+      assistenciaRequerida: assRequerida.value,
+      preferenciaDia: preferencia.value,
+    },
+    usuarioResponseDTO: {
+      nome: username.value,
+      usuario: usernick.value,
+      senha: user.usuarioResponseDTO.senha,
+      email: email.value,
+      cep: user.usuarioResponseDTO.cep,
+      endereco: endereco.value,
+      bairro: bairro.value,
+      cidade: cidade.value,
+      estado: estado.value,
+      complemento: complemento.value,
+      bloco: bloco.value,
+      numeroAp: numeroAp.value,
+      telefone: telefone.value,
+      dataNascimento: user.usuarioResponseDTO.dataNascimento,
+      perfil: user.usuarioResponseDTO.perfil,
+      disponibilidade: user.usuarioResponseDTO.disponibilidade,
+      idade: user.usuarioResponseDTO.idade
+    },
+  };
+  console.log(cadastro);
+  try {
+    // constante que vai armazenar a resposta da requisição
+    const resposta = await updateIdoso(cadastro);
+    console.log(resposta);
+    // redirecionamento para a página de perfil
+    window.location.href = "./pagina-perfil-idoso.php";
+  } catch (error) {
+    // mensagem de erro caso a requisição não seja feita
+    alert(error.message);
+  }
+});
 
 // Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
 
@@ -127,7 +176,7 @@ const mostrarServicoAceitoCard = document.querySelector("#registration-form-serv
 const editarServiçoCard = document.querySelector("#registration-form-editar");
 
 
-// eventos de click por método for each
+// eventos de click 
 
 const buttons = [
   // array que armazena um index de botões
@@ -211,48 +260,9 @@ function esconderTodosConteudos() {
 
 
 // evento para dar logout do usuário
-btnSair.addEventListener("click", () => {
+btnSairPerfil.addEventListener("click", () => {
   localStorage.removeItem("user");
   window.location.href = "./login-cadastro.php";
 });
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  // constante que vai armazenar o valor do campo do formulário
-  const cadastro = {
-    idosoResponseDTO: {
-      condicaoSaude: condicaoPerfil.value,
-      assistenciaRequerida: assRequerida.value,
-      preferenciaDia: preferencia.value,
-    },
-    usuarioResponseDTO: {
-      nome: username.value,
-      usuario: usernick.value,
-      senha: user.usuarioResponseDTO.senha,
-      email: email.value,
-      cep: user.usuarioResponseDTO.cep,
-      endereco: endereco.value,
-      bairro: bairro.value,
-      cidade: cidade.value,
-      estado: estado.value,
-      complemento: complemento.value,
-      bloco: bloco.value,
-      numeroAp: numeroAp.value,
-      telefone: telefone.value,
-      dataNascimento: user.usuarioResponseDTO.dataNascimento,
-      perfil: user.usuarioResponseDTO.perfil,
-      disponibilidade: user.usuarioResponseDTO.disponibilidade,
-    },
-  };
-  console.log(cadastro);
-  try {
-    // constante que vai armazenar a resposta da requisição
-    const resposta = await updateIdoso(cadastro);
-    console.log(resposta);
-    // redirecionamento para a página de perfil
-    window.location.href = "./pagina-perfil.php";
-  } catch (error) {
-    // mensagem de erro caso a requisição não seja feita
-    alert(error.message);
-  }
-});
+

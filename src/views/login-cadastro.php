@@ -14,8 +14,8 @@
     <div class="container">
         <div class="content first-content">
             <div class="first-column">
-                <h2 class="title title-primary">Seja bem-vindo <br> Bom Vizinho</h2>
-                <p class="description description-primary">.......</p>
+                <h2 class="title title-primary">Bem-vindo <br> 
+                
                 <p class="description description-primary">É novo aqui?</p>
                 <button id="signin" class="btn btn-primary">Cadastrar</button>
             </div>
