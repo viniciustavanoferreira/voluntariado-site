@@ -60,37 +60,74 @@ const editarServiçoCard = document.querySelector("#registration-form-editar");
 // const btnSair = document.querySelector("#btnSair-perfil-link");
 // console.log(btnSair);
 
-console.log(btnMostrarPerfil);
+// console.log(btnMostrarPerfil);
 // eventos de click
 
-btnHome.addEventListener("click", () =>{
-  esconderTodosConteudos();
-  bemvindoContainer.classList.remove('esconder')
+const buttons = [
+  btnHome,
+  btnMostrarPerfil,
+  btnServicos,
+  btnEditarPerfil,
+  btnEditarSenha,
+  btnDeletarPerfil,
+  btnSairPerfil
+];
+
+const containers = [
+  bemvindoContainer,
+  perfilCardDisplay,
+  mostrarServicoCard,
+  perfilCardAtualizar,
+  editarSenhaCard,
+  editarUsuarioCard,
+  deletarUsuarioCard,
+  criarServicoCard,
+  mostrarServicoAceitoCard,
+  editarServiçoCard
+];
+
+buttons.forEach((button, index) => {
+  if (button) {
+    button.addEventListener('click', () => {
+      try {
+        esconderTodosConteudos();
+        containers[index].classList.remove('esconder');
+      } catch (error) {
+        window.alert(`Um erro aconteceu: ${error.message}`);
+      }
+    });
+  }
 });
 
-btnMostrarPerfil.addEventListener("click", () => {
-  esconderTodosConteudos();
-perfilCardDisplay.classList.remove('esconder');
+
+// btnHome.addEventListener("click", () =>{
+//   esconderTodosConteudos();
+//   bemvindoContainer.classList.remove('esconder')
+// });
+
+// btnMostrarPerfil.addEventListener("click", () => {
+//   esconderTodosConteudos();
+// perfilCardDisplay.classList.remove('esconder');
 
 
-});
+// });
 
-btnServicos.addEventListener("click",() =>{
-  esconderTodosConteudos();
-  mostrarServicoCard.classList.remove('esconder');
+// btnServicos.addEventListener("click",() =>{
+//   esconderTodosConteudos();
+//   mostrarServicoCard.classList.remove('esconder');
   
   
-});
+// });
 
-btnEditarPerfil.addEventListener("click",() =>{
-  esconderTodosConteudos();
-  perfilCardAtualizar.classList.remove('esconder')
-});
+// btnEditarPerfil.addEventListener("click",() =>{
+//   esconderTodosConteudos();
+//   perfilCardAtualizar.classList.remove('esconder')
+// });
 
-btnEditarSenha.addEventListener("click",() =>{
-  esconderTodosConteudos();
-  editarSenhaCard.classList.remove('esconder')
-})
+// btnEditarSenha.addEventListener("click",() =>{
+//   esconderTodosConteudos();
+//   editarSenhaCard.classList.remove('esconder')
+// })
 
 function esconderTodosConteudos() {
   if (perfilCardDisplay) {

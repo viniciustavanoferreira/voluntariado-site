@@ -542,6 +542,8 @@ main{
 display: none !important;
 }
 
+.esconder2
+{display: none !important;}
 .visivel{
   display: block !important;
 }
