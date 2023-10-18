@@ -378,7 +378,12 @@
                             <div class="form-group">
                                 <input type="text" class="form-control item" id="idade-perfil-display" placeholder="Idade" readonly>
                             </div>
-
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="habilidade-perfil-display" placeholder="Habilidade"readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="idade-perfil-display" placeholder="Preferencia" readonly>
+                            </div>
                         </form>
                     </div>
 
@@ -424,6 +429,12 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="habilidade-perfil" placeholder="Habilidade">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="idade-perfil" placeholder="Preferencia">
                             </div>
 
                             <div class="form-group">

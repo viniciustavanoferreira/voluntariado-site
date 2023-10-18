@@ -35,6 +35,91 @@ if (!user) {
   window.location.href = "./login-cadastro.php";
 }
 
+
+// ATUALIZAÇÃO
+
+// constants com os elementos do formulário para alteração
+const form = document.getElementById("registration-form-perfil-atualizar");
+console.log(form);
+const usernick = document.getElementById("usuario-perfil");
+const username = document.getElementById("nome-perfil");
+console.log(username);
+const email = document.getElementById("email-perfil");
+// const cep = document.getElementById("cep-perfil");
+const endereco = document.getElementById("endereco-perfil");
+const bairro = document.getElementById("bairro-perfil");
+const cidade = document.getElementById("cidade-perfil");
+const estado = document.getElementById("estado-perfil");
+const complemento = document.getElementById("complemento-perfil");
+const bloco = document.getElementById("bloco-perfil");
+const numeroAp = document.getElementById("numero-perfil");
+const telefone = document.getElementById("telefone-perfil");
+const idade = document.getElementById("idade-perfil");
+const assRequerida = document.getElementById("assRequerida-perfil");
+const condicaoPerfil = document.getElementById("condicao-perfil");
+const habilidade = document.getElementById("habilidade-perfil");
+const preferencia = document.getElementById("preferencia-perfil");
+
+// associando os valores do usuário logado aos campos do formulário
+usernick.value = user.usuarioResponseDTO.usuario;
+username.value = user.usuarioResponseDTO.nome;
+email.value = user.usuarioResponseDTO.email;
+// cep.value = user.usuarioResponseDTO.cep;
+endereco.value = user.usuarioResponseDTO.endereco;
+bairro.value = user.usuarioResponseDTO.bairro;
+cidade.value = user.usuarioResponseDTO.cidade;
+estado.value = user.usuarioResponseDTO.estado;
+complemento.value = user.usuarioResponseDTO.complemento;
+numeroAp.value = user.usuarioResponseDTO.numeroAp;
+bloco.value = user.usuarioResponseDTO.bloco;
+telefone.value = user.usuarioResponseDTO.telefone;
+idade.value = user.usuarioResponseDTO.idade;
+habilidade.value= user.usuarioResponseDTO.habilidade;
+preferencia.value= user.usuarioResponseDTO.habilidade;
+// idade.value = user.idosoResponseDTO.dataNascimento;
+
+
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  // constante que vai armazenar o valor do campo do formulário
+  const cadastro = {
+    voluntarioRespondeDTO:{preferencia: cadastro.voluntarioResponseDTO.preferencia,
+      habilidade: cadastro.voluntarioResponseDTO.habilidade,
+    },
+    usuarioResponseDTO: {
+      nome: username.value,
+      usuario: usernick.value,
+      senha: user.usuarioResponseDTO.senha,
+      email: email.value,
+      cep: user.usuarioResponseDTO.cep,
+      endereco: endereco.value,
+      bairro: bairro.value,
+      cidade: cidade.value,
+      estado: estado.value,
+      complemento: complemento.value,
+      bloco: bloco.value,
+      numeroAp: numeroAp.value,
+      telefone: telefone.value,
+      dataNascimento: user.usuarioResponseDTO.dataNascimento,
+      perfil: user.usuarioResponseDTO.perfil,
+      disponibilidade: user.usuarioResponseDTO.disponibilidade,
+      idade: user.usuarioResponseDTO.idade
+    },
+  };
+  console.log(cadastro);
+  try {
+    // constante que vai armazenar a resposta da requisição
+    const resposta = await updateVoluntario(cadastro);
+    console.log(resposta);
+    // redirecionamento para a página de perfil
+    window.location.href = "./pagina-perfil.php";
+  } catch (error) {
+    // mensagem de erro caso a requisição não seja feita
+    alert(error.message);
+  }
+});
+
 // Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
 
 // Botões sidebar

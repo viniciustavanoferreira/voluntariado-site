@@ -56,8 +56,11 @@ user.servicoResponseDTOList.forEach((servico) => {
   </div>`;
 });
 
-// constants com os elementos do formulário paara aalteração
-const form = document.getElementById("form-alt");
+
+// ATUALIZAÇÃO
+
+// constants com os elementos do formulário para alteração
+const form = document.getElementById("registration-form-perfil-atualizar");
 console.log(form);
 const usernick = document.getElementById("usuario-perfil");
 const username = document.getElementById("nome-perfil");
@@ -90,9 +93,54 @@ complemento.value = user.usuarioResponseDTO.complemento;
 numeroAp.value = user.usuarioResponseDTO.numeroAp;
 bloco.value = user.usuarioResponseDTO.bloco;
 telefone.value = user.usuarioResponseDTO.telefone;
+idade.value = user.usuarioResponseDTO.idade;
 // idade.value = user.idosoResponseDTO.dataNascimento;
 assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
 condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
+
+// evento para a relação de atualização
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  // constante que vai armazenar o valor do campo do formulário
+  const cadastro = {
+    idosoResponseDTO: {
+      condicaoSaude: condicaoPerfil.value,
+      assistenciaRequerida: assRequerida.value,
+      preferenciaDia: preferencia.value,
+    },
+    usuarioResponseDTO: {
+      nome: username.value,
+      usuario: usernick.value,
+      senha: user.usuarioResponseDTO.senha,
+      email: email.value,
+      cep: user.usuarioResponseDTO.cep,
+      endereco: endereco.value,
+      bairro: bairro.value,
+      cidade: cidade.value,
+      estado: estado.value,
+      complemento: complemento.value,
+      bloco: bloco.value,
+      numeroAp: numeroAp.value,
+      telefone: telefone.value,
+      dataNascimento: user.usuarioResponseDTO.dataNascimento,
+      perfil: user.usuarioResponseDTO.perfil,
+      disponibilidade: user.usuarioResponseDTO.disponibilidade,
+      idade: user.usuarioResponseDTO.idade
+    },
+  };
+  console.log(cadastro);
+  try {
+    // constante que vai armazenar a resposta da requisição
+    const resposta = await updateIdoso(cadastro);
+    console.log(resposta);
+    // redirecionamento para a página de perfil
+    window.location.href = "./pagina-perfil.php";
+  } catch (error) {
+    // mensagem de erro caso a requisição não seja feita
+    alert(error.message);
+  }
+});
 
 // Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
 
@@ -127,7 +175,7 @@ const mostrarServicoAceitoCard = document.querySelector("#registration-form-serv
 const editarServiçoCard = document.querySelector("#registration-form-editar");
 
 
-// eventos de click por método for each
+// eventos de click 
 
 const buttons = [
   // array que armazena um index de botões
@@ -216,43 +264,4 @@ btnSair.addEventListener("click", () => {
   window.location.href = "./login-cadastro.php";
 });
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  // constante que vai armazenar o valor do campo do formulário
-  const cadastro = {
-    idosoResponseDTO: {
-      condicaoSaude: condicaoPerfil.value,
-      assistenciaRequerida: assRequerida.value,
-      preferenciaDia: preferencia.value,
-    },
-    usuarioResponseDTO: {
-      nome: username.value,
-      usuario: usernick.value,
-      senha: user.usuarioResponseDTO.senha,
-      email: email.value,
-      cep: user.usuarioResponseDTO.cep,
-      endereco: endereco.value,
-      bairro: bairro.value,
-      cidade: cidade.value,
-      estado: estado.value,
-      complemento: complemento.value,
-      bloco: bloco.value,
-      numeroAp: numeroAp.value,
-      telefone: telefone.value,
-      dataNascimento: user.usuarioResponseDTO.dataNascimento,
-      perfil: user.usuarioResponseDTO.perfil,
-      disponibilidade: user.usuarioResponseDTO.disponibilidade,
-    },
-  };
-  console.log(cadastro);
-  try {
-    // constante que vai armazenar a resposta da requisição
-    const resposta = await updateIdoso(cadastro);
-    console.log(resposta);
-    // redirecionamento para a página de perfil
-    window.location.href = "./pagina-perfil.php";
-  } catch (error) {
-    // mensagem de erro caso a requisição não seja feita
-    alert(error.message);
-  }
-});
+

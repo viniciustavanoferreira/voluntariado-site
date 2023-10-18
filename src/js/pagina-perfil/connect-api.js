@@ -79,6 +79,7 @@ async function updateVoluntario(cadastro) {
         dataNascimento: cadastro.usuarioResponseDTO.dataNascimento,
         perfil: cadastro.usuarioResponseDTO.perfil,
         disponibilidade: cadastro.usuarioResponseDTO.disponibilidade,
+        idade: cadastro.usuarioResponseDTO.idade
       },
     }),
     redirect: "follow",
