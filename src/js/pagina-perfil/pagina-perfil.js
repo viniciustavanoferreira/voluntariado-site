@@ -94,46 +94,121 @@ telefone.value = user.usuarioResponseDTO.telefone;
 assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
 condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
 
-// constants que vão armazenar os elementos do html
+// Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
+
+// Botões sidebar
+const btnHome = document.querySelector("#btnHome-perfil-link");
 const btnMostrarPerfil = document.querySelector("#btnMostrar-perfil-link");
-const perfilContainer = document.querySelector("#registration-form-perfil");
 const btnServicos = document.querySelector("#btnMostrar-servicos-link");
-const mainTitleCriar = document.querySelector("#criar-servico-title");
-const mainTitleHistorico = document.querySelector("#historico-title");
-const mainCriarServicoCard = document.querySelector("#make-service");
-const mostrarServicoCard = document.querySelector("#mostrar-servico-card");
 const btnEditarPerfil = document.querySelector("#btnEditar-perfil-link");
 const btnEditarSenha = document.querySelector("#btnEditar-senha-link");
-const editarSenhaContainer = document.querySelector("#form-senha-usuario");
+const btnDeletarPerfil = document.querySelector("#btnDeletar-perfil-link");
+const btnSairPerfil = document.querySelector("#btnSair-perfil-link");
 
-const btnSair = document.querySelector("#btnSair-perfil-link");
-console.log(btnSair);
 
-// eventos de click
-btnMostrarPerfil.addEventListener("click", () => {
-  perfilContainer.className = "card__form_perfil";
+// Botões de card
+const btnAceitaServ = document.querySelector("#btnAceitarServi");
+const btnMostrarServ = document.querySelector("#btnMostrarServi");
+const btnRejeitarServ = document.querySelector("#btnRejeitarServi");
+
+
+//Containers que lidam conteúdo
+
+const bemvindoContainer = document.querySelector("#content-bemvindo");
+const perfilCardDisplay = document.querySelector("#registration-form-perfil-display");
+const perfilCardAtualizar = document.querySelector("#registration-form-perfil-atualizar");
+const mostrarServicoCard = document.querySelector("#servico-main-content");
+const editarSenhaCard = document.querySelector("#form-senha-usuario");
+// const editarUsuarioCard = document.querySelector("#form-usuario-editar");
+const deletarUsuarioCard = document.querySelector("#exclusao-card");
+const criarServicoCard = document.querySelector("#registration-form-servico");
+// esse card só é usado para exibir para o respectivo usuário, as informações de seu serviço
+const mostrarServicoAceitoCard = document.querySelector("#registration-form-servico");
+const editarServiçoCard = document.querySelector("#registration-form-editar");
+
+
+// eventos de click por método for each
+
+const buttons = [
+  // array que armazena um index de botões
+  btnHome,
+  btnMostrarPerfil,
+  btnServicos,
+  btnEditarPerfil,
+  btnEditarSenha,
+  btnDeletarPerfil,
+  btnSairPerfil
+];
+
+
+const containers = [
+
+  // array que armazena um index de containers HTML
+  bemvindoContainer,
+  perfilCardDisplay,
+  mostrarServicoCard,
+  perfilCardAtualizar,
+  editarSenhaCard,
+  // editarUsuarioCard,
+  deletarUsuarioCard,
+  criarServicoCard,
+  mostrarServicoAceitoCard,
+  editarServiçoCard
+];
+
+buttons.forEach((button, index) => {
+  // loop for each declarando o botão e o index especifico para aquele evento baseado nas arrays declaradas
+  if (button) {
+    // condicão para o eventov
+    button.addEventListener('click', () => {
+      try {
+        esconderTodosConteudos();
+        // chamo minha função que esconde os conteudos pelo metódo ClassList
+        containers[index].classList.remove('esconder');
+        // dentro do array container, remove esconder class do container trigerrizado pelo botão
+      } catch (error) {
+        window.alert(`Um erro: ${error.message}`);
+        // caso, ocorro um erro
+      }
+    });
+  }
 });
 
-btnServicos.addEventListener("click", () => {
-  mainTitleCriar.className = "main-title";
-  mainTitleHistorico.className = "main-title";
-  mainCriarServicoCard.className = "main__servicos__card";
-  mostrarServicoCard.className += "main__servicos_card";
-  perfilContainer.className += "esconder";
-});
+// funcao para esconder o contéúdo que nao corresponde ao click event(condição IF para manter somente add)
 
-btnEditarPerfil.addEventListener("click", () => {
-  // tem que criar
-});
+function esconderTodosConteudos() {
+  if (bemvindoContainer){
+    bemvindoContainer.classList.add('esconder');
+  }
+  if (perfilCardDisplay) {
+      perfilCardDisplay.classList.add('esconder');
+  }
+  if (perfilCardAtualizar) {
+      perfilCardAtualizar.classList.add('esconder');
+  }
+  if (mostrarServicoCard) {
+      mostrarServicoCard.classList.add('esconder');
+  }
+  if (editarSenhaCard) {
+      editarSenhaCard.classList.add('esconder');
+  }
+  // if (editarUsuarioCard) {
+  //     editarUsuarioCard.classList.add('esconder');
+  // }
+  if (deletarUsuarioCard) {
+      deletarUsuarioCard.classList.add('esconder');
+  }
+  if (criarServicoCard) {
+      criarServicoCard.classList.add('esconder');
+  }
+  if (mostrarServicoAceitoCard) {
+      mostrarServicoAceitoCard.classList.add('esconder');
+  }
+  if (editarServiçoCard) {
+      editarServiçoCard.classList.add('esconder');
+  }
+};
 
-btnEditarSenha.addEventListener("click", () => {
-  editarSenhaContainer.className += "card__form";
-  mainTitleCriar.className = "esconder";
-  mainTitleHistorico.className = "esconder";
-  mainCriarServicoCard.className = "esconder";
-  mostrarServicoCard.className = "esconder";
-  perfilContainer.className = "esconder";
-});
 
 // evento para dar logout do usuário
 btnSair.addEventListener("click", () => {
@@ -175,7 +250,7 @@ form.addEventListener("submit", async (event) => {
     const resposta = await updateIdoso(cadastro);
     console.log(resposta);
     // redirecionamento para a página de perfil
-    // window.location.href = "./pagina-perfil.php";
+    window.location.href = "./pagina-perfil.php";
   } catch (error) {
     // mensagem de erro caso a requisição não seja feita
     alert(error.message);

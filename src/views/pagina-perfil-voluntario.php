@@ -54,12 +54,12 @@
                 </div>
 
                 <li>
-                    <a href="#" id="btnMostrar-perfil-link">
+                    <a href="#" id="btnHome-perfil-link">
                         <i class="bi bi-house"></i> Home
                     </a>
                 </li>
                 <li>
-                    <a href="#" id="btnHome-perfil-link">
+                    <a href="#" id="btnMostrar-perfil-link">
                         <i class="bi bi-house-door"></i> Perfil
                     </a>
                 </li>
@@ -75,14 +75,14 @@
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                         <div class="dropdown-header">Menu</div>
                         <li><a href="#" id="btnEditar-perfil-link">Editar Perfil</a></li>
-                        <li><a href="#" id="btnEditar-senha-link">Senha</a></li>
-                        <li><a href="# " id="btnDeletar-perfil-link">Exclusão</a></li>
+                        <li><a href="#" id="btnEditar-senha-link">Modificar Senha</a></li>
+                        <li><a href="# " id="btnDeletar-perfil-link">Excluir Perfil</a></li>
                         <li><a href="#">Biblioteca</a></li>
                         <li><a href="">Eventos</a></li>
                     </ul>
                 </li>
                 <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li>
-                <li><a href="#"><i class="bi bi-door-closed"></i> Sair</a></li>
+                <li><a href="#" id="btnSair-perfil-link"><i class="bi bi-door-closed"></i> Sair</a></li>
 
             </ul>
         </nav>
@@ -96,23 +96,23 @@
                         Buscar Serviços
                 </h2>
                 <div class="container historico-card" style="display:grid; gap:2rem;">
-                <div class="main__servicos__card " id="mostrar-servico-card">
-                    <div class="card__text">
-                        <h4>Eustáquio</h4>
-                        <p>Serviço de Troca de lampada</p>
+                    <div class="main__servicos__card " id="mostrar-servico-card">
+                        <div class="card__text">
+                            <h4>Eustáquio</h4>
+                            <p>Serviço de Troca de lampada</p>
+                        </div>
+                        <div class="card__button-group">
+                            <div class="card__button" id="btnAceitarServi">
+                                <a href="#">Aceitar</a>
+                            </div>
+                            <div class="card__button" id="btnMostrarServ">
+                                <a href="#">Mostrar</a>
+                            </div>
+                            <div class="card__button" id="btnRejeitarServ">
+                                <a href="#">Rejeitar</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card__button-group">
-                        <div class="card__button" id="btnAceitarServi">
-                            <a href="#">Aceitar</a>
-                        </div>
-                        <div class="card__button" id="btnMostrarServ">
-                            <a href="#">Mostrar</a>
-                        </div>
-                        <div class="card__button" id="btnEXcluirServ">
-                            <a href="#">Rejeitar</a>
-                        </div>
-                    </div>
-                </div>
                 </div>
 
                 <span>
@@ -130,13 +130,13 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnMostrarServ">
                                     <a href="#">Mostrar</a>
                                 </div>
-                                <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Rejeitar</a>
+                                <div class="card__button" id="btnExcluirServ">
+                                    <a href="#">Inutil</a>
                                 </div>
                             </div>
                         </div>
@@ -148,13 +148,13 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnEditarServi">
-                                    <a href="#">Editar</a>
+                                    <a href="#">Mostrar</a>
                                 </div>
                                 <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Excluir</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                             </div>
                         </div>
@@ -292,34 +292,34 @@
 
         <div class="container">
 
-<div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
 
 
-        <!-- Editar senha trigger  -->
+                    <!-- Editar senha trigger  -->
 
-        <div class="card__form esconder" id="form-senha-usuario" style="padding:30px">
-            <form>
-                <div class="form-icon">
-                    <span><i class="icon icon-user"></i></span>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control item" id="antigo-senha" placeholder="Antiga Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control item" id="nova-senha" placeholder="Nova Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
-                </div>
+                    <div class="card__form esconder" id="form-senha-usuario" style="padding:30px">
+                        <form>
+                            <div class="form-icon">
+                                <span><i class="icon icon-user"></i></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control item" id="antigo-senha" placeholder="Antiga Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control item" id="nova-senha" placeholder="Nova Senha" required oninvalid="this.setCustomValidity('Por favor, preencha este campo.')">
+                            </div>
 
-                <div class="form-group">
-                    <button class="form-control item" type="button" id="btnSalvarSenha" style="margin-top:10px">Salvar</button>
-                </div>
-            </form>
-        </div>
+                            <div class="form-group">
+                                <button class="form-control item" type="button" id="btnSalvarSenha" style="margin-top:10px">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
 
 
-                <!-- Editar usuario trigger  -->
+                    <!-- Editar usuario trigger  -->
 
-                <div class="card__form esconder" id="form-usuario-senha" style="padding:30px">
+                    <!-- <div class="card__form esconder" id="form-usuario-editar" style="padding:30px">
                     <form>
                         <div class="form-icon">
                             <span><i class="icon icon-user"></i></span>
@@ -335,123 +335,125 @@
                             <button class="form-control item" type="button" id="btnSalvarUsuario" style="margin-top:10px">Salvar</button>
                         </div>
                     </form>
-                </div>
-                        
+                </div> -->
 
-                        <!-- Formulario de Perfil / display only -->
-                        <div class="card__form_perfil esconder" id="registration-form-perfil-display" style="height:fit-content; display:flex;">
-                            <form style="width:80%;">
-                                <div class="form-icon">
-                                    <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin:20px;"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="usuario-perfil-display" placeholder="Usuário" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="nome-perfil-display" placeholder="Nome" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="email-perfil-display" placeholder="E-mail" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="numero-perfil-display" placeholder="Telefone" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="endereço-perfil-display" placeholder="Endereço" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="bloco-perfil-display" placeholder="Bloco" readonly>
-                                </div>
 
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="numerocasa-perfil-display" placeholder="Número" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="bairro-perfil-display" placeholder="Bairro" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="cidade-perfil-display" placeholder="Cidade" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="estado-perfil-display" placeholder="Estado" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control item" id="idade-perfil-display" placeholder="Idade" readonly>
-                                </div>
+                    <!-- Formulario de Perfil / display only -->
+                    <div class="card__form_perfil esconder" id="registration-form-perfil-display" style="height:fit-content; display:flex;">
+                        <form style="width:80%;">
+                            <div class="form-icon">
+                                <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin:20px;"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="usuario-perfil-display" placeholder="Usuário" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="nome-perfil-display" placeholder="Nome" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="email-perfil-display" placeholder="E-mail" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="numero-perfil-display" placeholder="Telefone" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="endereço-perfil-display" placeholder="Endereço" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="bloco-perfil-display" placeholder="Bloco" readonly>
+                            </div>
 
-                            </form>
-                        </div>
-                    
-                
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="numerocasa-perfil-display" placeholder="Número" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="bairro-perfil-display" placeholder="Bairro" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="cidade-perfil-display" placeholder="Cidade" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="estado-perfil-display" placeholder="Estado" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="idade-perfil-display" placeholder="Idade" readonly>
+                            </div>
 
-                <!-- Formulário Perfil salvos como atualizações -->
-
-                <div class="card__form_perfil esconder" id="registration-form-perfil-atualizar" style="height: fit-content;">
-                    <form style="width: 80%;">
-                        <div class="form-icon">
-                            <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin: 20px;"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="usuario-perfil" placeholder="Usuário">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="nome-perfil" placeholder="Nome">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="email-perfil" placeholder="E-mail">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="numero-perfil" placeholder="Telefone">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="endereço-perfil" placeholder="Endereço">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="bloco-perfil" placeholder="Bloco">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="numerocasa-perfil" placeholder="Número">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="bairro-perfil" placeholder="Bairro">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="cidade-perfil" placeholder="Cidade">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade">
-                        </div>
-
-                        <div class="form-group">
-                            <button type="button" class="btn btn-block create-account">Salvar</button>
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Card para deletar perfil -->
-
-                <div class="main__servicos__card esconder " id="exclusao-card">
-                    <div class="card__text">
-                        <h4>Usuário</h4>
-                        <p>Deseja excluir conta?</p>
+                        </form>
                     </div>
-                    <div class="card__button-group">
-                        <div class="card__button">
-                            <a href="#" id="btnÉxcluirConta">Sim</a>
+
+
+
+                    <!-- Formulário Perfil salvos como atualizações -->
+
+                    <div class="card__form_perfil esconder" id="registration-form-perfil-atualizar" style="height: fit-content;">
+                        <form style="width: 80%;">
+                            <div class="form-icon">
+                                <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin: 20px;"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="usuario-perfil" placeholder="Usuário">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="nome-perfil" placeholder="Nome">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="email-perfil" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="numero-perfil" placeholder="Telefone">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="endereço-perfil" placeholder="Endereço">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="bloco-perfil" placeholder="Bloco">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="numerocasa-perfil" placeholder="Número">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="bairro-perfil" placeholder="Bairro">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="cidade-perfil" placeholder="Cidade">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade">
+                            </div>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-block create-account">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Card para deletar perfil -->
+
+                    <div class="main__servicos__card esconder " id="exclusao-card" style="
+    position: relative;
+    margin: 5px;">
+                        <div class="card__text">
+                            <h4>Usuário</h4>
+                            <p>Deseja excluir conta?</p>
                         </div>
-                        <div class="card__button">
-                            <a href="#" id="btnExcluirConta">Não</a>
+                        <div class="card__button-group">
+                            <div class="card__button">
+                                <a href="#" id="btnÉxcluirConta">Sim</a>
+                            </div>
+                            <div class="card__button">
+                                <a href="#" id="btnExcluirConta">Não</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <!-- Formulario de serviço -->
-                <!-- <div class="card__form_serv esconder" id="registration-form-servico" style="">
+                    <!-- Formulario de serviço -->
+                    <!-- <div class="card__form_serv esconder" id="registration-form-servico" style="">
                     <form>
                         <div class="form-icon">
                             <span><i class="icon icon-user"></i></span>
@@ -480,29 +482,29 @@
                     <div id="validationMessage" style="color: red;"></div>
                 </div> -->
 
-                <!-- Serviços mostrar -->
-                <div class="card__form_serv esconder" id="registration-form-mostrar" style="padding: 50px;">
-                    <form>
-                        <div class="form-icon">
-                            <span><i class="icon icon-user"></i></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="destino-form-mostrar" placeholder="Destino" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="ordem-descricao-form-mostrar" placeholder="Descrição" readonly>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control item" id="status-ordem-form-mostrar" placeholder="Status" readonly>
-                        </div>
-                    </form>
-                    <div id="validationMessage" style="color: red;"></div>
-                </div>
+                    <!-- Serviços mostrar -->
+                    <div class="card__form_serv esconder" id="registration-form-mostrar" style="padding: 50px;">
+                        <form>
+                            <div class="form-icon">
+                                <span><i class="icon icon-user"></i></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="destino-form-mostrar" placeholder="Destino" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="ordem-descricao-form-mostrar" placeholder="Descrição" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control item" id="status-ordem-form-mostrar" placeholder="Status" readonly>
+                            </div>
+                        </form>
+                        <div id="validationMessage" style="color: red;"></div>
+                    </div>
 
 
-                <!-- Edição de Servicos -->
-                
-                <!-- <div class="card__form_serv esconder" id="registration-form-editar" style="">
+                    <!-- Edição de Servicos -->
+
+                    <!-- <div class="card__form_serv esconder" id="registration-form-editar" style="">
 
                     <form>
                         <div class="form-icon">
@@ -535,22 +537,22 @@
 
 
 
+                </div>
+            </div>
         </div>
+        <!-- /#Conteúdo -->
+
     </div>
-</div>
-<!-- /#Conteúdo -->
 
-</div>
+    <!-- /#wrapper -->
+    <?php
+    include("../../php/footer.php")
+    ?>
 
-        <!-- /#wrapper -->
-        <?php
-        include("../../php/footer.php")
-        ?>
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script type ="module" src="../js/pagina-perfil/pagina-perfil-voluntario.js"></script>
-        </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="module" src="../js/pagina-perfil/pagina-perfil-voluntario.js"></script>
+    </body>
 
 </html>
