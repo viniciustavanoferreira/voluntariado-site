@@ -210,7 +210,7 @@
 
 
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h2 class="display-6 mb-2" style="color:var(--SecondaryColor);padding-top: 10px;">Olá, <span class="display-user" style="color:#ebac8b;">-UsuariodoBanco-</span></h2>
+                <h2 class="display-6 mb-2" style="color:var(--SecondaryColor);padding-top: 10px;">Olá, <span data-nameuser class="display-user" style="color:#ebac8b;">-UsuariodoBanco-</span></h2>
 
             </div>
             <div class="row g-4">
