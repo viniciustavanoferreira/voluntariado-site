@@ -76,6 +76,12 @@ const bloco = document.getElementById("bloco-perfil");
 const numeroAp = document.getElementById("numero-perfil");
 const telefone = document.getElementById("numero-perfil");
 const idade = document.getElementById("idade-perfil");
+
+
+const nomeApresentacao = document.querySelector("[data-nameuser]");
+console.log(nomeApresentacao.textContent);
+nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
+
 // const assRequerida = document.getElementById("assRequerida-perfil");
 // const condicaoPerfil = document.getElementById("condicao-perfil");
 // const preferencia = document.getElementById("preferencia-perfil");
@@ -258,6 +264,25 @@ function esconderTodosConteudos() {
   }
 };
 
+
+function isLower(char)
+{
+  return (char >= 'a' && char <= 'z');
+}
+
+function isUpper(char)
+{
+  return (char >= 'A' && char <= 'Z');
+}
+
+
+function getFirstName(name)
+{
+  let i = 0;
+  while (isLower(name[i]) || isUpper(name[i]))
+    i++;
+  return(name.substr(0, i));
+}
 
 // evento para dar logout do usuário
 btnSairPerfil.addEventListener("click", () => {
