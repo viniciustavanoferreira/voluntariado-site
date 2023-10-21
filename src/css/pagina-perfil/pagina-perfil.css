@@ -446,11 +446,28 @@ main{
   transition: ease-in-out 0.5s;
   text-align: center; /* Centralize o conteúdo horizontalmente */
   padding: 20px;
+  border-radius: 50px;
+    padding: 10px;
+    /* overflow-y: scroll; */
 }
 
 .card__form_perfil{
   /* flex-direction: column; */
   /*  border: 1px solid red; */
+}
+
+.form-group label {
+  /* position: absolute;
+  top: 10px;
+  left: 10px; */
+  pointer-events: none;
+  color: #777; 
+  transition: 0.2s;
+  transform: translate(0, 0);
+  justify-content: left;
+    display: flex;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 
