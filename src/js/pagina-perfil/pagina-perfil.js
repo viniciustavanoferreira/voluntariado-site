@@ -1,4 +1,9 @@
-import { updateIdoso } from "./connect-api.js";
+import {
+  updateIdoso,
+  createService,
+  updateService,
+  deleteService,
+} from "./connect-api.js";
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -40,19 +45,28 @@ if (!user) {
 // criação de variáveis para armazenar no card dados de serviços do usuário
 user.servicoResponseDTOList.forEach((servico) => {
   console.log(servico);
-  const servicosContainer = document.querySelector(".main__servicos");
-  servicosContainer.innerHTML = `
-  <div class="main__servicos__card" id="make-service${servico.id}">
+  const servicosContainer = document.querySelector("[data-historico]");
+  servicosContainer.innerHTML = "";
+  servicosContainer.innerHTML += `
+  <div class="main__servicos__card " id="${servico.id}">
       <div class="card__text">
           <h4>${servico.destino}</h4>
           <p>${servico.tipoServico}</p>
       </div>
-
-      <div class="card__button" id="btnFazerCard" style="justify-content: center;">
-          <a href="#">Fazer</a>
+      <div class="card__button-group">
+          <div class="card__button" id="btnAceitarServi">
+              <a href="#">Aceitar</a>
+          </div>
+          <div class="card__button" id="btnMostrarServ">
+              <a href="#">Editar</a>
+          </div>
+          <div class="card__button" id="btnEXcluirServ">
+              <a href="#">Rejeitar</a>
+          </div>
       </div>
+  </div>
 
-  </div>`;
+  `;
 });
 
 // ATUALIZAÇÃO
@@ -94,9 +108,29 @@ const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
+const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+
+btnSalvarSenha.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const senha = document.getElementById("nova-senha");
+  const idUsuario = user.usuarioResponseDTO.id;
+
+  // TODO: validar se as senhas são iguais
+  // TODO: validar se a senha antiga está correta
+  // TODO: validar se a senha nova é diferente da antiga
+  // TODO: enviar a senha nova para o backend
+});
+
 // const assRequerida = document.getElementById("assRequerida-perfil");
 // const condicaoPerfil = document.getElementById("condicao-perfil");
 // const preferencia = document.getElementById("preferencia-perfil");
+
+const formServico = document.getElementById("registration-form-servico");
+const buttonMostrarServico = document.querySelector("#button-mostrar-criar");
+
+buttonMostrarServico.addEventListener("click", () => {
+  formServico.classList.remove("esconder");
+});
 
 // associando os valores do usuário logado aos campos do formulário
 function updateForms(user) {
@@ -317,4 +351,35 @@ function getFirstName(name) {
 btnSairPerfil.addEventListener("click", () => {
   localStorage.removeItem("user");
   window.location.href = "./login-cadastro.php";
+});
+
+const servicoDestino = document.getElementById("destino-form");
+const ordemDescricao = document.getElementById("ordem-descricao-form");
+const servicoTipo = document.getElementById("serviceSelect-form");
+const buttonCriarServico = document.querySelector("[data-button-servico]");
+console.log(servicoDestino);
+console.log(ordemDescricao);
+console.log(servicoTipo);
+console.log(buttonCriarServico);
+
+buttonCriarServico.addEventListener("click", async (event) => {
+  event.preventDefault();
+
+  const servico = {
+    tipoServico: servicoTipo.value,
+    dataInicio: new Date().toISOString(),
+    dataFim: new Date().toISOString(),
+    ordem: ordemDescricao.value,
+    destino: servicoDestino.value,
+    status: "PENDENTE",
+    idUsuarioIdoso: user.idosoResponseDTO.id,
+  };
+  console.log(servico);
+  try {
+    const resposta = await createService(servico);
+    alert(resposta.message);
+    window.location.href = "./pagina-perfil-idoso.php";
+  } catch (error) {
+    alert(error.message);
+  }
 });
