@@ -118,20 +118,19 @@ async function createService(servico) {
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify([
-      {
-        id: servico.id,
-        dataHoraFim: servico.dataHoraFim,
-        dataHoraInicio: servico.dataHoraInicio,
-        ordem: servico.ordem,
-        destino: servico.destino,
-        tipoServico: servico.tipoServico,
-        status: servico.status,
-      },
-    ]),
+    body: JSON.stringify({
+      tipoServico: servico.tipoServico,
+      dataInicio: servico.dataInicio,
+      dataFim: servico.dataFim,
+      ordem: servico.ordem,
+      destino: servico.destino,
+      status: servico.status,
+      idUsuarioIdoso: `${servico.idUsuarioIdoso}`,
+    }),
     redirect: "follow",
   };
 
+  console.log(requestOptions);
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
     `https://sistema-voluntariado-backend.onrender.com/v1/api/servico`,

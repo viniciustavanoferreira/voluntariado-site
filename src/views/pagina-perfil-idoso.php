@@ -103,7 +103,7 @@
                             <p>Cadastre seu serviço</p>
                         </div>
                         <div class="card__button" id="btnFazerCard" style="justify-content: center;">
-                            <a href="#">Criar</a>
+                            <a id="button-mostrar-criar" href="#">Criar</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                             Histórico
                     </h2>
 
-                    <div class="container historico-card" style="display:grid; gap:2rem; padding:15px;">
+                    <div class="container historico-card" data-historico style="display:grid; gap:2rem; padding:15px;">
                         <div class="main__servicos__card " id="mostrar-servico-card">
                             <div class="card__text">
                                 <h4>Eustáquio</h4>
@@ -339,45 +339,45 @@
                             </div>
 
                             <div class="form-group">
-                            <label for="usuario-perfil-display">Usuário:</label>
-                            <input type="text" class="form-control item" id="usuario-perfil-display" placeholder="Usuário" readonly>
-                                
+                                <label for="usuario-perfil-display">Usuário:</label>
+                                <input type="text" class="form-control item" id="usuario-perfil-display" placeholder="Usuário" readonly>
+
                             </div>
                             <div class="form-group">
-                            <label for="nome-perfil-display">Nome:</label>
+                                <label for="nome-perfil-display">Nome:</label>
                                 <input type="text" class="form-control item" id="nome-perfil-display" placeholder="Nome" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="email-perfil-display">E-mail:</label>
+                                <label for="email-perfil-display">E-mail:</label>
                                 <input type="text" class="form-control item" id="email-perfil-display" placeholder="E-mail" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="telefone-perfil-display">Telefone:</label>
+                                <label for="telefone-perfil-display">Telefone:</label>
                                 <input type="text" class="form-control item" id="numero-perfil-display" placeholder="Telefone" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="endereco-perfil-display">Endereço</label>
+                                <label for="endereco-perfil-display">Endereço</label>
                                 <input type="text" class="form-control item" id="endereço-perfil-display" placeholder="Endereço" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="bloco-perfil-display">Bloco:</label>
+                                <label for="bloco-perfil-display">Bloco:</label>
                                 <input type="text" class="form-control item" id="bloco-perfil-display" placeholder="Bloco" readonly>
                             </div>
 
                             <div class="form-group">
-                            <label for="numerocasa-perfil-display">Número:</label>
+                                <label for="numerocasa-perfil-display">Número:</label>
                                 <input type="text" class="form-control item" id="numerocasa-perfil-display" placeholder="Número" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="bairro-perfil-display">Bairro:</label>
+                                <label for="bairro-perfil-display">Bairro:</label>
                                 <input type="text" class="form-control item" id="bairro-perfil-display" placeholder="Bairro" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="cidade-perfil-display">Cidade:</label>
+                                <label for="cidade-perfil-display">Cidade:</label>
                                 <input type="text" class="form-control item" id="cidade-perfil-display" placeholder="Cidade" readonly>
                             </div>
                             <div class="form-group">
-                            <label for="estado-perfil-display">Estado:</label>
+                                <label for="estado-perfil-display">Estado:</label>
                                 <input type="text" class="form-control item" id="estado-perfil-display" placeholder="Estado" readonly>
                             </div>
                             <!-- <div class="form-group">
@@ -397,44 +397,44 @@
                                 <span><img class="logo-img" src="../img/et.png" alt="Foto do usuário" style="margin: 20px;"></span>
                             </div>
                             <div class="form-group">
-                            <label for="usuario-perfil-display">Novo Usuário:</label>
+                                <label for="usuario-perfil-display">Novo Usuário:</label>
                                 <input type="text" class="form-control item" id="usuario-perfil" placeholder="Usuário">
                             </div>
                             <div class="form-group">
-                            <label for="nome-perfil-display">Novo Nome:</label>
+                                <label for="nome-perfil-display">Novo Nome:</label>
                                 <input type="text" class="form-control item" id="nome-perfil" placeholder="Nome">
                             </div>
                             <div class="form-group">
-                            <label for="email-perfil-display">Novo E-mail:</label>
+                                <label for="email-perfil-display">Novo E-mail:</label>
                                 <input type="text" class="form-control item" id="email-perfil" placeholder="E-mail">
                             </div>
                             <div class="form-group">
-                            <label for="telefone-perfil-display">Novo Telefone:</label>
+                                <label for="telefone-perfil-display">Novo Telefone:</label>
                                 <input type="text" class="form-control item" id="numero-perfil" placeholder="Telefone">
                             </div>
                             <div class="form-group">
-                            <label for="endereco-perfil-display">Novo Endereço</label>
+                                <label for="endereco-perfil-display">Novo Endereço</label>
                                 <input type="text" class="form-control item" id="endereço-perfil" placeholder="Endereço">
                             </div>
                             <div class="form-group">
-                            <label for="bloco-perfil-display">Novo Bloco:</label>
+                                <label for="bloco-perfil-display">Novo Bloco:</label>
                                 <input type="text" class="form-control item" id="bloco-perfil" placeholder="Bloco">
                             </div>
 
                             <div class="form-group">
-                            <label for="numerocasa-perfil-display">Novo Numero:</label>
+                                <label for="numerocasa-perfil-display">Novo Numero:</label>
                                 <input type="text" class="form-control item" id="numerocasa-perfil" placeholder="Número">
                             </div>
                             <div class="form-group">
-                            <label for="bairro-perfil-display">Novo Bairro:</label>
+                                <label for="bairro-perfil-display">Novo Bairro:</label>
                                 <input type="text" class="form-control item" id="bairro-perfil" placeholder="Bairro">
                             </div>
                             <div class="form-group">
-                            <label for="cidade-perfil-display">Nova Cidade:</label>
+                                <label for="cidade-perfil-display">Nova Cidade:</label>
                                 <input type="text" class="form-control item" id="cidade-perfil" placeholder="Cidade">
                             </div>
                             <div class="form-group">
-                            <label for="estado-perfil-display">Novo Estado:</label>
+                                <label for="estado-perfil-display">Novo Estado:</label>
                                 <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado">
                             </div>
                             <!-- <div class="form-group">
@@ -477,18 +477,18 @@
                             <div class="form-group">
                                 <input type="text" class="form-control item" id="ordem-descricao-form" placeholder="Descrição">
                             </div>
-                            [<div class="form-group">
+                            <div class="form-group">
                                 <label for="serviceSelect-form">Selecione o Serviço:</label>
                                 <select id="serviceSelect-form" class="form-control" style="background-color:#fdf5eb;">
-                                    <option value="1">Lâmpadas</option>
-                                    <option value="2">Pequenos Reparos</option>
-                                    <option value="3">Passeio</option>
-                                    <option value="4">Outros Serviços</option>
+                                    <option value="lampada">Lâmpadas</option>
+                                    <option value="pequenos reparos">Pequenos Reparos</option>
+                                    <option value="passeio">Passeio</option>
+                                    <option value="outros">Outros Serviços</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <button type="button" class="btn btn-block create-account">Salvar</button>
+                                <button type="button" data-button-servico class="btn btn-block create-account">Salvar</button>
                             </div>
 
                         </form>
