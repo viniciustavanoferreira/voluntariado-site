@@ -3,6 +3,7 @@ import {
   createService,
   updateService,
   deleteService,
+  buscarUsuario,
 } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -332,6 +333,90 @@ function esconderTodosConteudos() {
     editarServiçoCard.classList.add("esconder");
   }
 }
+
+// buscar usuário
+
+const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
+const searchInput = document.getElementById("search-input");
+const userListContainer = document.getElementById("user-list-container");
+
+btnBuscarUsuario.addEventListener("click", async () => {
+  const searchTerm = searchInput.value;
+  try {
+    const userData = await buscarUsuario(searchTerm);
+
+    // Limpa os resultados anteriores
+    userListContainer.innerHTML = "";
+
+    // match em input e usuario correspondido
+
+    const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
+
+    //display para exibição do usuario correspondente
+    if (usuarioCorrespondente) {
+      const elementoUsuario = document.createElement("div");
+      elementoUsuario.className = "item-usuario"; 
+      elementoUsuario.innerHTML = `
+        <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
+        <h3>${usuarioCorrespondente.nome}</h3>
+        <p>Email: ${usuarioCorrespondente.email}</p>
+        
+      `;
+      userListContainer.appendChild(elementoUsuario);
+    } else {
+      userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+// const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
+// const placeholderInput = document.getElementById("search-input");
+// const userListContainer = document.getElementById("user-list-container");
+
+// btnBuscarUsuario.addEventListener("click", async () => {
+//   const username = placeholderInput.value;
+
+//   try {
+//     const userData = await buscarUsuario(username);
+    
+//     // Limpa os resultados anteriores
+//     userListContainer.innerHTML = "";
+
+//     if (userData.length === 0) {
+//         userListContainer.innerHTML = "Nenhum usuário encontrado.";
+//     } else {
+//         userData.forEach((usuario) => {
+//             const elementoUsuario = document.createElement("div");
+//             elementoUsuario.className = "item-usuario"; 
+//             elementoUsuario.innerHTML = `
+//                 <img src="${usuario.imagemPerfil}" alt="${usuario.nome}">
+//                 <h3>${usuario.nome}</h3>
+//                 <p>Email: ${usuario.email}</p>
+//                 <!-- Adicione mais dados do usuário aqui, conforme necessário -->
+//             `;
+
+//             userListContainer.appendChild(elementoUsuario);
+//         });
+//     }
+// } catch (error) {
+//     console.error(error.message);
+// }
+//   try {
+//     const userData = await buscarUsuario(username);
+    
+//     console.log(userData);
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// });
+
+
+
+
+
+// display do nome do usuário no bemvindoContainer
 
 function isLower(char) {
   return char >= "a" && char <= "z";

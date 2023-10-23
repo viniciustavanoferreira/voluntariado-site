@@ -1,4 +1,5 @@
 import { updateVoluntario } from "./connect-api.js";
+import { buscarUsuario } from "./connect-api.js";
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -53,6 +54,24 @@ const estado = document.getElementById("estado-perfil");
 const complemento = document.getElementById("complemento-perfil");
 const bloco = document.getElementById("bloco-perfil");
 const numeroAp = document.getElementById("numero-perfil");
+
+const nomeApresentacao = document.querySelector("[data-nameuser]");
+console.log(nomeApresentacao.textContent);
+nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
+
+const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+
+btnSalvarSenha.addEventListener("click", async (event) => {
+  event.preventDefault();
+  const senha = document.getElementById("nova-senha");
+  const idUsuario = user.usuarioResponseDTO.id;
+
+  // TODO: validar se as senhas são iguais
+  // TODO: validar se a senha antiga está correta
+  // TODO: validar se a senha nova é diferente da antiga
+  // TODO: enviar a senha nova para o backend
+});
+
 const telefone = document.getElementById("telefone-perfil");
 const idade = document.getElementById("idade-perfil");
 const assRequerida = document.getElementById("assRequerida-perfil");
@@ -72,10 +91,10 @@ estado.value = user.usuarioResponseDTO.estado;
 // complemento.value = user.usuarioResponseDTO.complemento;
 numeroAp.value = user.usuarioResponseDTO.numeroAp;
 bloco.value = user.usuarioResponseDTO.bloco;
-telefone.value = user.usuarioResponseDTO.telefone;
-idade.value = user.usuarioResponseDTO.idade;
-habilidade.value= user.usuarioResponseDTO.habilidade;
-preferencia.value= user.usuarioResponseDTO.habilidade;
+// telefone.value = user.usuarioResponseDTO.telefone;
+// idade.value = user.usuarioResponseDTO.idade;
+// habilidade.value= user.usuarioResponseDTO.habilidade;
+// preferencia.value= user.usuarioResponseDTO.habilidade;
 // idade.value = user.idosoResponseDTO.dataNascimento;
 
 
@@ -100,11 +119,11 @@ form.addEventListener("submit", async (event) => {
       complemento: complemento.value,
       bloco: bloco.value,
       numeroAp: numeroAp.value,
-      telefone: telefone.value,
+      // telefone: telefone.value,
       dataNascimento: user.usuarioResponseDTO.dataNascimento,
       perfil: user.usuarioResponseDTO.perfil,
       disponibilidade: user.usuarioResponseDTO.disponibilidade,
-      idade: user.usuarioResponseDTO.idade
+      // idade: user.usuarioResponseDTO.idade
     },
   };
   console.log(cadastro);
@@ -199,6 +218,61 @@ buttons.forEach((button, index) => {
     });
   }
 });
+
+
+// função para a chamada do usuario no bemvindoContainer
+
+function isLower(char) {
+  return char >= "a" && char <= "z";
+}
+
+function isUpper(char) {
+  return char >= "A" && char <= "Z";
+}
+
+function getFirstName(name) {
+  let i = 0;
+  while (isLower(name[i]) || isUpper(name[i])) i++;
+  return name.substr(0, i);
+}
+
+// buscar usuário
+
+const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
+const searchInput = document.getElementById("search-input");
+const userListContainer = document.getElementById("user-list-container");
+
+btnBuscarUsuario.addEventListener("click", async () => {
+  const searchTerm = searchInput.value;
+  try {
+    const userData = await buscarUsuario(searchTerm);
+
+    // Limpa os resultados anteriores
+    userListContainer.innerHTML = "";
+
+    // match em input e usuario correspondido
+
+    const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
+
+    //display para exibição do usuario correspondente
+    if (usuarioCorrespondente) {
+      const elementoUsuario = document.createElement("div");
+      elementoUsuario.className = "item-usuario"; 
+      elementoUsuario.innerHTML = `
+        <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
+        <h3>${usuarioCorrespondente.nome}</h3>
+        <p>Email: ${usuarioCorrespondente.email}</p>
+        
+      `;
+      userListContainer.appendChild(elementoUsuario);
+    } else {
+      userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 
 
 

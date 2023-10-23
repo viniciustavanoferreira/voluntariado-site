@@ -211,6 +211,35 @@ async function deleteService(servico) {
   return conexaoResposta;
 }
 
+// fazendo busca de usuario
+
+async function buscarUsuario(username) {
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+
+  try {
+    const resposta = await fetch(
+      `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario?usuario=${username}`,
+      requestOptions
+    );
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao encontrar este usuário, por favor tente novamente dentro de alguns minutos");
+    }
+
+    const userData = await resposta.json();
+    return userData;
+  } catch (error) {
+    throw error;
+  }
+
+}
+
+
 // exportando constante que terá as funções de login e register para uso do js que manipulará a pagina login-main
 export {
   updateIdoso,
@@ -218,4 +247,5 @@ export {
   createService,
   updateService,
   deleteService,
+  buscarUsuario,
 };

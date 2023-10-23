@@ -201,10 +201,16 @@
             <div class="form-outline">
                 <input id="search-input" type="search" class="form-control" placeholder="Buscar Usuário" />
             </div>
-            <button id="search-button" type="button" class="btn btn-primary">
+            <button id="btnBuscar-usuario" type="button" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
+            
         </div>
+
+        <div id="user-list-container" style=" display: flex;
+    justify-content: flex-end;">
+                <!-- Os itens da lista de usuários serão adicionados aqui -->
+            </div>
 
         <div class="container">
 
