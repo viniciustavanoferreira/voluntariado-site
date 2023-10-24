@@ -214,7 +214,11 @@
         </div>
         <div id="user-list-container" style=" display: flex;
             justify-content: flex-end;">
-            
+            <div id= "item-usuario">
+                <div id="data-usuario">
+                    
+                </div>
+            </div>
         </div>
 
         <div class="container">
