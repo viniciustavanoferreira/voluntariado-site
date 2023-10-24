@@ -399,7 +399,7 @@ searchInput.addEventListener("input", async (event) => {
         elementoUsuario.innerHTML = `
           <img src="${usuario.imagemPerfil}" alt="${usuario.nome}">
           <h3>${usuario.nome}</h3>
-          <p>Email: ${usuario.email}</p>
+          
          
         `;
 
