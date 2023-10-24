@@ -44,10 +44,12 @@ if (!user) {
 }
 
 // criação de variáveis para armazenar no card dados de serviços do usuário
+const servicosContainer = document.querySelector("[data-historico]");
+servicosContainer.innerHTML = "";
 user.servicoResponseDTOList.forEach((servico) => {
   console.log(servico);
-  const servicosContainer = document.querySelector("[data-historico]");
-  servicosContainer.innerHTML = "";
+  
+  // servicosContainer.innerHTML = "";
   servicosContainer.innerHTML += `
   <div class="main__servicos__card " id="${servico.id}">
       <div class="card__text">
@@ -544,7 +546,7 @@ buttonCriarServico.addEventListener("click", async (event) => {
     ordem: ordemDescricao.value,
     destino: servicoDestino.value,
     status: "PENDENTE",
-    idUsuarioIdoso: user.idosoResponseDTO.id,
+    usuario: user.usuarioResponseDTO.usuario,
   };
   console.log(servico);
   try {
