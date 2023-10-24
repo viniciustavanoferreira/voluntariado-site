@@ -204,13 +204,19 @@
             <button id="btnBuscar-usuario" type="button" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
-            
+
         </div>
 
         <div id="user-list-container" style=" display: flex;
     justify-content: flex-end;">
-                <!-- Os itens da lista de usuários serão adicionados aqui -->
+            <div class="item-usuario" data-usuario="nome-usuario-1">
+                <!-- Conteúdo do elemento de usuário -->
             </div>
+            <div class="item-usuario" data-usuario="nome-usuario-2">
+                <!-- Conteúdo do elemento de usuário -->
+            </div>
+
+        </div>
 
         <div class="container">
 

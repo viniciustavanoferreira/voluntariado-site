@@ -340,8 +340,9 @@ const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 const searchInput = document.getElementById("search-input");
 const userListContainer = document.getElementById("user-list-container");
 
+// evento ao clickar 
 btnBuscarUsuario.addEventListener("click", async () => {
-  const searchTerm = searchInput.value;
+  const searchTerm = searchInput.value.toLowerCase();
   try {
     const userData = await buscarUsuario(searchTerm);
 
@@ -351,7 +352,7 @@ btnBuscarUsuario.addEventListener("click", async () => {
     // match em input e usuario correspondido
 
     const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
-
+    
     //display para exibição do usuario correspondente
     if (usuarioCorrespondente) {
       const elementoUsuario = document.createElement("div");
@@ -370,6 +371,92 @@ btnBuscarUsuario.addEventListener("click", async () => {
     console.error(error.message);
   }
 });
+
+//exibição dos matchs de input e usuário
+
+searchInput.addEventListener("input", async (event) => {
+  try {
+    // conexao e declaração para lowercase
+    const buscarInput = searchInput.value.toLowerCase();
+    const userData = await buscarUsuario(buscarInput);
+
+    // Realize a busca com base no valor do campo de pesquisa
+    const filtroUsuario = userData.filter((usuario) =>
+      usuario.usuario.toLowerCase().includes(buscarInput)
+    );
+
+    userListContainer.innerHTML = "";
+
+
+    // se 0, zero
+    if (filtroUsuario.length === 0) {
+      userListContainer.innerHTML = "Nenhum usuário encontrado";
+    } else {
+      // se existir, loop para pegar os elementos para cada usuario correspodente
+      filtroUsuario.forEach((usuario) => {
+        const elementoUsuario = document.createElement("div");
+        elementoUsuario.className = "item-usuario";
+        elementoUsuario.innerHTML = `
+          <img src="${usuario.imagemPerfil}" alt="${usuario.nome}">
+          <h3>${usuario.nome}</h3>
+          <p>Email: ${usuario.email}</p>
+         
+        `;
+
+        userListContainer.appendChild(elementoUsuario);
+      });
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+// Event listener para lidar com o clique em um usuário
+
+userListContainer.addEventListener("click", async (event) => {
+  const clickedElement = event.target;
+
+  
+  if (clickedElement.classList.contains("item-usuario")) {
+    
+    const userName = clickedElement.getAttribute("data-usuario");
+
+    try {
+     
+      const userData = await buscarUsuario(userName);
+
+      console.log(userData);
+
+      // Preencha os campos do formulário com os dados do usuário
+      document.getElementById("usuario-perfil-display").value = userData.usuario;
+      document.getElementById("nome-perfil-display").value = userData.nome;
+      document.getElementById("email-perfil-display").value = userData.email;
+      document.getElementById("numero-perfil-display").value = userData.telefone;
+      document.getElementById("endereço-perfil-display").value = userData.endereco;
+      document.getElementById("bloco-perfil-display").value = userData.bloco;
+      document.getElementById("numerocasa-perfil-display").value = userData.numeroCasa;
+      document.getElementById("bairro-perfil-display").value = userData.bairro;
+      document.getElementById("cidade-perfil-display").value = userData.cidade;
+      document.getElementById("estado-perfil-display").value = userData.estado;
+
+      // Tornar o formulário visível (removendo a classe 'esconder')
+      const perfilForm = document.getElementById("registration-form-perfil-display");
+      perfilForm.classList.remove('esconder');
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
 
 // const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 // const placeholderInput = document.getElementById("search-input");
