@@ -123,7 +123,7 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#"> Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnMostrarServ">
                                     <a href="#">Editar</a>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnEditarServi">
                                     <a href="#">Editar</a>
@@ -206,18 +206,18 @@
             </button>
 
         </div>
+        <div class="user-list-controller" style="justify-content: flex-end;">
+            <div id="user-list-container" style=" display: flex;
+    ">
+                <div class="item-usuario" data-usuario="nome-usuario-1">
+                    <!-- Conteúdo do elemento de usuário -->
+                </div>
+                <div class="item-usuario" data-usuario="nome-usuario-2">
+                    <!-- Conteúdo do elemento de usuário -->
+                </div>
 
-        <div id="user-list-container" style=" display: flex;
-    justify-content: flex-end;">
-            <div class="item-usuario" data-usuario="nome-usuario-1">
-                <!-- Conteúdo do elemento de usuário -->
             </div>
-            <div class="item-usuario" data-usuario="nome-usuario-2">
-                <!-- Conteúdo do elemento de usuário -->
-            </div>
-
         </div>
-
         <div class="container">
 
 
