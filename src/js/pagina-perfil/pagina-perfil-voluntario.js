@@ -55,6 +55,21 @@ const complemento = document.getElementById("complemento-perfil");
 const bloco = document.getElementById("bloco-perfil");
 const numeroAp = document.getElementById("numero-perfil");
 
+const usernickRead = document.getElementById("usuario-perfil-display");
+const usernameRead = document.getElementById("nome-perfil-display");
+console.log(usernameRead);
+const emailRead = document.getElementById("email-perfil-display");
+// const cepRead = document.getElementById("cep-perfil-display");
+const enderecoRead = document.getElementById("endereço-perfil-display");
+const bairroRead = document.getElementById("bairro-perfil-display");
+const cidadeRead = document.getElementById("cidade-perfil-display");
+const estadoRead = document.getElementById("estado-perfil-display");
+// const complementoRead = document.getElementById("complemento-perfil-display");
+const blocoRead = document.getElementById("bloco-perfil-display");
+const numeroApRead = document.getElementById("numerocasa-perfil-display");
+const telefoneRead = document.getElementById("numero-perfil-display");
+// const idadeRead = document.getElementById("idade-perfil-display");
+
 const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
@@ -80,24 +95,46 @@ const habilidade = document.getElementById("habilidade-perfil");
 const preferencia = document.getElementById("preferencia-perfil");
 
 // associando os valores do usuário logado aos campos do formulário
-usernick.value = user.usuarioResponseDTO.usuario;
-username.value = user.usuarioResponseDTO.nome;
-email.value = user.usuarioResponseDTO.email;
-// cep.value = user.usuarioResponseDTO.cep;
-endereco.value = user.usuarioResponseDTO.endereco;
-bairro.value = user.usuarioResponseDTO.bairro;
-cidade.value = user.usuarioResponseDTO.cidade;
-estado.value = user.usuarioResponseDTO.estado;
-// complemento.value = user.usuarioResponseDTO.complemento;
-numeroAp.value = user.usuarioResponseDTO.numeroAp;
-bloco.value = user.usuarioResponseDTO.bloco;
-// telefone.value = user.usuarioResponseDTO.telefone;
-// idade.value = user.usuarioResponseDTO.idade;
-// habilidade.value= user.usuarioResponseDTO.habilidade;
-// preferencia.value= user.usuarioResponseDTO.habilidade;
-// idade.value = user.idosoResponseDTO.dataNascimento;
+function updateForms(user) {
+  usernick.value = user.usuarioResponseDTO.usuario;
+  username.value = user.usuarioResponseDTO.nome;
+  email.value = user.usuarioResponseDTO.email;
+  // cep.value = user.usuarioResponseDTO.cep;
+  endereco.value = user.usuarioResponseDTO.endereco;
+  // console.log(endereco);
+  bairro.value = user.usuarioResponseDTO.bairro;
+  cidade.value = user.usuarioResponseDTO.cidade;
+  estado.value = user.usuarioResponseDTO.estado;
+  // complemento.value = user.usuarioResponseDTO.complemento;
+  numeroAp.value = user.usuarioResponseDTO.numeroAp;
+  bloco.value = user.usuarioResponseDTO.bloco;
+  // telefone.value = user.usuarioResponseDTO.telefone;
+  // idade.value = user.usuarioResponseDTO.idade;
+  // assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
+  // condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
+
+  usernickRead.value = user.usuarioResponseDTO.usuario;
+  usernameRead.value = user.usuarioResponseDTO.nome;
+  emailRead.value = user.usuarioResponseDTO.email;
+  // cepRead.value = user.usuarioResponseDTO.cep;
+  enderecoRead.value = user.usuarioResponseDTO.endereco;
+  bairroRead.value = user.usuarioResponseDTO.bairro;
+  cidadeRead.value = user.usuarioResponseDTO.cidade;
+  estadoRead.value = user.usuarioResponseDTO.estado;
+  // complementoRead.value = user.usuarioResponseDTO.complemento;
+  numeroApRead.value = user.usuarioResponseDTO.numeroAp;
+  blocoRead.value = user.usuarioResponseDTO.bloco;
+  telefoneRead.value = user.usuarioResponseDTO.telefone;
+  // idadeRead.value = user.usuarioResponseDTO.idade;
+  // idadeRead.value = user.idosoResponseDTO.dataNascimento;
+  // assRequeridaRead.value = user.idosoResponseDTO.assistenciaRequerida;
+  // condicaoPerfilRead.value = user.idosoResponseDTO.condicaoSaude;
+}
+updateForms(user);
 
 
+
+// card para atualização
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -126,13 +163,16 @@ form.addEventListener("submit", async (event) => {
       // idade: user.usuarioResponseDTO.idade
     },
   };
-  console.log(cadastro);
   try {
     // constante que vai armazenar a resposta da requisição
     const resposta = await updateVoluntario(cadastro);
-    console.log(resposta);
+    user.usuarioResponseDTO = cadastro.usuarioResponseDTO;
+    user.idosoResponseDTO = cadastro.voluntarioRespondeDTO;
+    localStorage.setItem("user", JSON.stringify(user));
+    updateForms(user);
+    alert(resposta.message);
     // redirecionamento para a página de perfil
-    window.location.href = "./pagina-perfil-voluntario.php";
+    // window.location.href = "./pagina-perfil-idoso.php";
   } catch (error) {
     // mensagem de erro caso a requisição não seja feita
     alert(error.message);
@@ -242,39 +282,39 @@ const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 const searchInput = document.getElementById("search-input");
 const userListContainer = document.getElementById("user-list-container");
 
-btnBuscarUsuario.addEventListener("click", async () => {
-  const searchTerm = searchInput.value;
-  try {
-    const userData = await buscarUsuario(searchTerm);
+// btnBuscarUsuario.addEventListener("click", async () => {
+//   const searchTerm = searchInput.value;
+//   try {
+//     const userData = await buscarUsuario(searchTerm);
 
-    // Limpa os resultados anteriores
-    userListContainer.innerHTML = "";
+//     // Limpa os resultados anteriores
+//     userListContainer.innerHTML = "";
 
-    // match em input e usuario correspondido
+//     // match em input e usuario correspondido
 
-    const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
+//     const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
 
-    //display para exibição do usuario correspondente
-    if (usuarioCorrespondente) {
-      const elementoUsuario = document.createElement("div");
-      elementoUsuario.className = "item-usuario"; 
-      elementoUsuario.innerHTML = `
-        <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
-        <h3>${usuarioCorrespondente.nome}</h3>
-        <p>Email: ${usuarioCorrespondente.email}</p>
+//     //display para exibição do usuario correspondente
+//     if (usuarioCorrespondente) {
+//       const elementoUsuario = document.createElement("div");
+//       elementoUsuario.className = "item-usuario"; 
+//       elementoUsuario.innerHTML = `
+//         <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
+//         <h3>${usuarioCorrespondente.nome}</h3>
+//         <p>Email: ${usuarioCorrespondente.email}</p>
         
-      `;
-      userListContainer.appendChild(elementoUsuario);
-    } else {
-      userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
-    }
-  } catch (error) {
-    console.error(error.message);
-  }
-});
+//       `;
+//       userListContainer.appendChild(elementoUsuario);
+//     } else {
+//       userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
+//     }
+//   } catch (error) {
+//     console.error(error.message);
+//   }
+// });
 
 
-
+// evento logout
 
 btnSairPerfil.addEventListener("click", () => {
   console.log("Clicou");

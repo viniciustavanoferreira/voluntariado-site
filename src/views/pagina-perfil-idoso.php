@@ -123,7 +123,7 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#"> Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnMostrarServ">
                                     <a href="#">Editar</a>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="card__button-group">
                                 <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Aceitar</a>
+                                    <a href="#">Inutil</a>
                                 </div>
                                 <div class="card__button" id="btnEditarServi">
                                     <a href="#">Editar</a>
