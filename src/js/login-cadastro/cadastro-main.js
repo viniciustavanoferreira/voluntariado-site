@@ -145,7 +145,7 @@ function setForm() {
     numeroAp: numeroAp.value || " ",
     telefone: telefone.value,
     dataNascimento: new Date(dataNasc.value).toISOString(),
-    perfil: registerType,
+    perfil: registerType.toUpperCase(),
     disponibilidade: disponibilidade.value,
   };
 

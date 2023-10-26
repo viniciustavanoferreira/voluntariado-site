@@ -46,7 +46,7 @@ if (!user) {
 // criação de variáveis para armazenar no card dados de serviços do usuário
 const servicosContainer = document.querySelector("[data-historico]");
 servicosContainer.innerHTML = "";
-user.servicoResponseDTOList.forEach((servico) => {
+user.servicoResponseDTOList?.forEach((servico) => {
   console.log(servico);
   
   // servicosContainer.innerHTML = "";
@@ -56,21 +56,40 @@ user.servicoResponseDTOList.forEach((servico) => {
           <h4>${servico.destino}</h4>
           <p>${servico.tipoServico}</p>
       </div>
-      <div class="card__button-group">
-          <div class="card__button" id="btnAceitarServi">
-              <a href="#">Aceitar</a>
-          </div>
+      <div id='${servico.id}' class="card__button-group">
           <div class="card__button" id="btnMostrarServ">
-              <a href="#">Editar</a>
+              <a data-alterar href="#">Editar</a>
           </div>
           <div class="card__button" id="btnEXcluirServ">
-              <a href="#">Rejeitar</a>
+              <a data-deletar href="#">Rejeitar</a>
           </div>
       </div>
   </div>
 
   `;
 });
+
+const alterarServicos = document.querySelectorAll("[data-alterar]");
+const deletarServicos = document.querySelectorAll("[data-deletar]");
+console.log(alterarServicos);
+console.log(deletarServicos);
+
+alterarServicos.forEach(servico => {
+  console.log(servico.parentElement.parentElement.id);
+  servico.addEventListener('click', event => {
+    event.preventDefault();
+    console.log("click alterar")
+  })
+})
+
+deletarServicos.forEach(servico => {
+  console.log(servico.parentElement.parentElement.id);
+  servico.addEventListener('click', event => {
+    event.preventDefault();
+    console.log("click deletar")
+    // deletarServicos();
+  })
+})
 
 // ATUALIZAÇÃO
 
@@ -132,6 +151,7 @@ const formServico = document.getElementById("registration-form-servico");
 const buttonMostrarServico = document.querySelector("#button-mostrar-criar");
 
 buttonMostrarServico.addEventListener("click", () => {
+  esconderTodosConteudos();
   formServico.classList.remove("esconder");
 });
 
@@ -551,7 +571,11 @@ buttonCriarServico.addEventListener("click", async (event) => {
   console.log(servico);
   try {
     const resposta = await createService(servico);
-    alert(resposta.message);
+    console.log(resposta);
+    user.servicoResponseDTOList ? user.servicoResponseDTOList.push(resposta) : user.servicoResponseDTOList = [resposta];
+    console.log(user.servicoResponseDTOList);
+    localStorage.setItem("user", JSON.stringify(user));
+    alert("Serviço criado com sucesso");
     window.location.href = "./pagina-perfil-idoso.php";
   } catch (error) {
     alert(error.message);
