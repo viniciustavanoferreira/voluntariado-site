@@ -45,51 +45,74 @@ if (!user) {
 
 // criação de variáveis para armazenar no card dados de serviços do usuário
 const servicosContainer = document.querySelector("[data-historico]");
-servicosContainer.innerHTML = "";
-user.servicoResponseDTOList?.forEach((servico) => {
-  console.log(servico);
-  
-  // servicosContainer.innerHTML = "";
-  servicosContainer.innerHTML += `
-  <div class="main__servicos__card " id="${servico.id}">
-      <div class="card__text">
-          <h4>${servico.destino}</h4>
-          <p>${servico.tipoServico}</p>
-      </div>
-      <div id='${servico.id}' class="card__button-group">
-          <div class="card__button" id="btnMostrarServ">
-              <a data-alterar href="#">Editar</a>
-          </div>
-          <div class="card__button" id="btnEXcluirServ">
-              <a data-deletar href="#">Rejeitar</a>
-          </div>
-      </div>
-  </div>
+function putServicos() {
+  servicosContainer.innerHTML = "";
+  user.servicoResponseDTOList?.forEach((servico) => {
+    console.log(servico);
 
-  `;
-});
+    // servicosContainer.innerHTML = "";
+    servicosContainer.innerHTML += `
+    <div class="main__servicos__card " id="${servico.id}">
+        <div class="card__text">
+            <h4>${servico.destino}</h4>
+            <p>${servico.tipoServico}</p>
+        </div>
+        <div id='${servico.id}' class="card__button-group">
+            <div class="card__button" id="btnMostrarServ">
+                <a data-alterar href="#">Editar</a>
+            </div>
+            <div class="card__button" id="btnEXcluirServ">
+                <a data-deletar href="#">Rejeitar</a>
+            </div>
+        </div>
+    </div>
 
-const alterarServicos = document.querySelectorAll("[data-alterar]");
-const deletarServicos = document.querySelectorAll("[data-deletar]");
-console.log(alterarServicos);
-console.log(deletarServicos);
+    `;
+  });
+}
+function putEventosServicos() {
+  const alterarServicos = document.querySelectorAll("[data-alterar]");
+  const deletarServicos = document.querySelectorAll("[data-deletar]");
+  console.log(alterarServicos);
+  console.log(deletarServicos);
 
-alterarServicos.forEach(servico => {
-  console.log(servico.parentElement.parentElement.id);
-  servico.addEventListener('click', event => {
-    event.preventDefault();
-    console.log("click alterar")
-  })
-})
+  alterarServicos.forEach((servico) => {
+    const idServico = Number(servico.parentElement.parentElement.id);
+    console.log(servico.parentElement.parentElement.id);
+    const servicoSelecionado = user.servicoResponseDTOList.find(
+      (s) => s.id === idServico
+    );
 
-deletarServicos.forEach(servico => {
-  console.log(servico.parentElement.parentElement.id);
-  servico.addEventListener('click', event => {
-    event.preventDefault();
-    console.log("click deletar")
-    // deletarServicos();
-  })
-})
+    servico.addEventListener("click", (event) => {
+      event.preventDefault();
+      console.log("click alterar");
+      console.log(servicoSelecionado);
+    });
+  });
+
+  deletarServicos.forEach((servico) => {
+    const idServico = Number(servico.parentElement.parentElement.id);
+    // console.log(servico.parentElement.parentElement.id);
+    servico.addEventListener("click", async (event) => {
+      event.preventDefault();
+      console.log("click deletar");
+      console.log(idServico);
+      try {
+        const deletar = await deleteService(idServico);
+        alert("Serviço deletado com sucesso");
+        user.servicoResponseDTOList = user.servicoResponseDTOList.filter(
+          (s) => s.id !== idServico
+        );
+        putServicos();
+        putEventosServicos();
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  });
+}
+putServicos();
+putEventosServicos();
 
 // ATUALIZAÇÃO
 
@@ -124,7 +147,7 @@ const estadoRead = document.getElementById("estado-perfil-display");
 const blocoRead = document.getElementById("bloco-perfil-display");
 const numeroApRead = document.getElementById("numerocasa-perfil-display");
 const telefoneRead = document.getElementById("numero-perfil-display");
-// const idadeRead = document.getElementById("idade-perfil-display");
+const idadeRead = document.getElementById("idade-perfil-display");
 
 const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
@@ -143,6 +166,25 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   // TODO: enviar a senha nova para o backend
 });
 
+// função que calcula idade
+function calcularIdadePorISOString(dataNascimentoISO) {
+  const hoje = new Date();
+  const dataNasc = new Date(dataNascimentoISO);
+
+  let idade = hoje.getFullYear() - dataNasc.getFullYear();
+  const mesAtual = hoje.getMonth();
+  const mesNasc = dataNasc.getMonth();
+
+  // Verificar se já fez aniversário neste ano
+  if (
+    mesAtual < mesNasc ||
+    (mesAtual === mesNasc && hoje.getDate() < dataNasc.getDate())
+  ) {
+    idade--;
+  }
+
+  return idade;
+}
 // const assRequerida = document.getElementById("assRequerida-perfil");
 // const condicaoPerfil = document.getElementById("condicao-perfil");
 // const preferencia = document.getElementById("preferencia-perfil");
@@ -170,7 +212,9 @@ function updateForms(user) {
   numeroAp.value = user.usuarioResponseDTO.numeroAp;
   bloco.value = user.usuarioResponseDTO.bloco;
   telefone.value = user.usuarioResponseDTO.telefone;
-  // idade.value = user.usuarioResponseDTO.idade;
+  // idade.value = calcularIdadePorISOString(
+  //   user.usuarioResponseDTO.dataNascimento
+  // );
   // assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
 
@@ -186,7 +230,7 @@ function updateForms(user) {
   numeroApRead.value = user.usuarioResponseDTO.numeroAp;
   blocoRead.value = user.usuarioResponseDTO.bloco;
   telefoneRead.value = user.usuarioResponseDTO.telefone;
-  // idadeRead.value = user.usuarioResponseDTO.idade;
+  // idadeRead.value = calcularIdadePorISOString(user.usuarioResponseDTO.dataNascimento);
   // idadeRead.value = user.idosoResponseDTO.dataNascimento;
   // assRequeridaRead.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfilRead.value = user.idosoResponseDTO.condicaoSaude;
@@ -362,7 +406,7 @@ const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 const searchInput = document.getElementById("search-input");
 const userListContainer = document.getElementById("user-list-container");
 
-// evento ao clickar 
+// evento ao clickar
 btnBuscarUsuario.addEventListener("click", async () => {
   const searchTerm = searchInput.value.toLowerCase();
   try {
@@ -373,17 +417,19 @@ btnBuscarUsuario.addEventListener("click", async () => {
 
     // match em input e usuario correspondido
 
-    const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
-    
+    const usuarioCorrespondente = userData.find(
+      (usuario) => usuario.usuario === searchTerm
+    );
+
     //display para exibição do usuario correspondente
     if (usuarioCorrespondente) {
       const elementoUsuario = document.createElement("div");
-      elementoUsuario.className = "item-usuario"; 
+      elementoUsuario.className = "item-usuario";
       elementoUsuario.innerHTML = `
         <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
         <h3>${usuarioCorrespondente.nome}</h3>
         <p>Email: ${usuarioCorrespondente.email}</p>
-        
+
       `;
       userListContainer.appendChild(elementoUsuario);
     } else {
@@ -409,7 +455,6 @@ searchInput.addEventListener("input", async (event) => {
 
     userListContainer.innerHTML = "";
 
-
     // se 0, zero
     if (filtroUsuario.length === 0) {
       userListContainer.innerHTML = "Nenhum usuário encontrado";
@@ -421,8 +466,8 @@ searchInput.addEventListener("input", async (event) => {
         elementoUsuario.innerHTML = `
           <img src="${usuario.imagemPerfil}" alt="${usuario.nome}">
           <h3>${usuario.nome}</h3>
-          
-         
+
+
         `;
 
         userListContainer.appendChild(elementoUsuario);
@@ -438,47 +483,40 @@ searchInput.addEventListener("input", async (event) => {
 userListContainer.addEventListener("click", async (event) => {
   const clickedElement = event.target;
 
-  
   if (clickedElement.classList.contains("item-usuario")) {
-    
     const userName = clickedElement.getAttribute("data-usuario");
 
     try {
-     
       const userData = await buscarUsuario(userName);
 
       console.log(userData);
 
       // Preencha os campos do formulário com os dados do usuário
-      document.getElementById("usuario-perfil-display").value = userData.usuario;
+      document.getElementById("usuario-perfil-display").value =
+        userData.usuario;
       document.getElementById("nome-perfil-display").value = userData.nome;
       document.getElementById("email-perfil-display").value = userData.email;
-      document.getElementById("numero-perfil-display").value = userData.telefone;
-      document.getElementById("endereço-perfil-display").value = userData.endereco;
+      document.getElementById("numero-perfil-display").value =
+        userData.telefone;
+      document.getElementById("endereço-perfil-display").value =
+        userData.endereco;
       document.getElementById("bloco-perfil-display").value = userData.bloco;
-      document.getElementById("numerocasa-perfil-display").value = userData.numeroCasa;
+      document.getElementById("numerocasa-perfil-display").value =
+        userData.numeroCasa;
       document.getElementById("bairro-perfil-display").value = userData.bairro;
       document.getElementById("cidade-perfil-display").value = userData.cidade;
       document.getElementById("estado-perfil-display").value = userData.estado;
 
       // Tornar o formulário visível (removendo a classe 'esconder')
-      const perfilForm = document.getElementById("registration-form-perfil-display");
-      perfilForm.classList.remove('esconder');
+      const perfilForm = document.getElementById(
+        "registration-form-perfil-display"
+      );
+      perfilForm.classList.remove("esconder");
     } catch (error) {
       console.error(error.message);
     }
   }
 });
-
-
-
-
-
-
-
-
-
-
 
 // const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 // const placeholderInput = document.getElementById("search-input");
@@ -489,7 +527,7 @@ userListContainer.addEventListener("click", async (event) => {
 
 //   try {
 //     const userData = await buscarUsuario(username);
-    
+
 //     // Limpa os resultados anteriores
 //     userListContainer.innerHTML = "";
 
@@ -498,7 +536,7 @@ userListContainer.addEventListener("click", async (event) => {
 //     } else {
 //         userData.forEach((usuario) => {
 //             const elementoUsuario = document.createElement("div");
-//             elementoUsuario.className = "item-usuario"; 
+//             elementoUsuario.className = "item-usuario";
 //             elementoUsuario.innerHTML = `
 //                 <img src="${usuario.imagemPerfil}" alt="${usuario.nome}">
 //                 <h3>${usuario.nome}</h3>
@@ -514,16 +552,12 @@ userListContainer.addEventListener("click", async (event) => {
 // }
 //   try {
 //     const userData = await buscarUsuario(username);
-    
+
 //     console.log(userData);
 //   } catch (error) {
 //     console.error(error.message);
 //   }
 // });
-
-
-
-
 
 // display do nome do usuário no bemvindoContainer
 
@@ -572,7 +606,9 @@ buttonCriarServico.addEventListener("click", async (event) => {
   try {
     const resposta = await createService(servico);
     console.log(resposta);
-    user.servicoResponseDTOList ? user.servicoResponseDTOList.push(resposta) : user.servicoResponseDTOList = [resposta];
+    user.servicoResponseDTOList
+      ? user.servicoResponseDTOList.push(resposta)
+      : (user.servicoResponseDTOList = [resposta]);
     console.log(user.servicoResponseDTOList);
     localStorage.setItem("user", JSON.stringify(user));
     alert("Serviço criado com sucesso");

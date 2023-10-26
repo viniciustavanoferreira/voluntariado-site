@@ -186,7 +186,7 @@ async function updateService(servico) {
   // retorno da constante com o json transformado em objeto
   return conexaoResposta;
 }
-async function deleteService(servico) {
+async function deleteService(id) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
   // console.log(cadastro);
 
@@ -197,9 +197,10 @@ async function deleteService(servico) {
 
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
-    `https://sistema-voluntariado-backend.onrender.com/v1/api/servico/codigo-servico/${servico.id}`,
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/servico/codigo-servico/${id}`,
     requestOptions
   );
+  console.log(id);
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
   if (!conexao.ok) {
     throw new Error("Não foi possível conexão. Tente novamente");
@@ -228,7 +229,9 @@ async function buscarUsuario(username) {
     );
 
     if (!resposta.ok) {
-      throw new Error("Erro ao encontrar este usuário, por favor tente novamente dentro de alguns minutos");
+      throw new Error(
+        "Erro ao encontrar este usuário, por favor tente novamente dentro de alguns minutos"
+      );
     }
 
     const userData = await resposta.json();
@@ -236,9 +239,7 @@ async function buscarUsuario(username) {
   } catch (error) {
     throw error;
   }
-
 }
-
 
 // exportando constante que terá as funções de login e register para uso do js que manipulará a pagina login-main
 export {
