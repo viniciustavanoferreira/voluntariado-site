@@ -122,9 +122,6 @@
                                 <p>Serviço de Troca de lampada</p>
                             </div>
                             <div class="card__button-group">
-                                <div class="card__button" id="btnAceitarServi">
-                                    <a href="#"> Inutil</a>
-                                </div>
                                 <div class="card__button" id="btnMostrarServ">
                                     <a href="#">Editar</a>
                                 </div>
