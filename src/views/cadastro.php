@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="../css/cadastro/style.css" />
+  
 
   <title>Formulário</title>
 </head>
@@ -173,6 +174,8 @@
         <input class="botao botao_enviar" type="submit" value="Enviar" />
       </div>
     </form>
+  </div>
+  
     <script src="https://kit.fontawesome.com/f9e19193d6.js" crossorigin="anonymous"></script>
 
     <script type="module" src="../js/login-cadastro/cadastro-main.js"></script>
