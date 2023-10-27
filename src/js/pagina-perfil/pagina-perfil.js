@@ -212,9 +212,9 @@ function updateForms(user) {
   numeroAp.value = user.usuarioResponseDTO.numeroAp;
   bloco.value = user.usuarioResponseDTO.bloco;
   telefone.value = user.usuarioResponseDTO.telefone;
-  // idade.value = calcularIdadePorISOString(
-  //   user.usuarioResponseDTO.dataNascimento
-  // );
+  idade.value = `${calcularIdadePorISOString(
+    user.usuarioResponseDTO.dataNascimento
+  )} anos`
   // assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
 
@@ -230,7 +230,9 @@ function updateForms(user) {
   numeroApRead.value = user.usuarioResponseDTO.numeroAp;
   blocoRead.value = user.usuarioResponseDTO.bloco;
   telefoneRead.value = user.usuarioResponseDTO.telefone;
-  // idadeRead.value = calcularIdadePorISOString(user.usuarioResponseDTO.dataNascimento);
+  idadeRead.value = `${calcularIdadePorISOString(
+    user.usuarioResponseDTO.dataNascimento
+  )} anos`
   // idadeRead.value = user.idosoResponseDTO.dataNascimento;
   // assRequeridaRead.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfilRead.value = user.idosoResponseDTO.condicaoSaude;

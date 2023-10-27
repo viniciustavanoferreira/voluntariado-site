@@ -124,8 +124,8 @@ function checkInputs() {
     console.log("O formulário está 100% válido!");
   }
 }
-
-function setForm() {
+console.log("mudou")
+async function setForm() {
   let registerType;
   opcoes.forEach((opcao) => {
     if (opcao.checked) registerType = opcao.value;
@@ -153,7 +153,7 @@ function setForm() {
   //chamando função aonde será registrado
   try {
     console.log("Registrando");
-    register(form);
+    const registro = await register(form);
     alert("Usuário registrado com sucesso");
     window.location.href = "./login-cadastro.php";
   } catch (err) {
