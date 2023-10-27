@@ -24,11 +24,23 @@
     background-color: #fafafa;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    width: 40%;
+    
     max-width: 100%;
     overflow: hidden;
   }
-  
+
+  @media (max-width: 587px) {
+    .container {
+        
+        border-radius: 0; 
+        box-shadow: none; 
+        position: relative;
+      overflow: hidden;
+      white-space: normal;
+      word-wrap: break-word;
+       
+    }
+}
   .header {
     background-color: #eee;
     padding: 20px;

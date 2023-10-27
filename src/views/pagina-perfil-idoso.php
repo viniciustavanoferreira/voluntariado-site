@@ -92,8 +92,8 @@
         <main class="main esconder" style="" id="servico-main-content">
             <section class="main__servicos">
                 <h2 class="main-title " id="criar-servico-title">
-                    <span> <i class="bi bi-search"></i>
-                        Cadastrar
+                    <i class="bi bi-search"></i>
+                    Cadastrar
                 </h2>
 
                 <div class="container historico-card" style="display:grid; gap:2rem;">
@@ -108,48 +108,48 @@
                     </div>
                 </div>
 
-                <span>
 
-                    <h2 class="main-title" id="historico-title">
-                        <span> <i class="bi bi-book"></i>
-                            Histórico
-                    </h2>
 
-                    <div class="container historico-card" data-historico style="display:grid; gap:2rem; padding:15px;">
-                        <div class="main__servicos__card " id="mostrar-servico-card">
-                            <div class="card__text">
-                                <h4>Eustáquio</h4>
-                                <p>Serviço de Troca de lampada</p>
-                            </div>
-                            <div class="card__button-group">
-                                <div class="card__button" id="btnMostrarServ">
-                                    <a href="#">Editar</a>
-                                </div>
-                                <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Rejeitar</a>
-                                </div>
-                            </div>
+                <h2 class="main-title" id="historico-title">
+                    <span> <i class="bi bi-book"></i>
+                        Histórico
+                </h2>
+
+                <div class="container historico-card" data-historico style="display:grid; gap:2rem; padding:15px;">
+                    <div class="main__servicos__card " id="mostrar-servico-card">
+                        <div class="card__text">
+                            <h4>Eustáquio</h4>
+                            <p>Serviço de Troca de lampada</p>
                         </div>
-
-                        <div class="main__servicos__card">
-                            <div class="card__text">
-                                <h4>Ana Francisca</h4>
-                                <p>Serviço de Bate papo</p>
+                        <div class="card__button-group">
+                            <div class="card__button" id="btnMostrarServ">
+                                <a href="#">Editar</a>
                             </div>
-                            <div class="card__button-group">
-                                <div class="card__button" id="btnAceitarServi">
-                                    <a href="#">Inutil</a>
-                                </div>
-                                <div class="card__button" id="btnEditarServi">
-                                    <a href="#">Editar</a>
-                                </div>
-                                <div class="card__button" id="btnEXcluirServ">
-                                    <a href="#">Excluir</a>
-                                </div>
+                            <div class="card__button" id="btnEXcluirServ">
+                                <a href="#">Rejeitar</a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="main__servicos__card">
+
+                    <div class="main__servicos__card">
+                        <div class="card__text">
+                            <h4>Ana Francisca</h4>
+                            <p>Serviço de Bate papo</p>
+                        </div>
+                        <div class="card__button-group">
+                            <div class="card__button" id="btnAceitarServi">
+                                <a href="#">Inutil</a>
+                            </div>
+                            <div class="card__button" id="btnEditarServi">
+                                <a href="#">Editar</a>
+                            </div>
+                            <div class="card__button" id="btnEXcluirServ">
+                                <a href="#">Excluir</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="main__servicos__card">
                             <div class="card__text">
                                 <h4>Ana Francisca</h4>
                                 <p>Serviço de Bate papo</p>
