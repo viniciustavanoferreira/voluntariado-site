@@ -95,7 +95,7 @@
                     <span> <i class="bi bi-search"></i>
                         Buscar Serviços
                 </h2>
-                <div class="container historico-card" style="display:grid; gap:2rem;">
+                <div class="container historico-card" data-buscar style="display:grid; gap:2rem;">
                     <div class="main__servicos__card " id="mostrar-servico-card">
                         <div class="card__text">
                             <h4>Eustáquio</h4>
@@ -123,7 +123,8 @@
                     </h2>
 
                     <div class="container historico-card" data-historico style="display:grid; gap:2rem; padding:15px;">
-                        <div class="main__servicos__card " id="mostrar-servico-card">
+                        <!-- <div class="main__servicos__card " id="mostrar-servico-card">
+                            <div class="exemeplo" id="exemplo"><h2>TESTE</h2></div>
                             <div class="card__text">
                                 <h4>Eustáquio</h4>
                                 <p>Serviço de Troca de lampada</p>
@@ -157,7 +158,7 @@
                                     <a href="#">Excluir</a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- <div class="main__servicos__card">
                             <div class="card__text">

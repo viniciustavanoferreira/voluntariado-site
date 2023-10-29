@@ -1,4 +1,4 @@
-import { updateVoluntario } from "./connect-api.js";
+import {  buscarServicoNaoAceito, updateVoluntario,servicoAceitoVolutario } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -35,6 +35,8 @@ const user = JSON.parse(localStorage.getItem("user"));
 if (!user) {
   window.location.href = "./login-cadastro.php";
 }
+
+
 
 
 // ATUALIZAÇÃO
@@ -94,6 +96,7 @@ const condicaoPerfil = document.getElementById("condicao-perfil");
 const habilidade = document.getElementById("habilidade-perfil");
 const preferencia = document.getElementById("preferencia-perfil");
 
+
 // associando os valores do usuário logado aos campos do formulário
 function updateForms(user) {
   usernick.value = user.usuarioResponseDTO.usuario;
@@ -125,12 +128,25 @@ function updateForms(user) {
   numeroApRead.value = user.usuarioResponseDTO.numeroAp;
   blocoRead.value = user.usuarioResponseDTO.bloco;
   telefoneRead.value = user.usuarioResponseDTO.telefone;
+  
   // idadeRead.value = user.usuarioResponseDTO.idade;
   // idadeRead.value = user.idosoResponseDTO.dataNascimento;
   // assRequeridaRead.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfilRead.value = user.idosoResponseDTO.condicaoSaude;
+
+  console.log(user.usuarioResponseDTO);
+ 
+
+  if (user.servicoResponseDTOList) {
+    console.log(user.servicoResponseDTOList);
+  } else {
+    console.log("Nenhum serviço encontrado para este usuário.");
+  }
+  
+
 }
 updateForms(user);
+
 
 
 
@@ -178,6 +194,9 @@ form.addEventListener("submit", async (event) => {
     alert(error.message);
   }
 });
+
+
+
 
 // Botões e seus respectivos eventos(função EsconderTodos(adicione aquilo que quer esconder ao click event de um)) / ESTÁ NA ORDEM DESCRENTE//
 
@@ -278,40 +297,384 @@ function getFirstName(name) {
 
 // buscar usuário
 
+// buscar usuário
+
 const btnBuscarUsuario = document.getElementById("btnBuscar-usuario");
 const searchInput = document.getElementById("search-input");
 const userListContainer = document.getElementById("user-list-container");
 
-// btnBuscarUsuario.addEventListener("click", async () => {
-//   const searchTerm = searchInput.value;
-//   try {
-//     const userData = await buscarUsuario(searchTerm);
+// evento ao clickar
+btnBuscarUsuario.addEventListener("click", async () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  try {
+    const userData = await buscarUsuario(searchTerm);
 
-//     // Limpa os resultados anteriores
-//     userListContainer.innerHTML = "";
+    // Limpa os resultados anteriores
+    userListContainer.innerHTML = "";
 
-//     // match em input e usuario correspondido
+    // match em input e usuario correspondido
 
-//     const usuarioCorrespondente = userData.find((usuario) => usuario.usuario === searchTerm);
+    const usuarioCorrespondente = userData.find(
+      (usuario) => usuario.usuario === searchTerm
+    );
 
-//     //display para exibição do usuario correspondente
-//     if (usuarioCorrespondente) {
-//       const elementoUsuario = document.createElement("div");
-//       elementoUsuario.className = "item-usuario"; 
-//       elementoUsuario.innerHTML = `
-//         <img src="${usuarioCorrespondente.imagemPerfil}" alt="${usuarioCorrespondente.nome}">
-//         <h3>${usuarioCorrespondente.nome}</h3>
-//         <p>Email: ${usuarioCorrespondente.email}</p>
+    
+
+    //display para exibição do usuario correspondente
+    if (usuarioCorrespondente) {
+      const elementoUsuario = document.createElement("div");
+      elementoUsuario.className = "item-usuario";
+      elementoUsuario.innerHTML = `
+        <h3>${usuarioCorrespondente.nome}</h3>
+        <p>Email: ${usuarioCorrespondente.email}</p>
+
+      `;
+      userListContainer.appendChild(elementoUsuario);
+    } else {
+      userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+//exibição dos matchs de input e usuário
+
+searchInput.addEventListener("input", async (event) => {
+  try {
+    // conexao e declaração para lowercase
+    const buscarInput = searchInput.value.toLowerCase();
+    const userData = await buscarUsuario(buscarInput);
+
+    // Realize a busca com base no valor do campo de pesquisa
+    const filtroUsuario = userData.filter((usuario) =>
+      usuario.usuario.toLowerCase().includes(buscarInput)
+    );
+
+    userListContainer.innerHTML = "";
+
+    // se 0, zero
+    if (filtroUsuario.length === 0) {
+      userListContainer.innerHTML = "Nenhum usuário encontrado";
+    } else {
+      // se existir, loop para pegar os elementos para cada usuario correspodente
+      filtroUsuario.forEach((usuario) => {
+        const elementoUsuario = document.createElement("div");
+        elementoUsuario.className = "item-usuario";
+        elementoUsuario.innerHTML = `
+          
+          <h3>${usuario.nome}</h3>
+
+
+        `;
+
+        userListContainer.appendChild(elementoUsuario);
+      });
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
+// Event listener para lidar com o clique em um usuário
+
+userListContainer.addEventListener("click", async (event) => {
+  const clickedElement = event.target;
+
+  if (clickedElement.classList.contains("item-usuario")) {
+    const userName = clickedElement.getAttribute("data-usuario");
+
+    try {
+      const userData = await buscarUsuario(userName);
+
+      console.log(userData);
+
+      // Preencha os campos do formulário com os dados do usuário
+      document.getElementById("usuario-perfil-display").value =
+        userData.usuario;
+      document.getElementById("nome-perfil-display").value = userData.nome;
+      document.getElementById("email-perfil-display").value = userData.email;
+      document.getElementById("numero-perfil-display").value =
+        userData.telefone;
+      document.getElementById("endereço-perfil-display").value =
+        userData.endereco;
+      document.getElementById("bloco-perfil-display").value = userData.bloco;
+      document.getElementById("numerocasa-perfil-display").value =
+        userData.numeroCasa;
+      document.getElementById("bairro-perfil-display").value = userData.bairro;
+      document.getElementById("cidade-perfil-display").value = userData.cidade;
+      document.getElementById("estado-perfil-display").value = userData.estado;
+
+      // Tornar o formulário visível (removendo a classe 'esconder')
+      const perfilForm = document.getElementById(
+        "registration-form-perfil-display"
+      );
+      perfilForm.classList.remove("esconder");
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+});
+
+//evento buscar serviço para voluntario, aceittar, rejeitar, mostrar
+
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const historicoCardContainer = document.querySelector("[data-buscar]");
+
+  // Função para exibir serviços não aceitos
+  async function exibirServicosNaoAceitos() {
+    try {
+      const servicosNaoAceitos = await buscarServicoNaoAceito();
+      // Limpe o contêiner antes de exibir o resultado
+      historicoCardContainer.innerHTML = "";
+
+      if (servicosNaoAceitos && servicosNaoAceitos.length > 0) {
+        servicosNaoAceitos.forEach((servico) => {
+          const servicoCard = document.createElement("div");
+          servicoCard.className = "main__servicos__card";
+
+          const cardText = document.createElement("div");
+          cardText.className = "card__text";
+          cardText.innerHTML = `
+            <h4>${servico.idUsuarioIdoso}</h4>
+            <p>${servico.tipoServico.toUpperCase()}</p>
+          `;
+
+          const cardButtonGroup = document.createElement("div");
+          cardButtonGroup.className = "card__button-group";
+
+          const btnAceitarServi = document.createElement("div");
+          btnAceitarServi.className = "card__button";
+          btnAceitarServi.id = "btnAceitarServi"; 
+          btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
+
+          const btnMostrarServ = document.createElement("div");
+          btnMostrarServ.className = "card__button";
+          btnMostrarServ.id = "btnMostrarServ"; 
+          btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+
+          const btnRejeitarServ = document.createElement("div");
+          btnRejeitarServ.className = "card__button";
+          btnRejeitarServ.id = "btnRejeitarServ"; 
+          btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
+
+          cardButtonGroup.appendChild(btnAceitarServi);
+          cardButtonGroup.appendChild(btnMostrarServ);
+          cardButtonGroup.appendChild(btnRejeitarServ);
+
+          servicoCard.appendChild(cardText);
+          servicoCard.appendChild(cardButtonGroup);
+
+          historicoCardContainer.appendChild(servicoCard);
+        });
+      } else {
+        historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+  // Chame a função para exibir os serviços não aceitos
+  exibirServicosNaoAceitos();
+
+  // Adicione um ouvinte de eventos ao elemento pai (historicoCardContainer)
+  historicoCardContainer.addEventListener("click", async (event) => {
+    const target = event.target;
+    if (target.classList.contains("card__button")) {
+      event.preventDefault();
+
+      if (target.id === "btnAceitarServi") {
+
+  try {
+    // Chame a função para aceitar o serviço com o usuário atual
+    const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
+
+    // Atualize o estado do serviço para "ACEITO" no frontend
+    servico.status = "ACEITO";
+
+    // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
+    console.log(resposta);
+
+    // Informe ao usuário que o serviço foi aceito
+    alert("Serviço aceito com sucesso");
+
+    // Redirecione ou atualize a página, se necessário
+    window.location.href = "./pagina-perfil-idoso.php";
+  } catch (error) {
+    alert(error.message);
+  }
+       
+      } else if (target.id === "btnMostrarServ") {
         
-//       `;
-//       userListContainer.appendChild(elementoUsuario);
-//     } else {
-//       userListContainer.innerHTML = "Nenhum usuário correspondente encontrado.";
+        // para mostrar o serviço aqui
+        // ...
+      } else if (target.id === "btnRejeitarServ") {
+     
+        // para rejeitar o serviço aqui
+        // ...
+      }
+    }
+  });
+});
+
+// evento historico voluntario
+
+// formantando data
+function formatarData(data) {
+  const dataFormatada = new Date(data);
+  return dataFormatada.toLocaleString(); // 
+}
+
+
+
+const historicoCardContainer = document.querySelector("[data-historico]");
+
+if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 0) {
+  user.servicoResponseDTOList.forEach((servico) => {
+    const servicoCard = document.createElement("div");
+    servicoCard.className = "main__servicos__card";
+
+    const cardText = document.createElement("div");
+    cardText.className = "card__text";
+    cardText.innerHTML = `
+      <h4>${servico.idUsuarioIdoso}</h4>
+      <p>Tipo de Serviço: ${servico.tipoServico}</p>
+      <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+      <p>Destino: ${servico.destino}</p>
+      <p>Ordem: ${servico.ordem}</p>
+      <p>Status: ${servico.status}</p>
+    `;
+    const cardButtonGroup = document.createElement("div");
+    cardButtonGroup.className = "card__button-group";
+
+    const btnAceitarServi = document.createElement("div");
+    btnAceitarServi.className = "card__button";
+    btnAceitarServi.id = "btnConcluirServ"; // 
+    btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
+
+    const btnMostrarServ = document.createElement("div");
+    btnMostrarServ.className = "card__button";
+    btnMostrarServ.id = "btnMostrarServ"; // 
+    btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+
+    const btnRejeitarServ = document.createElement("div");
+    btnRejeitarServ.className = "card__button";
+    btnRejeitarServ.id = "btnRejeitarServ"; // 
+    btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
+
+    servicoCard.appendChild(cardText);
+
+    cardButtonGroup.appendChild(btnAceitarServi);
+    cardButtonGroup.appendChild(btnMostrarServ);
+    cardButtonGroup.appendChild(btnRejeitarServ);
+
+    
+    servicoCard.appendChild(cardButtonGroup);
+    
+
+    
+    historicoCardContainer.appendChild(servicoCard);
+  });
+} else {
+  // Se não houver serviços
+  historicoCardContainer.innerHTML = "Nenhum serviço encontrado para este usuário.";
+}
+
+// document.addEventListener("DOMContentLoaded", async () => {
+//   const historicoCardContainer = document.querySelector("[data-historico]");
+
+//   // Função para exibir serviços do voluntário
+//   async function exibirServicosDoVoluntario() {
+//     try {
+//       // Faça uma solicitação para obter os serviços do voluntário
+//       const servicosVoluntario = await servicosVoluntario();
+
+//       // Limpe o contêiner antes de exibir o resultado
+//       historicoCardContainer.innerHTML = "";
+
+//       // Itere pelos serviços do voluntário e preencha os elementos existentes
+//       servicosVoluntario.forEach((servico) => {
+//         const servicoCard = document.createElement("div");
+//         servicoCard.className = "main__servicos__card";
+
+//         const cardText = document.createElement("div");
+//         cardText.className = "card__text";
+//         cardText.innerHTML = `
+//           <h4>${servico.nome}</h4>
+//           <p>${servico.descricao}</p>
+//         `;
+
+//         const cardButtonGroup = document.createElement("div");
+//         cardButtonGroup.className = "card__button-group";
+
+//         const btnMostrarServ = document.createElement("div");
+//         btnMostrarServ.className = "card__button";
+//         btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+
+//         cardButtonGroup.appendChild(btnMostrarServ);
+
+//         servicoCard.appendChild(cardText);
+//         servicoCard.appendChild(cardButtonGroup);
+
+//         historicoCardContainer.appendChild(servicoCard);
+//       });
+//     } catch (error) {
+//       console.error(error.message);
 //     }
+//   }
+
+//   // Chame a função para exibir os serviços do voluntário
+//   exibirServicosDoVoluntario();
+
+//   // Adicione um ouvinte de eventos ao elemento pai (historicoCardContainer)
+//   historicoCardContainer.addEventListener("click", async (event) => {
+//     const target = event.target;
+//     if (target.classList.contains("card__button")) {
+//       event.preventDefault();
+
+//       if (target.innerHTML === "Mostrar") {
+//         // Se for o botão "Mostrar", faça o que for necessário para mostrar o serviço aqui
+//         // Implemente a lógica para mostrar os detalhes do serviço
+//         // ...
+//       }
+//     }
+//   });
+// });
+
+
+
+//
+
+// const btnAceitarServi = document.createElement("div");
+//             btnAceitarServi.className = "card__button";
+//             btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
+
+// btnAceitaServ.addEventListener("click", async (event) => {
+//   event.preventDefault();
+
+//   try {
+//     // Chame a função para aceitar o serviço com o usuário atual
+//     const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
+
+//     // Atualize o estado do serviço para "ACEITO" no frontend
+//     servico.status = "ACEITO";
+
+//     // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
+//     console.log(resposta);
+
+//     // Informe ao usuário que o serviço foi aceito
+//     alert("Serviço aceito com sucesso");
+
+//     // Redirecione ou atualize a página, se necessário
+//     window.location.href = "./pagina-perfil-idoso.php";
 //   } catch (error) {
-//     console.error(error.message);
+//     alert(error.message);
 //   }
 // });
+
+
 
 
 // evento logout
@@ -356,3 +719,5 @@ function esconderTodosConteudos() {
       editarServiçoCard.classList.add('esconder');
   }
 };
+
+
