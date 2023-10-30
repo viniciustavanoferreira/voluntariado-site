@@ -260,7 +260,7 @@ async function buscarServicoNaoAceito() {
     throw new Error(`Erro na busca de serviços não aceitos: ${error.message}`);
   }
 }
-async function servicoAceitoVolutario(username,servico) {
+async function servicoAceitoVolutario(usuario,servico,requestBody) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
   // console.log(cadastro);
 
@@ -269,13 +269,7 @@ async function servicoAceitoVolutario(username,servico) {
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify([
-      {
-        codigoServico: servico.id,
-        status: "ACEITO",
-        idUsuarioVoluntario: username.idUsuarioVoluntario,
-      },
-    ]),
+    body: JSON.stringify(requestBody),
     redirect: "follow",
   };
 
