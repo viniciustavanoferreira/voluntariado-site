@@ -1,4 +1,4 @@
-import {  buscarServicoNaoAceito, updateVoluntario,servicoAceitoVolutario } from "./connect-api.js";
+import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -128,21 +128,21 @@ function updateForms(user) {
   numeroApRead.value = user.usuarioResponseDTO.numeroAp;
   blocoRead.value = user.usuarioResponseDTO.bloco;
   telefoneRead.value = user.usuarioResponseDTO.telefone;
-  
+
   // idadeRead.value = user.usuarioResponseDTO.idade;
   // idadeRead.value = user.idosoResponseDTO.dataNascimento;
   // assRequeridaRead.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfilRead.value = user.idosoResponseDTO.condicaoSaude;
 
   console.log(user.usuarioResponseDTO);
- 
+
 
   if (user.servicoResponseDTOList) {
     console.log(user.servicoResponseDTOList);
   } else {
     console.log("Nenhum serviço encontrado para este usuário.");
   }
-  
+
 
 }
 updateForms(user);
@@ -156,7 +156,8 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   // constante que vai armazenar o valor do campo do formulário
   const cadastro = {
-    voluntarioRespondeDTO:{preferencia: cadastro.voluntarioResponseDTO.preferencia,
+    voluntarioRespondeDTO: {
+      preferencia: cadastro.voluntarioResponseDTO.preferencia,
       habilidade: cadastro.voluntarioResponseDTO.habilidade,
     },
     usuarioResponseDTO: {
@@ -318,7 +319,7 @@ btnBuscarUsuario.addEventListener("click", async () => {
       (usuario) => usuario.usuario === searchTerm
     );
 
-    
+
 
     //display para exibição do usuario correspondente
     if (usuarioCorrespondente) {
@@ -420,13 +421,14 @@ userListContainer.addEventListener("click", async (event) => {
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+
   const historicoCardContainer = document.querySelector("[data-buscar]");
 
   // Função para exibir serviços não aceitos
   async function exibirServicosNaoAceitos() {
     try {
       const servicosNaoAceitos = await buscarServicoNaoAceito();
-      // Limpe o contêiner antes de exibir o resultado
+
       historicoCardContainer.innerHTML = "";
 
       if (servicosNaoAceitos && servicosNaoAceitos.length > 0) {
@@ -445,18 +447,19 @@ document.addEventListener("DOMContentLoaded", async () => {
           cardButtonGroup.className = "card__button-group";
 
           const btnAceitarServi = document.createElement("div");
-          btnAceitarServi.className = "card__button";
-          btnAceitarServi.id = "btnAceitarServi"; 
+          btnAceitarServi.className = "card__button"; 
+          btnAceitarServi.id = "btnAceitarServi";
           btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
 
+
           const btnMostrarServ = document.createElement("div");
-          btnMostrarServ.className = "card__button";
-          btnMostrarServ.id = "btnMostrarServ"; 
+          btnMostrarServ.className = "card__button"; 
+          btnMostrarServ.id = "btnMostrarServ";
           btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
           const btnRejeitarServ = document.createElement("div");
-          btnRejeitarServ.className = "card__button";
-          btnRejeitarServ.id = "btnRejeitarServ"; 
+          btnRejeitarServ.className = "card__button"; 
+          btnRejeitarServ.id = "btnRejeitarServ";
           btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
 
           cardButtonGroup.appendChild(btnAceitarServi);
@@ -467,6 +470,22 @@ document.addEventListener("DOMContentLoaded", async () => {
           servicoCard.appendChild(cardButtonGroup);
 
           historicoCardContainer.appendChild(servicoCard);
+
+          servicoCard.addEventListener("click", async (event) => {
+            const target = event.target;
+            console.log('clicou', target)
+
+            if (target.id === "btnAceitarServi") {
+              // Coloque o código para lidar com o botão "Aceitar Serviço" aqui
+              console.log("Botão Aceitar Serviço clicado");
+            } else if (target.classList.contains("btnMostrarServ")) {
+              // Coloque o código para lidar com o botão "Mostrar Serviço" aqui
+              console.log("Botão Mostrar Serviço clicado");
+            } else if (target.classList.contains("btnRejeitarServ")) {
+              // Coloque o código para lidar com o botão "Rejeitar Serviço" aqui
+              console.log("Botão Rejeitar Serviço clicado");
+            }
+          });
         });
       } else {
         historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
@@ -476,47 +495,57 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
+
   // Chame a função para exibir os serviços não aceitos
   exibirServicosNaoAceitos();
 
+  // console.log(historicoCardContainer)
+
   // Adicione um ouvinte de eventos ao elemento pai (historicoCardContainer)
-  historicoCardContainer.addEventListener("click", async (event) => {
-    const target = event.target;
-    if (target.classList.contains("card__button")) {
-      event.preventDefault();
+  // historicoCardContainer.addEventListener("click", async (event) => {
+  //   const target = event.target;
+  //   console.log("clicoi",target)
+  //   if (target.classList.contains("card__button")) {
+  //     event.preventDefault();
 
-      if (target.id === "btnAceitarServi") {
+  //     if (target.id === "btnAceitarServi") {
 
-  try {
-    // Chame a função para aceitar o serviço com o usuário atual
-    const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
+  //       console.log("Botão Aceitar Serviço clicado",target.id);
 
-    // Atualize o estado do serviço para "ACEITO" no frontend
-    servico.status = "ACEITO";
+  //       // try {
+  //       //   // Chame a função para aceitar o serviço com o usuário atual
+  //       //   console.log("Chamando servicoAceitoVolutario com usuário e serviço:", user.usuarioResponseDTO, servico);
+  //       //   const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
 
-    // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
-    console.log(resposta);
 
-    // Informe ao usuário que o serviço foi aceito
-    alert("Serviço aceito com sucesso");
+  //       //   // Atualize o estado do serviço para "ACEITO" no frontend
+  //       //   console.log("Resposta da função servicoAceitoVolutario:", resposta);
+  //       //   servico.status = "ACEITO";
 
-    // Redirecione ou atualize a página, se necessário
-    window.location.href = "./pagina-perfil-idoso.php";
-  } catch (error) {
-    alert(error.message);
-  }
-       
-      } else if (target.id === "btnMostrarServ") {
-        
-        // para mostrar o serviço aqui
-        // ...
-      } else if (target.id === "btnRejeitarServ") {
-     
-        // para rejeitar o serviço aqui
-        // ...
-      }
-    }
-  });
+
+  //       //   // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
+  //       //   console.log(resposta);
+
+  //       //   // Informe ao usuário que o serviço foi aceito
+  //       //   alert("Serviço aceito com sucesso");
+
+  //       //   // Redirecione ou atualize a página, se necessário
+  //       //   window.location.href = "./pagina-perfil-idoso.php";
+  //       // } catch (error) {
+  //       //   alert(error.message);
+  //       // }
+
+  //     } else if (target.id === "btnMostrarServ") {
+
+  //       // para mostrar o serviço aqui
+  //       // ...
+  //     } else if (target.id === "btnRejeitarServ") {
+
+  //       // para rejeitar o serviço aqui
+  //       // ...
+  //     }
+  //   }
+  // });
 });
 
 // evento historico voluntario
@@ -526,8 +555,6 @@ function formatarData(data) {
   const dataFormatada = new Date(data);
   return dataFormatada.toLocaleString(); // 
 }
-
-
 
 const historicoCardContainer = document.querySelector("[data-historico]");
 
@@ -543,7 +570,7 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
       <p>Tipo de Serviço: ${servico.tipoServico}</p>
       <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
       <p>Destino: ${servico.destino}</p>
-      <p>Ordem: ${servico.ordem}</p>
+      <p>Idoso: ${servico.idUsuarioIdoso}</p>
       <p>Status: ${servico.status}</p>
     `;
     const cardButtonGroup = document.createElement("div");
@@ -570,11 +597,11 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     cardButtonGroup.appendChild(btnMostrarServ);
     cardButtonGroup.appendChild(btnRejeitarServ);
 
-    
-    servicoCard.appendChild(cardButtonGroup);
-    
 
-    
+    servicoCard.appendChild(cardButtonGroup);
+
+
+
     historicoCardContainer.appendChild(servicoCard);
   });
 } else {
@@ -688,35 +715,35 @@ btnSairPerfil.addEventListener("click", () => {
 // funcao para esconder o contéúdo que nao corresponde ao click event(condição IF para manter somente add)
 
 function esconderTodosConteudos() {
-  if (bemvindoContainer){
+  if (bemvindoContainer) {
     bemvindoContainer.classList.add('esconder');
   }
   if (perfilCardDisplay) {
-      perfilCardDisplay.classList.add('esconder');
+    perfilCardDisplay.classList.add('esconder');
   }
   if (perfilCardAtualizar) {
-      perfilCardAtualizar.classList.add('esconder');
+    perfilCardAtualizar.classList.add('esconder');
   }
   if (mostrarServicoCard) {
-      mostrarServicoCard.classList.add('esconder');
+    mostrarServicoCard.classList.add('esconder');
   }
   if (editarSenhaCard) {
-      editarSenhaCard.classList.add('esconder');
+    editarSenhaCard.classList.add('esconder');
   }
   // if (editarUsuarioCard) {
   //     editarUsuarioCard.classList.add('esconder');
   // }
   if (deletarUsuarioCard) {
-      deletarUsuarioCard.classList.add('esconder');
+    deletarUsuarioCard.classList.add('esconder');
   }
   if (criarServicoCard) {
-      criarServicoCard.classList.add('esconder');
+    criarServicoCard.classList.add('esconder');
   }
   if (mostrarServicoAceitoCard) {
-      mostrarServicoAceitoCard.classList.add('esconder');
+    mostrarServicoAceitoCard.classList.add('esconder');
   }
   if (editarServiçoCard) {
-      editarServiçoCard.classList.add('esconder');
+    editarServiçoCard.classList.add('esconder');
   }
 };
 
