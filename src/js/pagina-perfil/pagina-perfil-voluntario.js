@@ -30,7 +30,7 @@ $(document).ready(function () {
 });
 
 const user = JSON.parse(localStorage.getItem("user"));
-// console.log(user);
+console.log(user);
 //condição para redirecionamento a página de login caso não tenha usuário logado
 if (!user) {
   window.location.href = "./login-cadastro.php";
@@ -433,11 +433,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   async function exibirServicosNaoAceitos() {
     try {
       const servicosNaoAceitos = await buscarServicoNaoAceito();
+      console.log(servicosNaoAceitos)
+      const id = 38;
+      const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
+      console.log(servicoAceito);
 
       historicoCardContainer.innerHTML = "";
 
       if (servicosNaoAceitos && servicosNaoAceitos.length > 0) {
         servicosNaoAceitos.forEach((servico) => {
+
           const servicoCard = document.createElement("div");
           servicoCard.className = "main__servicos__card";
 
@@ -476,24 +481,64 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           historicoCardContainer.appendChild(servicoCard);
 
+
+      //     const servicoCard = `
+      //     <div class="main__servicos__card " id="${servico.id}">
+      //       <div class="card__text">
+      //         <h4>${servico.idUsuarioIdoso}</h4>
+      //           <p>${servico.tipoServico}</p>
+      //       </div>
+      //       <div id='${servico.id}' class="card__button-group">
+      //           <div class="card__button" id="btnMostrarServ">
+      //               <a data-button-type="aceitar" href="#">Aceitar</a>
+      //           </div>
+      //           <div class="card__button" id="btnMostrarServ">
+      //               <a data-button-type="mostrar" href="#">Editar</a>
+      //           </div>
+      //           <div class="card__button" id="btnEXcluirServ">
+      //               <a data-button-type="rejeitar" href="#">Rejeitar</a>
+      //           </div>
+      //       </div>
+      //     </div>`
+      //     historicoCardContainer.innerHTML = `
+      //     <div class="main__servicos__card " id="${servico.id}">
+      //     <div class="card__text">
+      //       <h4>${servico.idUsuarioIdoso}</h4>
+      //         <p>${servico.tipoServico}</p>
+      //     </div>
+      //     <div id='${servico.id}' class="card__button-group">
+      //         <div class="card__button" id="btnMostrarServ">
+      //             <a data-button-type="aceitar" href="#">Aceitar</a>
+      //         </div>
+      //         <div class="card__button" id="btnMostrarServ">
+      //             <a data-button-type="mostrar" href="#">Editar</a>
+      //         </div>
+      //         <div class="card__button" id="btnEXcluirServ">
+      //             <a data-button-type="rejeitar" href="#">Rejeitar</a>
+      //         </div>
+      //     </div>
+      // </div>
+      //     `
           
           const buttons = servicoCard.querySelectorAll(".card__button");
           buttons.forEach((button) => {
             button.addEventListener("click", async (event) => {
               const buttonType = button.getAttribute("data-button-type");
+              const servicoAceito = servicoAceitoVolutario.find(servico)
           
               if (buttonType === "aceitar") {
                 console.log("Botão Aceitar Serviço clicado");
                 try {
                   
-                  // const requestBody = {
-                  //   codigoServico: servico.id,
-                  //   status: "ACEITO",
-                  //   idUsuarioVoluntario: usernick.idUsuarioVoluntario,
-                  // };
+                  const requestBody = {
+                    codigoServico: servico.id,
+                    status: "ACEITO",
+                    idUsuarioVoluntario: usernick.idUsuarioVoluntario,
+                  };
           
                
                   for (const key in requestBody) {
+                    console.log(key);
                     if (requestBody[key] === undefined || requestBody[key] === null) {
                       delete requestBody[key];
                     }
@@ -503,17 +548,17 @@ document.addEventListener("DOMContentLoaded", async () => {
           
                   // Chame a função servicoAceitoVolutario com o requestBody
                   console.log("Chamando servicoAceitoVolutario com requestBody:", requestBody);
-                  const resposta = await servicoAceitoVolutario(requestBody);
+                  // const resposta = await servicoAceitoVolutario(requestBody);
           
-                  console.log("Resposta da função servicoAceitoVolutario:", resposta);
+                  // console.log("Resposta da função servicoAceitoVolutario:", resposta);
           
-                  servico.status = "ACEITO";
+                  // servico.status = "ACEITO";
           
                   // Informe ao usuário que o serviço foi aceito
-                  alert("Serviço aceito com sucesso");
+                  // alert("Serviço aceito com sucesso");
           
                   // Redirecione ou atualize a página, se necessário
-                  window.location.href = "./pagina-perfil-voluntario.php";
+                  // window.location.href = "./pagina-perfil-voluntario.php";
                 } catch (error) {
                   alert(error.message);
                 }
