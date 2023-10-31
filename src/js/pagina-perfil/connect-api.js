@@ -149,26 +149,24 @@ async function createService(servico) {
 }
 async function updateService(servico) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
-  // console.log(cadastro);
+  // console.log(servico);
 
   const requestOptions = {
     method: "PUT",
     headers: {
       "Content-type": "application/json",
     },
-    body: JSON.stringify([
+    body: JSON.stringify(
       {
         codigoServico: servico.id,
         tipoServico: servico.tipoServico,
-        dataFim: servico.dataHoraFim,
         dataInicio: servico.dataHoraInicio,
+        dataFim: servico.dataHoraFim,
         ordem: servico.ordem,
         destino: servico.destino,
-        tipoServico: servico.tipoServico,
         status: servico.status,
         idUsuarioVoluntario: servico.idUsuarioVoluntario,
-      },
-    ]),
+      }),
     redirect: "follow",
   };
 
@@ -253,7 +251,7 @@ async function buscarServicoNaoAceito() {
     // debugger;
 
     // console.log("Inside buscarServicoNaoAceito:", servicos);
-    
+
 
     return servicos;
   } catch (error) {
