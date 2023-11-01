@@ -1,4 +1,4 @@
-import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario } from "./connect-api.js";
+import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario, updateService } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -30,7 +30,7 @@ $(document).ready(function () {
 });
 
 const user = JSON.parse(localStorage.getItem("user"));
-// console.log(user);
+console.log(user);
 //condição para redirecionamento a página de login caso não tenha usuário logado
 if (!user) {
   window.location.href = "./login-cadastro.php";
@@ -363,7 +363,7 @@ searchInput.addEventListener("input", async (event) => {
         const elementoUsuario = document.createElement("div");
         elementoUsuario.className = "item-usuario";
         elementoUsuario.innerHTML = `
-          
+
           <h3>${usuario.nome}</h3>
 
 
@@ -418,78 +418,182 @@ userListContainer.addEventListener("click", async (event) => {
 });
 
 //evento buscar serviço para voluntario, aceittar, rejeitar, mostrar
+async function buscarServico() {
+  const historicoCardContainer = document.querySelector("[data-buscar]");
+  const servicosNaoAceitos = await buscarServicoNaoAceito();
+  console.log(servicosNaoAceitos);
+  return (servicosNaoAceitos);
+}
 
 
 document.addEventListener("DOMContentLoaded", async () => {
 
   const historicoCardContainer = document.querySelector("[data-buscar]");
+  // let idCounter = 0;
+  // function gerarIdUnico() {
+  //   idCounter++;
+  //   return `btnServico-${idCounter}`;
+  // }
 
   // Função para exibir serviços não aceitos
   async function exibirServicosNaoAceitos() {
     try {
-      const servicosNaoAceitos = await buscarServicoNaoAceito();
+      const servicosNaoAceitos = await buscarServico();
+      console.log(servicosNaoAceitos)
+      // const id = 38;
+      // const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
+      // console.log(servicoAceito);
 
       historicoCardContainer.innerHTML = "";
 
-      if (servicosNaoAceitos && servicosNaoAceitos.length > 0) {
-        servicosNaoAceitos.forEach((servico) => {
-          const servicoCard = document.createElement("div");
-          servicoCard.className = "main__servicos__card";
+      if (!(servicosNaoAceitos && servicosNaoAceitos.length > 0))
+        historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+      servicosNaoAceitos.forEach((servico) => {
 
-          const cardText = document.createElement("div");
-          cardText.className = "card__text";
-          cardText.innerHTML = `
-            <h4>${servico.idUsuarioIdoso}</h4>
-            <p>${servico.tipoServico.toUpperCase()}</p>
-          `;
+        // const servicoCard = `
+        // <div class="main__servicos__card " id="${servico.id}">
+        //   <div class="card__text">
+        //     <h4>${servico.idUsuarioIdoso}</h4>
+        //       <p>${servico.tipoServico}</p>
+        //   </div>
+        //   <div id='${servico.id}' class="card__button-group">
+        //       <div class="card__button" id="btnMostrarServ">
+        //           <a data-button-type="aceitar" href="#">Aceitar</a>
+        //       </div>
+        //       <div class="card__button" id="btnMostrarServ">
+        //           <a data-button-type="mostrar" href="#">Editar</a>
+        //       </div>
+        //       <div class="card__button" id="btnEXcluirServ">
+        //           <a data-button-type="rejeitar" href="#">Rejeitar</a>
+        //       </div>
+        //   </div>
+        // </div>`
+    //     historicoCardContainer.innerHTML = `
+    //     <div class="main__servicos__card " id="${servico.id}">
+    //     <div class="card__text">
+    //       <h4>${servico.idUsuarioIdoso}</h4>
+    //         <p>${servico.tipoServico}</p>
+    //     </div>
+    //     <div id='${servico.id}' class="card__button-group">
+    //         <div class="card__button" id="btnMostrarServ">
+    //             <a data-button-type="aceitar" href="#">Aceitar</a>
+    //         </div>
+    //         <div class="card__button" id="btnMostrarServ">
+    //             <a data-button-type="mostrar" href="#">Editar</a>
+    //         </div>
+    //         <div class="card__button" id="btnEXcluirServ">
+    //             <a data-button-type="rejeitar" href="#">Rejeitar</a>
+    //         </div>
+    //     </div>
+    // </div>
+        // `
+        const servicoCard = document.createElement("div");
+        servicoCard.className = "main__servicos__card";
+        servicoCard.id = servico.id;
+        console.log(servicoCard);
+        const cardText = document.createElement("div");
+        cardText.className = "card__text";
+        cardText.innerHTML = `
+          <h4>${servico.idUsuarioIdoso}</h4>
+          <p>${servico.tipoServico}</p>
+        `;
 
-          const cardButtonGroup = document.createElement("div");
-          cardButtonGroup.className = "card__button-group";
+        const cardButtonGroup = document.createElement("div");
+        cardButtonGroup.className = "card__button-group";
 
-          const btnAceitarServi = document.createElement("div");
-          btnAceitarServi.className = "card__button"; 
-          btnAceitarServi.id = "btnAceitarServi";
-          btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
+        const btnAceitarServi = document.createElement("div");
+        btnAceitarServi.className = "card__button";
+        btnAceitarServi.setAttribute("data-button-type", "aceitar");
+        btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
 
 
-          const btnMostrarServ = document.createElement("div");
-          btnMostrarServ.className = "card__button"; 
-          btnMostrarServ.id = "btnMostrarServ";
-          btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+        const btnMostrarServ = document.createElement("div");
+        btnMostrarServ.className = "card__button";
+        btnMostrarServ.setAttribute("data-button-type", "mostrar");
+        btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
-          const btnRejeitarServ = document.createElement("div");
-          btnRejeitarServ.className = "card__button"; 
-          btnRejeitarServ.id = "btnRejeitarServ";
-          btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
+        const btnRejeitarServ = document.createElement("div");
+        btnRejeitarServ.className = "card__button";
+        btnRejeitarServ.setAttribute("data-button-type", "rejeitar");
+        btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
 
-          cardButtonGroup.appendChild(btnAceitarServi);
-          cardButtonGroup.appendChild(btnMostrarServ);
-          cardButtonGroup.appendChild(btnRejeitarServ);
+        cardButtonGroup.appendChild(btnAceitarServi);
+        cardButtonGroup.appendChild(btnMostrarServ);
+        cardButtonGroup.appendChild(btnRejeitarServ);
 
-          servicoCard.appendChild(cardText);
-          servicoCard.appendChild(cardButtonGroup);
+        servicoCard.appendChild(cardText);
+        servicoCard.appendChild(cardButtonGroup);
 
-          historicoCardContainer.appendChild(servicoCard);
+        historicoCardContainer.appendChild(servicoCard);
 
-          servicoCard.addEventListener("click", async (event) => {
-            const target = event.target;
-            console.log('clicou', target)
 
-            if (target.id === "btnAceitarServi") {
-              // Coloque o código para lidar com o botão "Aceitar Serviço" aqui
+      //
+
+        const buttons = servicoCard.querySelectorAll(".card__button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", async (event) => {
+            const buttonType = button.getAttribute("data-button-type");
+            // const servicoAceito = servicoAceitoVolutario()
+
+            if (buttonType === "aceitar")
+            {
               console.log("Botão Aceitar Serviço clicado");
-            } else if (target.classList.contains("btnMostrarServ")) {
-              // Coloque o código para lidar com o botão "Mostrar Serviço" aqui
+              try {
+
+                const requisicao = {
+                  codigoServico: Number(servico.id),
+                  tipoServico: servico.tipoServico,
+                  dataHoraInicio: servico.dataHoraInicio,
+                  dataHoraFim: servico.dataHoraFim,
+                  ordem: servico.ordem,
+                  destino: servico.destino,
+                  status: "ACEITO",
+                  idUsuarioVoluntario: user.usuarioResponseDTO.usuario,
+                };
+
+
+                // for (const key in requisicao) {
+                //   console.log(key);
+                //   if (requestBody[key] === undefined || requestBody[key] === null) {
+                //     delete requestBody[key];
+                //   }
+                // }
+
+                console.log("Conteúdo do requestBody:", requisicao);
+
+                // Chame a função servicoAceitoVolutario com o requestBody
+                console.log("Chamando servicoAceitoVolutario com requestBody:", requisicao);
+                const resposta = await updateService(requisicao);
+
+                console.log("Resposta da função servicoAceitoVolutario:", resposta);
+
+                // Atualize o usuário no localStorage
+                user.servicoResponseDTOList = [...user.servicoResponseDTOList , resposta];
+                localStorage.setItem("user", JSON.stringify(user));
+                // Informe ao usuário que o serviço foi aceito
+                alert("Serviço aceito com sucesso");
+
+                // Redirecione ou atualize a página, se necessário
+                window.location.href = "./pagina-perfil-voluntario.php";
+              } catch (error) {
+                alert(error.message);
+              }
+            } else if (buttonType === "mostrar") {
               console.log("Botão Mostrar Serviço clicado");
-            } else if (target.classList.contains("btnRejeitarServ")) {
-              // Coloque o código para lidar com o botão "Rejeitar Serviço" aqui
+              // Lidar com o botão "Mostrar Serviço"
+            } else if (buttonType === "rejeitar") {
               console.log("Botão Rejeitar Serviço clicado");
+              // Lidar com o botão "Rejeitar Serviço"
             }
           });
         });
-      } else {
-        historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
-      }
+
+
+
+      });
+
+
+
     } catch (error) {
       console.error(error.message);
     }
@@ -499,53 +603,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Chame a função para exibir os serviços não aceitos
   exibirServicosNaoAceitos();
 
-  // console.log(historicoCardContainer)
 
-  // Adicione um ouvinte de eventos ao elemento pai (historicoCardContainer)
-  // historicoCardContainer.addEventListener("click", async (event) => {
-  //   const target = event.target;
-  //   console.log("clicoi",target)
-  //   if (target.classList.contains("card__button")) {
-  //     event.preventDefault();
-
-  //     if (target.id === "btnAceitarServi") {
-
-  //       console.log("Botão Aceitar Serviço clicado",target.id);
-
-  //       // try {
-  //       //   // Chame a função para aceitar o serviço com o usuário atual
-  //       //   console.log("Chamando servicoAceitoVolutario com usuário e serviço:", user.usuarioResponseDTO, servico);
-  //       //   const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
-
-
-  //       //   // Atualize o estado do serviço para "ACEITO" no frontend
-  //       //   console.log("Resposta da função servicoAceitoVolutario:", resposta);
-  //       //   servico.status = "ACEITO";
-
-
-  //       //   // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
-  //       //   console.log(resposta);
-
-  //       //   // Informe ao usuário que o serviço foi aceito
-  //       //   alert("Serviço aceito com sucesso");
-
-  //       //   // Redirecione ou atualize a página, se necessário
-  //       //   window.location.href = "./pagina-perfil-idoso.php";
-  //       // } catch (error) {
-  //       //   alert(error.message);
-  //       // }
-
-  //     } else if (target.id === "btnMostrarServ") {
-
-  //       // para mostrar o serviço aqui
-  //       // ...
-  //     } else if (target.id === "btnRejeitarServ") {
-
-  //       // para rejeitar o serviço aqui
-  //       // ...
-  //     }
-  //   }
-  // });
 });
 
 // evento historico voluntario
@@ -553,7 +611,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // formantando data
 function formatarData(data) {
   const dataFormatada = new Date(data);
-  return dataFormatada.toLocaleString(); // 
+  return dataFormatada.toLocaleString(); //
 }
 
 const historicoCardContainer = document.querySelector("[data-historico]");
@@ -578,17 +636,17 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
 
     const btnAceitarServi = document.createElement("div");
     btnAceitarServi.className = "card__button";
-    btnAceitarServi.id = "btnConcluirServ"; // 
+    btnAceitarServi.id = "btnConcluirServ"; //
     btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
     const btnMostrarServ = document.createElement("div");
     btnMostrarServ.className = "card__button";
-    btnMostrarServ.id = "btnMostrarServ"; // 
+    btnMostrarServ.id = "btnMostrarServ"; //
     btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
     const btnRejeitarServ = document.createElement("div");
     btnRejeitarServ.className = "card__button";
-    btnRejeitarServ.id = "btnRejeitarServ"; // 
+    btnRejeitarServ.id = "btnRejeitarServ"; //
     btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
 
     servicoCard.appendChild(cardText);
@@ -608,98 +666,6 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
   // Se não houver serviços
   historicoCardContainer.innerHTML = "Nenhum serviço encontrado para este usuário.";
 }
-
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const historicoCardContainer = document.querySelector("[data-historico]");
-
-//   // Função para exibir serviços do voluntário
-//   async function exibirServicosDoVoluntario() {
-//     try {
-//       // Faça uma solicitação para obter os serviços do voluntário
-//       const servicosVoluntario = await servicosVoluntario();
-
-//       // Limpe o contêiner antes de exibir o resultado
-//       historicoCardContainer.innerHTML = "";
-
-//       // Itere pelos serviços do voluntário e preencha os elementos existentes
-//       servicosVoluntario.forEach((servico) => {
-//         const servicoCard = document.createElement("div");
-//         servicoCard.className = "main__servicos__card";
-
-//         const cardText = document.createElement("div");
-//         cardText.className = "card__text";
-//         cardText.innerHTML = `
-//           <h4>${servico.nome}</h4>
-//           <p>${servico.descricao}</p>
-//         `;
-
-//         const cardButtonGroup = document.createElement("div");
-//         cardButtonGroup.className = "card__button-group";
-
-//         const btnMostrarServ = document.createElement("div");
-//         btnMostrarServ.className = "card__button";
-//         btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
-
-//         cardButtonGroup.appendChild(btnMostrarServ);
-
-//         servicoCard.appendChild(cardText);
-//         servicoCard.appendChild(cardButtonGroup);
-
-//         historicoCardContainer.appendChild(servicoCard);
-//       });
-//     } catch (error) {
-//       console.error(error.message);
-//     }
-//   }
-
-//   // Chame a função para exibir os serviços do voluntário
-//   exibirServicosDoVoluntario();
-
-//   // Adicione um ouvinte de eventos ao elemento pai (historicoCardContainer)
-//   historicoCardContainer.addEventListener("click", async (event) => {
-//     const target = event.target;
-//     if (target.classList.contains("card__button")) {
-//       event.preventDefault();
-
-//       if (target.innerHTML === "Mostrar") {
-//         // Se for o botão "Mostrar", faça o que for necessário para mostrar o serviço aqui
-//         // Implemente a lógica para mostrar os detalhes do serviço
-//         // ...
-//       }
-//     }
-//   });
-// });
-
-
-
-//
-
-// const btnAceitarServi = document.createElement("div");
-//             btnAceitarServi.className = "card__button";
-//             btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
-
-// btnAceitaServ.addEventListener("click", async (event) => {
-//   event.preventDefault();
-
-//   try {
-//     // Chame a função para aceitar o serviço com o usuário atual
-//     const resposta = await servicoAceitoVolutario(user.usuarioResponseDTO, servico);
-
-//     // Atualize o estado do serviço para "ACEITO" no frontend
-//     servico.status = "ACEITO";
-
-//     // Faça outras ações necessárias com a resposta, como atualizar a interface ou o armazenamento local
-//     console.log(resposta);
-
-//     // Informe ao usuário que o serviço foi aceito
-//     alert("Serviço aceito com sucesso");
-
-//     // Redirecione ou atualize a página, se necessário
-//     window.location.href = "./pagina-perfil-idoso.php";
-//   } catch (error) {
-//     alert(error.message);
-//   }
-// });
 
 
 
@@ -746,5 +712,3 @@ function esconderTodosConteudos() {
     editarServiçoCard.classList.add('esconder');
   }
 };
-
-
