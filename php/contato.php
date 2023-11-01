@@ -50,18 +50,18 @@
                 <div class="navbar-nav mx-auto p-3 p-lg-0">
 
                     <a href="../index.php" class="nav-item nav-link active text-black">Home</a>
-                    <a href="./php/quemsomos.php" class="nav-item nav-link text-black">Quem Somos</a>
+                    <a href="quemsomos.php" class="nav-item nav-link text-black">Quem Somos</a>
                     <a href="./php/contato.php" class="nav-item nav-link text-black">Contato</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggl text-blacke" data-bs-toggle="dropdown">Serviços</a>
                         <div class="dropdown-menu m-0">
-                            <a href="a.php" class="dropdown-item text-black">Manuntenção</a>
-                            <a href="a.php" class="dropdown-item text-black">Compras</a>
-                            <a href="a.php" class="dropdown-item text-black">Passeio</a>
+                        <a href="../index.php#lampadas" class="dropdown-item text-black">Manutenção</a>
+        <a href="../index.php#passeios" class="dropdown-item text-black">Passeio</a>
+        <a href="../index.php#servicos" class="dropdown-item text-black">Outros</a>
                         </div>
                     </div>
-                    <a href="login.php" class="nav-item nav-link text-black ">Login</a>
-                    <a href="cadastro.php" class="nav-item nav-link text-black ">Cadastra-se</a>
+                    <a href="../src/views/login-cadastro.php" class="nav-item nav-link text-black ">Login</a>
+                    <a href="../src/views/cadastro.php" class="nav-item nav-link text-black ">Cadastra-se</a>
 
                 </div>
             </div>

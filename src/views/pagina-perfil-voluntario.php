@@ -77,11 +77,11 @@
                         <li><a href="#" id="btnEditar-perfil-link">Editar Perfil</a></li>
                         <li><a href="#" id="btnEditar-senha-link">Senha</a></li>
                         <li><a href="# " id="btnDeletar-perfil-link">Exclusão</a></li>
-                        <li><a href="#">Biblioteca</a></li>
-                        <li><a href="">Eventos</a></li>
+                        <!-- <li><a href="#">Biblioteca</a></li>
+                        <li><a href="">Eventos</a></li> -->
                     </ul>
                 </li>
-                <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li>
+                <!-- <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li> -->
                 <li><a id="btnSair-perfil-link" href="#"><i class="bi bi-door-closed"></i> Sair</a></li>
 
             </ul>

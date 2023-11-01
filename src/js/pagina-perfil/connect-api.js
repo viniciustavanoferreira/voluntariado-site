@@ -258,7 +258,7 @@ async function buscarServicoNaoAceito() {
     throw new Error(`Erro na busca de serviços não aceitos: ${error.message}`);
   }
 }
-async function servicoAceitoVolutario(usuario,servico,requestBody) {
+async function servicoAceitoVolutario(requestBody) {
   // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
   // console.log(cadastro);
 

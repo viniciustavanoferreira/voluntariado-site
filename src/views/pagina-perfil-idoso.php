@@ -77,11 +77,11 @@
                         <li><a href="#" id="btnEditar-perfil-link">Editar Perfil</a></li>
                         <li><a href="#" id="btnEditar-senha-link">Senha</a></li>
                         <li><a href="# " id="btnDeletar-perfil-link">Exclusão</a></li>
-                        <li><a href="#">Biblioteca</a></li>
-                        <li><a href="">Eventos</a></li>
+                        <!-- <li><a href="#">Biblioteca</a></li>
+                        <li><a href="">Eventos</a></li> -->
                     </ul>
                 </li>
-                <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li>
+                <!-- <li><a href="#"> <i class="bi bi-lock"></i> Privacidade</a></li> -->
                 <li><a id="btnSair-perfil-link" href="#"><i class="bi bi-door-closed"></i> Sair</a></li>
 
             </ul>
@@ -489,9 +489,12 @@
                             <div class="form-group">
                                 <label for="serviceSelect-form">Selecione o Serviço:</label>
                                 <select id="serviceSelect-form" class="form-control" style="background-color:#fdf5eb;">
-                                    <option value="lampada">Lâmpadas</option>
-                                    <option value="pequenos reparos">Pequenos Reparos</option>
-                                    <option value="passeio">Passeio</option>
+                                    <option value="Elétrica">Elétrica</option>
+                                    <option value="Pequenos Reparos">Pequenos Reparos</option>
+                                    <option value="Passeio">Passeio</option>
+                                    <option value="Manuntenção">Manuntenção</option>
+                                    <option value="Utensilios">Utensilios</option>
+                                    <option value="Informática">Informática</option>
                                     <option value="outros">Outros Serviços</option>
                                 </select>
                             </div>
