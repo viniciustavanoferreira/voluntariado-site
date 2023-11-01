@@ -528,7 +528,7 @@ main{
 }
 
 
-.card__form, .card__form_serv .form-group button {
+.card__form, .card__form_serv,.card__form_perfil .form-group button {
   color: #e66b6e;
   font-size: 1.315rem;
   font-weight: 400;

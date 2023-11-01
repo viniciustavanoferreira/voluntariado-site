@@ -242,7 +242,7 @@ const buttons = [
   btnEditarPerfil,
   btnEditarSenha,
   btnDeletarPerfil,
-  btnSairPerfil
+  btnSairPerfil,
 ];
 
 
@@ -434,9 +434,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
       const servicosNaoAceitos = await buscarServicoNaoAceito();
       console.log(servicosNaoAceitos)
-      const id = 38;
-      const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
-      console.log(servicoAceito);
+      // const id = 38;
+
+      // const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
+      // console.log(servicoAceito);
 
       historicoCardContainer.innerHTML = "";
 
@@ -450,7 +451,11 @@ document.addEventListener("DOMContentLoaded", async () => {
           cardText.className = "card__text";
           cardText.innerHTML = `
             <h4>${servico.idUsuarioIdoso}</h4>
-            <p>${servico.tipoServico}</p>
+            <p>Tipo de Serviço: ${servico.tipoServico}</p>
+                <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+                <p>Destino: ${servico.destino}</p>
+                <p>Idoso: ${servico.idUsuarioIdoso}</p>
+                <p>Status: ${servico.status}</p>
           `;
 
           const cardButtonGroup = document.createElement("div");
@@ -462,10 +467,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
 
 
-          const btnMostrarServ = document.createElement("div");
-          btnMostrarServ.className = "card__button";
-          btnMostrarServ.setAttribute("data-button-type", "mostrar");
-          btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+          // const btnMostrarServ = document.createElement("div");
+          // btnMostrarServ.className = "card__button";
+          // btnMostrarServ.setAttribute("data-button-type", "mostrar");
+          // btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
           const btnRejeitarServ = document.createElement("div");
           btnRejeitarServ.className = "card__button";
@@ -473,7 +478,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
 
           cardButtonGroup.appendChild(btnAceitarServi);
-          cardButtonGroup.appendChild(btnMostrarServ);
+          // cardButtonGroup.appendChild(btnMostrarServ);
           cardButtonGroup.appendChild(btnRejeitarServ);
 
           servicoCard.appendChild(cardText);
@@ -482,110 +487,146 @@ document.addEventListener("DOMContentLoaded", async () => {
           historicoCardContainer.appendChild(servicoCard);
 
 
-      //     const servicoCard = `
-      //     <div class="main__servicos__card " id="${servico.id}">
-      //       <div class="card__text">
-      //         <h4>${servico.idUsuarioIdoso}</h4>
-      //           <p>${servico.tipoServico}</p>
-      //       </div>
-      //       <div id='${servico.id}' class="card__button-group">
-      //           <div class="card__button" id="btnMostrarServ">
-      //               <a data-button-type="aceitar" href="#">Aceitar</a>
-      //           </div>
-      //           <div class="card__button" id="btnMostrarServ">
-      //               <a data-button-type="mostrar" href="#">Editar</a>
-      //           </div>
-      //           <div class="card__button" id="btnEXcluirServ">
-      //               <a data-button-type="rejeitar" href="#">Rejeitar</a>
-      //           </div>
-      //       </div>
-      //     </div>`
-      //     historicoCardContainer.innerHTML = `
-      //     <div class="main__servicos__card " id="${servico.id}">
-      //     <div class="card__text">
-      //       <h4>${servico.idUsuarioIdoso}</h4>
-      //         <p>${servico.tipoServico}</p>
-      //     </div>
-      //     <div id='${servico.id}' class="card__button-group">
-      //         <div class="card__button" id="btnMostrarServ">
-      //             <a data-button-type="aceitar" href="#">Aceitar</a>
-      //         </div>
-      //         <div class="card__button" id="btnMostrarServ">
-      //             <a data-button-type="mostrar" href="#">Editar</a>
-      //         </div>
-      //         <div class="card__button" id="btnEXcluirServ">
-      //             <a data-button-type="rejeitar" href="#">Rejeitar</a>
-      //         </div>
-      //     </div>
-      // </div>
-      //     `
-          
+          //     const servicoCard = `
+          //     <div class="main__servicos__card " id="${servico.id}">
+          //       <div class="card__text">
+          //         <h4>${servico.idUsuarioIdoso}</h4>
+          //           <p>${servico.tipoServico}</p>
+          //       </div>
+          //       <div id='${servico.id}' class="card__button-group">
+          //           <div class="card__button" id="btnMostrarServ">
+          //               <a data-button-type="aceitar" href="#">Aceitar</a>
+          //           </div>
+          //           <div class="card__button" id="btnMostrarServ">
+          //               <a data-button-type="mostrar" href="#">Editar</a>
+          //           </div>
+          //           <div class="card__button" id="btnEXcluirServ">
+          //               <a data-button-type="rejeitar" href="#">Rejeitar</a>
+          //           </div>
+          //       </div>
+          //     </div>`
+          //     historicoCardContainer.innerHTML = `
+          //     <div class="main__servicos__card " id="${servico.id}">
+          //     <div class="card__text">
+          //       <h4>${servico.idUsuarioIdoso}</h4>
+          //         <p>${servico.tipoServico}</p>
+          //     </div>
+          //     <div id='${servico.id}' class="card__button-group">
+          //         <div class="card__button" id="btnMostrarServ">
+          //             <a data-button-type="aceitar" href="#">Aceitar</a>
+          //         </div>
+          //         <div class="card__button" id="btnMostrarServ">
+          //             <a data-button-type="mostrar" href="#">Editar</a>
+          //         </div>
+          //         <div class="card__button" id="btnEXcluirServ">
+          //             <a data-button-type="rejeitar" href="#">Rejeitar</a>
+          //         </div>
+          //     </div>
+          // </div>
+          //     `
+
           const buttons = servicoCard.querySelectorAll(".card__button");
           buttons.forEach((button) => {
             button.addEventListener("click", async (event) => {
               const buttonType = button.getAttribute("data-button-type");
-              const servicoAceito = servicoAceitoVolutario.find(servico)
-          
+
+              // const servicoAceito = servicoAceitoVolutario.find(servico)
+
               if (buttonType === "aceitar") {
                 console.log("Botão Aceitar Serviço clicado");
                 try {
-                  
+
+                  const user = JSON.parse(localStorage.getItem("user"));
+                  const idUsuarioVoluntario = user.usuarioResponseDTO.usuario;
+
+                  console.log(usuario)
+
                   const requestBody = {
+
                     codigoServico: servico.id,
-                    status: "ACEITO",
-                    idUsuarioVoluntario: usernick.idUsuarioVoluntario,
+                    status: "PENDENTE",
+                    idUsuarioVoluntario: idUsuarioVoluntario,
                   };
-          
-               
-                  for (const key in requestBody) {
-                    console.log(key);
-                    if (requestBody[key] === undefined || requestBody[key] === null) {
-                      delete requestBody[key];
-                    }
-                  }
-          
+
+
+
                   console.log("Conteúdo do requestBody:", requestBody);
-          
-                  // Chame a função servicoAceitoVolutario com o requestBody
+
                   console.log("Chamando servicoAceitoVolutario com requestBody:", requestBody);
-                  // const resposta = await servicoAceitoVolutario(requestBody);
-          
-                  // console.log("Resposta da função servicoAceitoVolutario:", resposta);
-          
-                  // servico.status = "ACEITO";
-          
-                  // Informe ao usuário que o serviço foi aceito
-                  // alert("Serviço aceito com sucesso");
-          
-                  // Redirecione ou atualize a página, se necessário
+
+
+
+                  alert("Serviço aceito com sucesso");
+
+
                   // window.location.href = "./pagina-perfil-voluntario.php";
                 } catch (error) {
                   alert(error.message);
                 }
-              } else if (buttonType === "mostrar") {
-                console.log("Botão Mostrar Serviço clicado");
-                // Lidar com o botão "Mostrar Serviço"
-              } else if (buttonType === "rejeitar") {
-                console.log("Botão Rejeitar Serviço clicado");
-                // Lidar com o botão "Rejeitar Serviço"
-              }
-            });
+            //   } else if (buttonType === "mostrar") {
+            //     const servicoCard = document.createElement("div");
+            //     servicoCard.className = "main__servicos__card";
+      
+            //     const cardText = document.createElement("div");
+            //     cardText.className = "card__text";
+            //     cardText.innerHTML = `
+            //     <h4>${servico.idUsuarioIdoso}</h4>
+            //     <p>Tipo de Serviço: ${servico.tipoServico}</p>
+            //     <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+            //     <p>Destino: ${servico.destino}</p>
+            //     <p>Idoso: ${servico.idUsuarioIdoso}</p>
+            //     <p>Status: ${servico.status}</p>
+            //     `;
+
+
+            //     // const conteudoAntigo = servicoCard.innerHTML;
+
+            //     historicoCardContainer.innerHTML = '';
+                
+                
+                
+            //     historicoCardContainer.appendChild(servicoCard);
+            //     historicoCardContainer.appendChild(cardText);
+
+              
+                
+                
+            //   ;
+
+
+
+
+
+
+            // 
+              }else if (buttonType === "rejeitar") {
+
+              const servicoReijeitado = servico.id;
+
+              localStorage.setItem('servicoReijeitado', servicoReijeitado);
+
+              console.log(servicoReijeitado)
+              servicoCard.style.display = 'none';
+              alert("Serviço rejeitado com sucesso");
+
+            }
           });
-          
-
-
         });
+
+
+
+      });
       } else {
-        historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
-      }
+  historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+}
     } catch (error) {
-      console.error(error.message);
-    }
+  console.error(error.message);
+}
   }
 
 
-  // Chame a função para exibir os serviços não aceitos
-  exibirServicosNaoAceitos();
+// Chame a função para exibir os serviços não aceitos
+exibirServicosNaoAceitos();
 
 
 });
@@ -608,11 +649,10 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     const cardText = document.createElement("div");
     cardText.className = "card__text";
     cardText.innerHTML = `
-      <h4>${servico.idUsuarioIdoso}</h4>
+      <h4>Idoso: ${servico.idUsuarioIdoso}</h4>
       <p>Tipo de Serviço: ${servico.tipoServico}</p>
       <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
       <p>Destino: ${servico.destino}</p>
-      <p>Idoso: ${servico.idUsuarioIdoso}</p>
       <p>Status: ${servico.status}</p>
     `;
     const cardButtonGroup = document.createElement("div");
@@ -623,10 +663,10 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     btnAceitarServi.id = "btnConcluirServ"; // 
     btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
-    const btnMostrarServ = document.createElement("div");
-    btnMostrarServ.className = "card__button";
-    btnMostrarServ.id = "btnMostrarServ"; // 
-    btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+    // const btnMostrarServ = document.createElement("div");
+    // btnMostrarServ.className = "card__button";
+    // btnMostrarServ.id = "btnMostrarServ"; // 
+    // btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
     const btnRejeitarServ = document.createElement("div");
     btnRejeitarServ.className = "card__button";
@@ -636,7 +676,7 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     servicoCard.appendChild(cardText);
 
     cardButtonGroup.appendChild(btnAceitarServi);
-    cardButtonGroup.appendChild(btnMostrarServ);
+    // cardButtonGroup.appendChild(btnMostrarServ);
     cardButtonGroup.appendChild(btnRejeitarServ);
 
 
@@ -695,6 +735,9 @@ function esconderTodosConteudos() {
   if (editarServiçoCard) {
     editarServiçoCard.classList.add('esconder');
   }
+
+  
+
 };
 
 
