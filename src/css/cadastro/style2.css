@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+}
+
+.header {
+  background-color: transparent;
+  padding-top: 10px;
+  text-align: center;
+
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #f1ece9 0%, #e66b6e 100%);
+  /* justify-content: center; */
+}
+
+.container {
+  background-color: whitesmoke;
+  margin: 0 auto;
+  padding: 6px;
+  width: 400px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 darkgrey;
+  /* border: 2px solid red; */
+  /* overflow-y para ativar o scroll da div */
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+form {
+  position: absolute;
+  margin-top: 150px;
+  transition: .5s;
+  width: 300px;
+  height: 400px;
+}
+
+.buttonsForm {
+  margin-top: 20px;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0 0 7px 0  #e66b6e;
+}
+
+.buttonsForm button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  position: relative;
+  padding: 10px 29px;
+}
+
+.btnColor {
+  position: absolute;
+  width: 108px;
+  height: 100%;
+  background: linear-gradient(to right, #e66b6e,  #ebac8b);
+  border-radius: 30px;
+  transition: .3s;
+}
+
+input[type="text"], input[type="password"] ,input[type="date"], input[type="tel"]{
+  border: none;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+  border-radius: 60px;
+  padding: 8px 0 8px 35px;
+  outline: none;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background: #e66b6e;
+  color: white;
+  border-radius: 30px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0 8px 15px;
+  font-size: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+/* Estilo para o rótulo */
+label[for="Arquivo"] {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilo para o botão de arquivo */
+.botao {
+  padding: 10px;
+  background-color:  #ebac8b;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Estilo para o botão "Apagar" */
+.botao_apagar {
+  padding: 10px 20px;
+  background-color:#e66b6e;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Estilo para o botão "Enviar" */
+.botao_enviar {
+  padding: 10px 20px;
+  background-color: #e66b6e;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* Estilo para o contêiner de botões */
+.box-botao {
+  display: flex;
+  gap: 10px;
+}
+
+/* O estilo a seguir oculta o texto "Escolher arquivo" ao lado do botão */
+.botao::-webkit-file-upload-button {
+  display: none;
+}
+
+/* botao de termo de responsabilidade */
+.divCheck {
+  margin: 10px 0 0 5px;
+  width: 80%;
+  font-size: 13px;
+}
+
+.signin {
+  left: 25px;
+}
+
+.signup {
+  left: 450px;
+}
+
+i {
+  position: absolute;
+  left: 0;
+  padding: 10px 10px;
+}
+
+.iEmail {
+  top: 40px;
+}
+
+.iPassword {
+  top: 114px;
+}
+
+.iPassword2 {
+  top: 190px;
+}
+
+.esconder{
+  display: none;
+}
+
+/* Estilo geral */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px; /* Espaçamento entre os campos */
+  margin-bottom: 20px;
+}
+
+/* Estilize a lista suspensa (select) */
+.select {
+  border: none;
+  border-radius: 100px;
+  padding: 8px 0 8px 15px; /* Ajuste o padding para corresponder ao estilo dos outros campos */
+  outline: none;
+  width: 100%;
+  background: #fff; /* Cor de fundo do dropdown, se necessário */
+  font-family: 'Poppins', sans-serif; /* Fonte do dropdown, se necessário */
+  color: #000; /* Cor do texto do dropdown, se necessário */
+}
