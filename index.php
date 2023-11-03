@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <a href="./src/views/login-cadastro.php" class="nav-item nav-link text-black ">Login</a>
-                    <a href="./src/views/cadastro.php" class="nav-item nav-link text-black ">Cadastra-se</a>
+                    <a href="./src/views/cadastro2.php" class="nav-item nav-link text-black ">Cadastre-se</a>
 
                 </div>
             </div>
