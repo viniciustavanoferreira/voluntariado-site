@@ -49,13 +49,20 @@ function putServicos() {
   servicosContainer.innerHTML = "";
   user.servicoResponseDTOList?.forEach((servico) => {
     console.log(servico);
-
+    console.log("CHEGOU");
     // servicosContainer.innerHTML = "";
-    servicosContainer.innerHTML += `
-    <div class="main__servicos__card " id="${servico.id}">
+    if (servico.idUsuarioVoluntario)
+    {
+      servicosContainer.innerHTML += `
+        <div class="main__servicos__card " id="${servico.id}">
         <div class="card__text">
-            <h4>${servico.destino}</h4>
-            <p>${servico.tipoServico}</p>
+          <h4>${servico.destino}</h4>
+          <h4>${servico.idUsuarioIdoso}</h4>
+          <p>Tipo de Serviço: ${servico.tipoServico}</p>
+          <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+          <p>Destino: ${servico.destino}</p>
+          <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
+          <p>Status: ${servico.status}</p>
         </div>
         <div id='${servico.id}' class="card__button-group">
             <div class="card__button" id="btnMostrarServ">
@@ -68,6 +75,32 @@ function putServicos() {
     </div>
 
     `;
+    }
+    else
+    {
+      servicosContainer.innerHTML += `
+      <div class="main__servicos__card " id="${servico.id}">
+          <div class="card__text">
+            <h4>${servico.destino}</h4>
+            <h4>${servico.idUsuarioIdoso}</h4>
+            <p>Tipo de Serviço: ${servico.tipoServico}</p>
+            <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+            <p>Destino: ${servico.destino}</p>
+            <p>Status: ${servico.status}</p>
+          </div>
+          <div id='${servico.id}' class="card__button-group">
+              <div class="card__button" id="btnMostrarServ">
+                  <a data-alterar href="#">Editar</a>
+              </div>
+              <div class="card__button" id="btnEXcluirServ">
+                  <a data-deletar href="#">Rejeitar</a>
+              </div>
+          </div>
+      </div>
+
+      `;
+
+    }
   });
 }
 function putEventosServicos() {
@@ -519,14 +552,14 @@ userListContainer.addEventListener("click", async (event) => {
     }
   }
 });
-// evento historico display 
+// evento historico display
 
 // evento historico voluntario
 
 // formantando data
 function formatarData(data) {
   const dataFormatada = new Date(data);
-  return dataFormatada.toLocaleString(); // 
+  return dataFormatada.toLocaleString(); //
 }
 
 
@@ -554,17 +587,17 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
 
     const btnAceitarServi = document.createElement("div");
     btnAceitarServi.className = "card__button";
-    btnAceitarServi.id = "btnConcluirServ"; // 
+    btnAceitarServi.id = "btnConcluirServ"; //
     btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
     const btnMostrarServ = document.createElement("div");
     btnMostrarServ.className = "card__button";
-    btnMostrarServ.id = "btnMostrarServ"; // 
+    btnMostrarServ.id = "btnMostrarServ"; //
     btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
     const btnRejeitarServ = document.createElement("div");
     btnRejeitarServ.className = "card__button";
-    btnRejeitarServ.id = "btnRejeitarServ"; // 
+    btnRejeitarServ.id = "btnRejeitarServ"; //
     btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
 
     servicoCard.appendChild(cardText);
@@ -573,11 +606,11 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     cardButtonGroup.appendChild(btnMostrarServ);
     cardButtonGroup.appendChild(btnRejeitarServ);
 
-    
-    servicoCard.appendChild(cardButtonGroup);
-    
 
-    
+    servicoCard.appendChild(cardButtonGroup);
+
+
+
     historicoCardContainer.appendChild(servicoCard);
 }});
 } else {
