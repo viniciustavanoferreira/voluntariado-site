@@ -4,6 +4,7 @@ import {
   updateService,
   deleteService,
   buscarUsuario,
+  deletarUsuario,
 } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -553,6 +554,34 @@ userListContainer.addEventListener("click", async (event) => {
   }
 });
 // evento historico display
+
+// evento excluir conta 
+
+const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
+
+ExcluirContaTrigger.addEventListener("click", async () => {
+  try {
+   
+    const codigoUsuario = user.usuarioResponseDTO.id;
+
+    console.log(codigoUsuario)
+
+    const confirmacao = confirm("Tem certeza de que deseja excluir o usuário?");
+
+    if (confirmacao) {
+      const resposta = await deletarUsuario(codigoUsuario);
+
+      if (resposta) {
+        alert("Usuário excluído com sucesso");
+        window.location.href = "./cadastro2.php";
+      } else {
+        alert("Falha ao excluir o usuário");
+      }
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
 
 // evento historico voluntario
 
