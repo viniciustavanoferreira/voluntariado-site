@@ -584,7 +584,7 @@ ExcluirContaTrigger.addEventListener("click", async () => {
 
       if (resposta) {
         alert("Usuário excluído com sucesso");
-        window.location.href = "./src/views/cadastro2.php";
+        window.location.href = "./cadastro2.php";
       } else {
         alert("Falha ao excluir o usuário");
       }
