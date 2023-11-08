@@ -14,10 +14,10 @@
     <div class="container">
         <div class="content first-content">
             <div class="first-column">
-                <h2 class="title title-primary">Bem-vindo <br> 
-                
-                <p class="description description-primary">É novo aqui?</p>
-                <button id="signin" class="btn btn-primary">Cadastrar</button>
+                <h2 class="title title-primary">Bem-vindo <br>
+
+                    <p class="description description-primary">É novo aqui?</p>
+                    <button id="signin" class="btn btn-primary">Cadastrar</button>
             </div>
             <div class="second-column">
                 <h2 class="title title-second">Acesse aqui</h2>

@@ -17,7 +17,7 @@ if (user) {
 btnSignin.addEventListener("click", (event) => {
   // função que previne que a página atualize ao clicar
   event.preventDefault();
-  window.location.href = "./cadastro.php";
+  window.location.href = "./cadastro2.php";
 });
 // função que irá escutar o evento click do btnSignUp
 btnSignup.addEventListener("click", async (event) => {
