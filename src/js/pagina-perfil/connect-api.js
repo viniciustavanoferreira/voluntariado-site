@@ -288,6 +288,34 @@ async function servicoAceitoVolutario(requestBody) {
 
 }
 
+async function deletarUsuario(codigoUsuario) {
+  // tipo de requisição que vai ser feita, aonde terá o body com os campos do cadastro
+  // console.log(cadastro);
+
+  const requestOptions = {
+    method: "DELETE",
+    redirect: "follow",
+  };
+
+  // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
+  const conexao = await fetch(
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/codigo-usuario/${codigoUsuario}`,
+    requestOptions
+  );
+
+  console.log(codigoUsuario);
+  // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
+  if (!conexao.ok) {
+    throw new Error("Não foi possível conexão. Tente novamente");
+  }
+  // constante que será armazenada o arquivo .json que vem da API.
+  const conexaoResposta = await conexao.json();
+  console.log(conexaoResposta);
+  // retorno da constante com o json transformado em objeto
+  return conexaoResposta;
+
+}
+
 
 
 
@@ -301,4 +329,5 @@ export {
   buscarUsuario,
   buscarServicoNaoAceito,
   servicoAceitoVolutario,
+  deletarUsuario,
 };

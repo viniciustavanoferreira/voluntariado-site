@@ -476,10 +476,10 @@
                         </div>
                         <div class="card__button-group">
                             <div class="card__button">
-                                <a href="#" id="btnÉxcluirConta">Sim</a>
+                                <a href="#" id="btnExcluirContaSim">Sim</a>
                             </div>
                             <div class="card__button">
-                                <a href="#" id="btnExcluirConta">Não</a>
+                                <a href="#" id="btnExcluirContaNao">Não</a>
                             </div>
                         </div>
                     </div>

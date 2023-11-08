@@ -1,4 +1,4 @@
-import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario, updateService } from "./connect-api.js";
+import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario, updateService,deletarUsuario } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -561,6 +561,39 @@ document.addEventListener("DOMContentLoaded", async () => {
 );
 
 // Chame a função para exibir os serviços não aceitos
+
+// evento excluir conta
+
+// Declare a variável codigoUsuario e atribua o valor a partir de user.usuarioResponseDTOList
+
+
+
+const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
+
+ExcluirContaTrigger.addEventListener("click", async () => {
+  try {
+   
+    const codigoUsuario = user.usuarioResponseDTO.id;
+
+    console.log(codigoUsuario)
+
+    const confirmacao = confirm("Tem certeza de que deseja excluir o usuário?");
+
+    if (confirmacao) {
+      const resposta = await deletarUsuario(codigoUsuario);
+
+      if (resposta) {
+        alert("Usuário excluído com sucesso");
+        window.location.href = "./src/views/cadastro2.php";
+      } else {
+        alert("Falha ao excluir o usuário");
+      }
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+});
+
 
 
 // evento historico voluntario
