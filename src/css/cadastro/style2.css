@@ -45,9 +45,13 @@ body {
 form {
   position: absolute;
   margin-top: 150px;
-  transition: .5s;
+  transition: .4s ease-in;
   width: 300px;
   height: 400px;
+}
+
+#formvol {
+  left: 450px;
 }
 
 .buttonsForm {
