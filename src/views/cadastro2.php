@@ -68,13 +68,13 @@
       <span class="esconder"><small>Mensagem de erro</small></span>
 
       <label for="complemento-i">Complemento</label>
-      <input type="text" id="complemento-i" placeholder="Ex: Apto 99, Bloco A" />
+      <input type="text" id="complemento-i" placeholder="Ex: Apto 99" />
       <i class="fas fa-exclamation-circle"></i>
       <i class="fas fa-check-circle"></i>
       <span class="esconder"><small>Mensagem de erro</small></span>
 
-      <label for="referencia-i">Bloco/Referência</label>
-      <input type="text" id="referencia-i" placeholder="Digite sua referência." />
+      <label for="referencia-i">Bloco</label>
+      <input type="text" id="referencia-i" placeholder="Ex: bloco A." />
       <i class="fas fa-exclamation-circle"></i>
       <i class="fas fa-check-circle"></i>
       <span class="esconder"><small>Mensagem de erro</small></span>
@@ -194,13 +194,13 @@
       <span class="esconder"><small>Mensagem de erro</small></span>
 
       <label for="complemento-v">Complemento</label>
-      <input type="text" id="complemento-v" placeholder="Ex: Apto 99, Bloco A" />
+      <input type="text" id="complemento-v" placeholder="Ex: Apto 99" />
       <i class="fas fa-exclamation-circle"></i>
       <i class="fas fa-check-circle"></i>
       <span class="esconder"><small>Mensagem de erro</small></span>
 
-      <label for="referencia-v">Bloco/Referência</label>
-      <input type="text" id="referencia-v" placeholder="Digite sua referência." />
+      <label for="referencia-v">Bloco</label>
+      <input type="text" id="referencia-v" placeholder="Ex: Bloco A." />
       <i class="fas fa-exclamation-circle"></i>
       <i class="fas fa-check-circle"></i>
       <span class="esconder"><small>Mensagem de erro</small></span>
