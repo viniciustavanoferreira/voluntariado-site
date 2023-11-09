@@ -158,7 +158,7 @@ async function updateService(servico) {
     },
     body: JSON.stringify(
       {
-        codigoServico: servico.id,
+        codigoServico: servico.codigoServico,
         tipoServico: servico.tipoServico,
         dataInicio: servico.dataHoraInicio,
         dataFim: servico.dataHoraFim,
