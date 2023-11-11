@@ -126,7 +126,7 @@ async function createService(servico) {
       ordem: servico.ordem,
       destino: servico.destino,
       status: servico.status,
-      idUsuarioIdoso: `${servico.usuario}`,
+      idUsuarioIdoso: servico.idUsuarioIdoso,
     }),
     redirect: "follow",
   };
@@ -316,6 +316,25 @@ async function deletarUsuario(codigoUsuario) {
 
 }
 
+async function updatePassword(user, newPassword)
+{
+  const requestOptions = {
+    method: "POST",
+    redirect: "follow",
+  };
+  const conexao = await fetch(
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/alterar-senha/id-usuario/${user}/nova-senha/${newPassword}`,
+    requestOptions
+  );
+  if (!conexao.ok) {
+    throw new Error("Não foi possível conexão. Tente novamente");
+  }
+  // constante que será armazenada o arquivo .json que vem da API.
+  const conexaoResposta = await conexao.json();
+  console.log(conexaoResposta.message);
+  // retorno da constante com o json transformado em objeto
+  return conexaoResposta;
+}
 
 
 
@@ -330,4 +349,5 @@ export {
   buscarServicoNaoAceito,
   servicoAceitoVolutario,
   deletarUsuario,
+  updatePassword,
 };

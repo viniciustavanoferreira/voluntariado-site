@@ -5,6 +5,7 @@ import {
   deleteService,
   buscarUsuario,
   deletarUsuario,
+  updatePassword,
 } from "./connect-api.js";
 
 $(document).ready(function () {
@@ -58,7 +59,6 @@ function putServicos() {
         <div class="main__servicos__card " id="${servico.id}">
         <div class="card__text">
           <h4>${servico.destino}</h4>
-          <h4>${servico.idUsuarioIdoso}</h4>
           <p>Tipo de Serviço: ${servico.tipoServico}</p>
           <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
           <p>Destino: ${servico.destino}</p>
@@ -83,7 +83,6 @@ function putServicos() {
       <div class="main__servicos__card " id="${servico.id}">
           <div class="card__text">
             <h4>${servico.destino}</h4>
-            <h4>${servico.idUsuarioIdoso}</h4>
             <p>Tipo de Serviço: ${servico.tipoServico}</p>
             <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
             <p>Destino: ${servico.destino}</p>
@@ -137,6 +136,7 @@ function putEventosServicos() {
         user.servicoResponseDTOList = user.servicoResponseDTOList.filter(
           (s) => s.id !== idServico
         );
+        localStorage.setItem("user", JSON.stringify(user));
         putServicos();
         putEventosServicos();
       } catch (error) {
@@ -191,8 +191,17 @@ const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
 
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
-  const senha = document.getElementById("nova-senha");
-  const idUsuario = user.usuarioResponseDTO.id;
+  const password = document.getElementById("antigo-senha");
+  const newPassword = document.getElementById("nova-senha");
+  const idUsuario = user.usuarioResponseDTO.usuario;
+  console.log(password);
+  console.log(newPassword);
+  
+  if((password.value == user.usuarioResponseDTO.senha) && newPassword && (password.value != newPassword))
+  {
+    console.log(idUsuario)
+    // updatePassword()
+  }
 
   // TODO: validar se as senhas são iguais
   // TODO: validar se a senha antiga está correta
@@ -596,52 +605,52 @@ function formatarData(data) {
 const historicoCardContainer = document.querySelector("[data-historico]");
 
 if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 0) {
-  user.servicoResponseDTOList.forEach((servico) => {
-    if (servico.idUsuarioVoluntario){
-    const servicoCard = document.createElement("div");
-    servicoCard.className = "main__servicos__card";
+  // user.servicoResponseDTOList.forEach((servico) => {
+  //   if (servico.idUsuarioVoluntario){
+  //   const servicoCard = document.createElement("div");
+  //   servicoCard.className = "main__servicos__card";
 
-    const cardText = document.createElement("div");
-    cardText.className = "card__text";
-    cardText.innerHTML = `
-      <h4>${servico.idUsuarioIdoso}</h4>
-      <p>Tipo de Serviço: ${servico.tipoServico}</p>
-      <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
-      <p>Destino: ${servico.destino}</p>
-      <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
-      <p>Status: ${servico.status}</p>
-    `;
-    const cardButtonGroup = document.createElement("div");
-    cardButtonGroup.className = "card__button-group";
+  //   const cardText = document.createElement("div");
+  //   cardText.className = "card__text";
+  //   cardText.innerHTML = `
+  //     <h4>${servico.idUsuarioIdoso}</h4>
+  //     <p>Tipo de Serviço: ${servico.tipoServico}</p>
+  //     <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+  //     <p>Destino: ${servico.destino}</p>
+  //     <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
+  //     <p>Status: ${servico.status}</p>
+  //   `;
+  //   const cardButtonGroup = document.createElement("div");
+  //   cardButtonGroup.className = "card__button-group";
 
-    const btnAceitarServi = document.createElement("div");
-    btnAceitarServi.className = "card__button";
-    btnAceitarServi.id = "btnConcluirServ"; //
-    btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
+  //   const btnAceitarServi = document.createElement("div");
+  //   btnAceitarServi.className = "card__button";
+  //   btnAceitarServi.id = "btnConcluirServ"; //
+  //   btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
-    const btnMostrarServ = document.createElement("div");
-    btnMostrarServ.className = "card__button";
-    btnMostrarServ.id = "btnMostrarServ"; //
-    btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+  //   const btnMostrarServ = document.createElement("div");
+  //   btnMostrarServ.className = "card__button";
+  //   btnMostrarServ.id = "btnMostrarServ"; //
+  //   btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
-    const btnRejeitarServ = document.createElement("div");
-    btnRejeitarServ.className = "card__button";
-    btnRejeitarServ.id = "btnRejeitarServ"; //
-    btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
+  //   const btnRejeitarServ = document.createElement("div");
+  //   btnRejeitarServ.className = "card__button";
+  //   btnRejeitarServ.id = "btnRejeitarServ"; //
+  //   btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
 
-    servicoCard.appendChild(cardText);
+  //   servicoCard.appendChild(cardText);
 
-    cardButtonGroup.appendChild(btnAceitarServi);
-    cardButtonGroup.appendChild(btnMostrarServ);
-    cardButtonGroup.appendChild(btnRejeitarServ);
-
-
-    servicoCard.appendChild(cardButtonGroup);
+  //   cardButtonGroup.appendChild(btnAceitarServi);
+  //   cardButtonGroup.appendChild(btnMostrarServ);
+  //   cardButtonGroup.appendChild(btnRejeitarServ);
 
 
+  //   servicoCard.appendChild(cardButtonGroup);
 
-    historicoCardContainer.appendChild(servicoCard);
-}});
+
+
+  //   historicoCardContainer.appendChild(servicoCard);
+// }});
 } else {
   // Se não houver serviços
   historicoCardContainer.innerHTML = "Nenhum serviço encontrado para este usuário.";
@@ -729,7 +738,7 @@ buttonCriarServico.addEventListener("click", async (event) => {
     ordem: ordemDescricao.value,
     destino: servicoDestino.value,
     status: "PENDENTE",
-    usuario: user.usuarioResponseDTO.usuario,
+    idUsuarioIdoso: user.usuarioResponseDTO.usuario,
   };
   console.log(servico);
   try {
