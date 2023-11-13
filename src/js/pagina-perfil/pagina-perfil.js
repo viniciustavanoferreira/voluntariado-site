@@ -189,11 +189,29 @@ console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
 const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+const senhaAtual = document.querySelector("#antigo-senha");
+const novaSenha = document.querySelector("#nova-senha");
 
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
-  const senha = document.getElementById("nova-senha");
-  const idUsuario = user.usuarioResponseDTO.id;
+  const password = senhaAtual.value;
+  const newPassword = novaSenha.value;
+
+  if (password !== user.usuarioResponseDTO.senha) {
+    alert("As senhas não coincidem");
+    return;
+  }
+  if (newpassword === user.usuarioResponseDTO.senha) {
+    alert("A senha nova deve ser diferente da senha antiga");
+    return;
+  }
+  if (newpassword === "") {
+    alert("A senha nova não pode ser vazia");
+    return;
+  }
+  const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
+  console.log(response);
+  alert(response.message);
 
   // TODO: validar se as senhas são iguais
   // TODO: validar se a senha antiga está correta

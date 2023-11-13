@@ -87,11 +87,18 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   const password = senhaAtual.value;
   const newPassword = novaSenha.value;
 
-  if (password !== newPassword) {
+  if (password !== user.usuarioResponseDTO.senha) {
     alert("As senhas não coincidem");
     return;
   }
-
+  if (newpassword === user.usuarioResponseDTO.senha) {
+    alert("A senha nova deve ser diferente da senha antiga");
+    return;
+  }
+  if (newpassword === "") {
+    alert("A senha nova não pode ser vazia");
+    return;
+  }
   const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
   console.log(response);
   alert(response.message);
