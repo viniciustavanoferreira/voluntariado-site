@@ -99,9 +99,16 @@ btnSalvarSenha.addEventListener("click", async (event) => {
     alert("A senha nova não pode ser vazia");
     return;
   }
-  const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
-  console.log(response);
-  alert(response.message);
+  try{
+    const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
+    console.log(response);
+    user.usuarioResponseDTO.senha = newPassword;
+    localStorage.setItem("user", JSON.stringify(user));
+    alert(response.message);
+  }
+  catch(error){
+    alert(error.message);
+  }
 
   // TODO: validar se as senhas são iguais
   // TODO: validar se a senha antiga está correta
