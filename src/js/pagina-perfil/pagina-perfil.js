@@ -192,10 +192,7 @@ const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
 const senhaAtual = document.querySelector("#antigo-senha");
 const novaSenha = document.querySelector("#nova-senha");
 
-console.log(btnSalvarSenha);
-console.log(senhaAtual);
-console.log(novaSenha);
-
+// convenção de alteração de senha
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
   const password = senhaAtual.value;
@@ -225,11 +222,6 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   catch(error){
     alert(error.message);
   }
-
-  // TODO: validar se as senhas são iguais
-  // TODO: validar se a senha antiga está correta
-  // TODO: validar se a senha nova é diferente da antiga
-  // TODO: enviar a senha nova para o backend
 });
 
 // função que calcula idade

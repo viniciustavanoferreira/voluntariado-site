@@ -78,12 +78,11 @@ const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
+
+// convenção de alteração de senha
 const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
 const senhaAtual = document.querySelector("#antigo-senha");
 const novaSenha = document.querySelector("#nova-senha");
-console.log(btnSalvarSenha);
-console.log(senhaAtual);
-console.log(novaSenha);
 
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -112,11 +111,6 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   catch(error){
     alert(error.message);
   }
-
-  // TODO: validar se as senhas são iguais
-  // TODO: validar se a senha antiga está correta
-  // TODO: validar se a senha nova é diferente da antiga
-  // TODO: enviar a senha nova para o backend
 });
 
 const telefone = document.getElementById("telefone-perfil");
