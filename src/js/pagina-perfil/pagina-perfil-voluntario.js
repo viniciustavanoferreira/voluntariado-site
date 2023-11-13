@@ -1,5 +1,7 @@
 import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario, updateService,deletarUsuario } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
+import { resetPassword } from "../redefinir-senha/connect-api.js";
+
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -76,17 +78,39 @@ const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
+
+// convenção de alteração de senha
 const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+const senhaAtual = document.querySelector("#antigo-senha");
+const novaSenha = document.querySelector("#nova-senha");
 
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
-  const senha = document.getElementById("nova-senha");
-  const idUsuario = user.usuarioResponseDTO.id;
+  const password = senhaAtual.value;
+  const newPassword = novaSenha.value;
 
-  // TODO: validar se as senhas são iguais
-  // TODO: validar se a senha antiga está correta
-  // TODO: validar se a senha nova é diferente da antiga
-  // TODO: enviar a senha nova para o backend
+  if (password !== user.usuarioResponseDTO.senha) {
+    alert("As senhas não coincidem");
+    return;
+  }
+  if (newPassword === user.usuarioResponseDTO.senha) {
+    alert("A senha nova deve ser diferente da senha antiga");
+    return;
+  }
+  if (newPassword === "") {
+    alert("A senha nova não pode ser vazia");
+    return;
+  }
+  try{
+    const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
+    console.log(response);
+    user.usuarioResponseDTO.senha = newPassword;
+    localStorage.setItem("user", JSON.stringify(user));
+    alert(response.message);
+  }
+  catch(error){
+    alert(error.message);
+  }
 });
 
 const telefone = document.getElementById("telefone-perfil");
@@ -572,7 +596,7 @@ const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
 
 ExcluirContaTrigger.addEventListener("click", async () => {
   try {
-   
+
     const codigoUsuario = user.usuarioResponseDTO.id;
 
     console.log(codigoUsuario)
@@ -630,7 +654,7 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
 
     // const btnMostrarServ = document.createElement("div");
     // btnMostrarServ.className = "card__button";
-    // btnMostrarServ.id = "btnMostrarServ"; // 
+    // btnMostrarServ.id = "btnMostrarServ"; //
     // btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
     const btnRejeitarServ = document.createElement("div");

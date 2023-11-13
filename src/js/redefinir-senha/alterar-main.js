@@ -1,12 +1,39 @@
+import {resetPassword} from "./connect-api.js";
+
+const userName = document.querySelector("[name=username]");
 const password = document.querySelector("[name=password]");
 const newPassword = document.querySelector("[name=password-r]");
 const buttonViewPassword = document.querySelectorAll(".visibility");
 const iconA = document.querySelector("#visibility-a");
 const iconB = document.querySelector("#visibility-b");
+const form = document.querySelector("form");
 
-// console.log(buttonViewPassword);
-// console.log(password);
-// console.log(newPassword);
+form.addEventListener("submit", updatePassword);
+
+async function updatePassword(event)
+{
+    event.preventDefault();
+    const idUsuario = userName.value;
+    const senha = password.value;
+    const novaSenha = newPassword.value;
+
+    if (senha !== novaSenha) {
+        alert("As senhas não coincidem");
+        return;
+    }
+    if (newPassword === "") {
+        alert("A senha nova não pode ser vazia");
+        return;
+    }
+    try {
+        const response = await resetPassword(idUsuario, novaSenha);
+        console.log(response);
+        alert(response.message);
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
 
 // buttonViewPassword.forEach((button) => {
 //   button.addEventListener("click", (event) => {

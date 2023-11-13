@@ -6,6 +6,7 @@ import {
   buscarUsuario,
   deletarUsuario,
 } from "./connect-api.js";
+import { resetPassword } from "../redefinir-senha/connect-api.js";
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -188,16 +189,39 @@ console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
 const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+const senhaAtual = document.querySelector("#antigo-senha");
+const novaSenha = document.querySelector("#nova-senha");
 
+// convenção de alteração de senha
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
-  const senha = document.getElementById("nova-senha");
-  const idUsuario = user.usuarioResponseDTO.id;
+  const password = senhaAtual.value;
+  const newPassword = novaSenha.value;
+  console.log(password);
+  console.log(newPassword);
 
-  // TODO: validar se as senhas são iguais
-  // TODO: validar se a senha antiga está correta
-  // TODO: validar se a senha nova é diferente da antiga
-  // TODO: enviar a senha nova para o backend
+  if (password !== user.usuarioResponseDTO.senha) {
+    alert("As senhas não coincidem");
+    return;
+  }
+  if (newPassword === user.usuarioResponseDTO.senha) {
+    alert("A senha nova deve ser diferente da senha antiga");
+    return;
+  }
+  if (newPassword === "") {
+    alert("A senha nova não pode ser vazia");
+    return;
+  }
+  try{
+    const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
+    console.log(response);
+    user.usuarioResponseDTO.senha = newPassword;
+    localStorage.setItem("user", JSON.stringify(user));
+    alert(response.message);
+  }
+  catch(error){
+    alert(error.message);
+  }
 });
 
 // função que calcula idade
@@ -555,13 +579,13 @@ userListContainer.addEventListener("click", async (event) => {
 });
 // evento historico display
 
-// evento excluir conta 
+// evento excluir conta
 
 const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
 
 ExcluirContaTrigger.addEventListener("click", async () => {
   try {
-   
+
     const codigoUsuario = user.usuarioResponseDTO.id;
 
     console.log(codigoUsuario)

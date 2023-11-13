@@ -45,7 +45,7 @@
             </div>
         </form>
     </div>
-    <script src="../js/redefinir-senha/alterar-main.js"></script>
+    <script type="module" src="../js/redefinir-senha/alterar-main.js"></script>
 </body>
 
 </html>
