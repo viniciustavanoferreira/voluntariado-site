@@ -212,6 +212,7 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   try{
     const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
     console.log(response);
+    user.usuarioResponseDTO.senha = newPassword;
     alert(response.message);
   }
   catch(error){
