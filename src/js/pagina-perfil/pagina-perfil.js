@@ -192,20 +192,26 @@ const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
 const senhaAtual = document.querySelector("#antigo-senha");
 const novaSenha = document.querySelector("#nova-senha");
 
+console.log(btnSalvarSenha);
+console.log(senhaAtual);
+console.log(novaSenha);
+
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
   const password = senhaAtual.value;
   const newPassword = novaSenha.value;
+  console.log(password);
+  console.log(newPassword);
 
   if (password !== user.usuarioResponseDTO.senha) {
     alert("As senhas não coincidem");
     return;
   }
-  if (newpassword === user.usuarioResponseDTO.senha) {
+  if (newPassword === user.usuarioResponseDTO.senha) {
     alert("A senha nova deve ser diferente da senha antiga");
     return;
   }
-  if (newpassword === "") {
+  if (newPassword === "") {
     alert("A senha nova não pode ser vazia");
     return;
   }
