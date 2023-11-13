@@ -1,5 +1,7 @@
 import { buscarServicoNaoAceito, updateVoluntario, servicoAceitoVolutario, updateService,deletarUsuario } from "./connect-api.js";
 import { buscarUsuario } from "./connect-api.js";
+import { resetPassword } from "../redefinir-senha/connect-api.js";
+
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -77,11 +79,22 @@ console.log(nomeApresentacao.textContent);
 nomeApresentacao.textContent = getFirstName(user.usuarioResponseDTO.nome);
 
 const btnSalvarSenha = document.querySelector("#btnSalvarSenha");
+const senhaAtual = document.querySelector("#antigo-senha");
+const novaSenha = document.querySelector("#nova-senha");
 
 btnSalvarSenha.addEventListener("click", async (event) => {
   event.preventDefault();
-  const senha = document.getElementById("nova-senha");
-  const idUsuario = user.usuarioResponseDTO.id;
+  const password = senhaAtual.value;
+  const newPassword = novaSenha.value;
+
+  if (password !== newPassword) {
+    alert("As senhas não coincidem");
+    return;
+  }
+
+  const response = await resetPassword(user.usuarioResponseDTO.usuario, newPassword);
+  console.log(response);
+  alert(response.message);
 
   // TODO: validar se as senhas são iguais
   // TODO: validar se a senha antiga está correta
@@ -572,7 +585,7 @@ const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
 
 ExcluirContaTrigger.addEventListener("click", async () => {
   try {
-   
+
     const codigoUsuario = user.usuarioResponseDTO.id;
 
     console.log(codigoUsuario)
@@ -630,7 +643,7 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
 
     // const btnMostrarServ = document.createElement("div");
     // btnMostrarServ.className = "card__button";
-    // btnMostrarServ.id = "btnMostrarServ"; // 
+    // btnMostrarServ.id = "btnMostrarServ"; //
     // btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
     const btnRejeitarServ = document.createElement("div");

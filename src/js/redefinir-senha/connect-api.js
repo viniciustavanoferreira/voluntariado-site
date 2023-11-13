@@ -1,4 +1,4 @@
-async function resetPassword(senha) {
+async function resetPassword(idUsuario, senha) {
   // tipo de requisição que vai ser feita
   const requestOptions = {
     method: "POST",
@@ -6,7 +6,7 @@ async function resetPassword(senha) {
   };
   // constante que vai guardar a resposta da requisição. O await é utilizado junto com o async, aonde só vai ser atribuido o valor quando tiver resposta da API
   const conexao = await fetch(
-    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/alterar-senha/id-usuario/{id-usuario}/nova-senha/${senha}`,
+    `https://sistema-voluntariado-backend.onrender.com/v1/api/usuario/alterar-senha/id-usuario/${idUsuario}/nova-senha/${senha}`,
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro

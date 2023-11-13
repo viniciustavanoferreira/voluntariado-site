@@ -6,6 +6,7 @@ import {
   buscarUsuario,
   deletarUsuario,
 } from "./connect-api.js";
+import { resetPassword } from "../redefinir-senha/connect-api.js";
 
 $(document).ready(function () {
   var trigger = $(".hamburger"),
@@ -555,13 +556,13 @@ userListContainer.addEventListener("click", async (event) => {
 });
 // evento historico display
 
-// evento excluir conta 
+// evento excluir conta
 
 const ExcluirContaTrigger = document.getElementById("btnExcluirContaSim");
 
 ExcluirContaTrigger.addEventListener("click", async () => {
   try {
-   
+
     const codigoUsuario = user.usuarioResponseDTO.id;
 
     console.log(codigoUsuario)
