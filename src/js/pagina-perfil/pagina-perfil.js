@@ -425,6 +425,8 @@ buttons.forEach((button, index) => {
   }
 });
 
+bemvindoContainer.classList.remove('esconder');
+
 // funcao para esconder o contéúdo que nao corresponde ao click event(condição IF para manter somente add)
 
 function esconderTodosConteudos() {

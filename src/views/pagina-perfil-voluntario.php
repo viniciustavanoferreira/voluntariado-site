@@ -96,7 +96,7 @@
                         Buscar Serviços
                 </h2>
                 <div class="container historico-card" data-buscar style="display:grid; gap:2rem;">
-                    <div class="main__servicos__card " id="mostrar-servico-card">
+                    <!-- <div class="main__servicos__card " id="mostrar-servico-card">
                         <div class="card__text">
                             <h4>Eustáquio</h4>
                             <p>Serviço de Troca de lampada</p>
@@ -112,7 +112,7 @@
                                 <a href="#">Rejeitar</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <span>

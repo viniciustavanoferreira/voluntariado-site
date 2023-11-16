@@ -269,7 +269,7 @@
                     <div class="product-item d-flex flex-column bg-white rounded overflow-hidden h-100">
                         <div class="text-center p-4">
                             <h4 class="mb-3">Serviços</h4>
-                            <span>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</span>
+                            <span>Diversos serviços para auxiliar em seu dia-a-dia.</span>
                         </div>
                         <div class="position-relative mt-auto">
                             <img class="img-fluid" src="../img/compras.jpg" alt="">
