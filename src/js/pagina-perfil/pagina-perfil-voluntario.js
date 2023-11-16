@@ -266,7 +266,6 @@ const buttons = [
   btnEditarPerfil,
   btnEditarSenha,
   btnDeletarPerfil,
-  btnSairPerfil,
 ];
 
 
@@ -302,6 +301,8 @@ buttons.forEach((button, index) => {
     });
   }
 });
+
+bemvindoContainer.classList.remove('esconder');
 
 
 // função para a chamada do usuario no bemvindoContainer
@@ -463,10 +464,13 @@ async function exibirServicosNaoAceitos() {
     // const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
     // console.log(servicoAceito);
 
-    servicoBuscarContainer.innerHTML = "";
 
     if (!(servicosNaoAceitos && servicosNaoAceitos.length > 0))
+    {
+      console.log("entrou aqui")
       servicoBuscarContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+      return ;
+    }
     servicosNaoAceitos.forEach((servico) => {
 
       const servicoCard = document.createElement("div");
@@ -577,7 +581,8 @@ async function exibirServicosNaoAceitos() {
 
 
   } catch (error) {
-    console.error(error.message)
+    console.error(error.message);
+    servicoBuscarContainer.innerHTML = "Nenhum serviço foi encontrado.";
   };
 }
 exibirServicosNaoAceitos();
@@ -651,21 +656,21 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
     btnAceitarServi.id = "btnConcluirServ"; //
     btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
-    // const btnMostrarServ = document.createElement("div");
+    const divServ = document.createElement("div");
     // btnMostrarServ.className = "card__button";
     // btnMostrarServ.id = "btnMostrarServ"; //
     // btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
-    const btnRejeitarServ = document.createElement("div");
-    btnRejeitarServ.className = "card__button";
-    btnRejeitarServ.id = "btnRejeitarServ"; //
-    btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
+    // const btnRejeitarServ = document.createElement("div");
+    // btnRejeitarServ.className = "card__button";
+    // btnRejeitarServ.id = "btnRejeitarServ"; //
+    // btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
 
     servicoCard.appendChild(cardText);
 
+    cardButtonGroup.appendChild(divServ);
     cardButtonGroup.appendChild(btnAceitarServi);
-    // cardButtonGroup.appendChild(btnMostrarServ);
-    cardButtonGroup.appendChild(btnRejeitarServ);
+    // cardButtonGroup.appendChild(btnRejeitarServ);
 
 
     servicoCard.appendChild(cardButtonGroup);
@@ -683,8 +688,10 @@ if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 
 
 
 // evento logout
+console.log(btnSairPerfil);
 
-btnSairPerfil.addEventListener("click", () => {
+btnSairPerfil.addEventListener("click", (event) => {
+  event.preventDefault();
   console.log("Clicou");
   localStorage.removeItem("user");
   window.location.href = "./login-cadastro.php";
