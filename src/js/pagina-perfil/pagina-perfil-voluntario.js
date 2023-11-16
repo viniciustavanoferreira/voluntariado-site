@@ -443,147 +443,146 @@ userListContainer.addEventListener("click", async (event) => {
 
 //evento buscar serviço para voluntario, aceittar, rejeitar, mostrar
 async function buscarServico() {
-  const historicoCardContainer = document.querySelector("[data-buscar]");
   const servicosNaoAceitos = await buscarServicoNaoAceito();
   console.log(servicosNaoAceitos);
   return (servicosNaoAceitos);
 }
 
 
-document.addEventListener("DOMContentLoaded", async () => {
-
-  const historicoCardContainer = document.querySelector("[data-buscar]");
 
 
-  // Função para exibir serviços não aceitos
-  async function exibirServicosNaoAceitos() {
-    try {
-      const servicosNaoAceitos = await buscarServico();
-      console.log(servicosNaoAceitos)
-      // const id = 38;
-      // const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
-      // console.log(servicoAceito);
-
-      historicoCardContainer.innerHTML = "";
-
-      if (!(servicosNaoAceitos && servicosNaoAceitos.length > 0))
-        historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
-      servicosNaoAceitos.forEach((servico) => {
-
-        const servicoCard = document.createElement("div");
-        servicoCard.className = "main__servicos__card";
-
-        const cardText = document.createElement("div");
-        cardText.className = "card__text";
-        cardText.innerHTML = `
-            <h4>${servico.idUsuarioIdoso}</h4>
-            <p>Tipo de Serviço: ${servico.tipoServico}</p>
-                <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
-                <p>Destino: ${servico.destino}</p>
-                <p>Idoso: ${servico.idUsuarioIdoso}</p>
-                <p>Status: ${servico.status}</p>
-          `;
-
-        const cardButtonGroup = document.createElement("div");
-        cardButtonGroup.className = "card__button-group";
-
-        const btnAceitarServi = document.createElement("div");
-        btnAceitarServi.className = "card__button";
-        btnAceitarServi.setAttribute("data-button-type", "aceitar");
-        btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
-
-        const btnRejeitarServ = document.createElement("div");
-        btnRejeitarServ.className = "card__button";
-        btnRejeitarServ.setAttribute("data-button-type", "rejeitar");
-        btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
-
-        cardButtonGroup.appendChild(btnAceitarServi);
-
-        cardButtonGroup.appendChild(btnRejeitarServ);
-
-        servicoCard.appendChild(cardText);
-        servicoCard.appendChild(cardButtonGroup);
-
-        historicoCardContainer.appendChild(servicoCard);
+const servicoBuscarContainer = document.querySelector("[data-buscar]");
 
 
+// Função para exibir serviços não aceitos
+async function exibirServicosNaoAceitos() {
+  try {
+    const servicosNaoAceitos = await buscarServico();
+    console.log(servicosNaoAceitos)
+    // const id = 38;
+    // const servicoAceito = servicosNaoAceitos.find(servico => servico.id == id);
+    // console.log(servicoAceito);
+
+    servicoBuscarContainer.innerHTML = "";
+
+    if (!(servicosNaoAceitos && servicosNaoAceitos.length > 0))
+      servicoBuscarContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+    servicosNaoAceitos.forEach((servico) => {
+
+      const servicoCard = document.createElement("div");
+      servicoCard.className = "main__servicos__card";
+
+      const cardText = document.createElement("div");
+      cardText.className = "card__text";
+      cardText.innerHTML = `
+          <h4>${servico.idUsuarioIdoso}</h4>
+          <p>Tipo de Serviço: ${servico.tipoServico}</p>
+              <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+              <p>Destino: ${servico.destino}</p>
+              <p>Idoso: ${servico.idUsuarioIdoso}</p>
+              <p>Status: ${servico.status}</p>
+        `;
+
+      const cardButtonGroup = document.createElement("div");
+      cardButtonGroup.className = "card__button-group";
+
+      const btnAceitarServi = document.createElement("div");
+      btnAceitarServi.className = "card__button";
+      btnAceitarServi.setAttribute("data-button-type", "aceitar");
+      btnAceitarServi.innerHTML = `<a href="#">Aceitar</a>`;
+
+      const btnRejeitarServ = document.createElement("div");
+      btnRejeitarServ.className = "card__button";
+      btnRejeitarServ.setAttribute("data-button-type", "rejeitar");
+      btnRejeitarServ.innerHTML = `<a href="#">Rejeitar</a>`;
+
+      cardButtonGroup.appendChild(btnAceitarServi);
+
+      cardButtonGroup.appendChild(btnRejeitarServ);
+
+      servicoCard.appendChild(cardText);
+      servicoCard.appendChild(cardButtonGroup);
+
+      servicoBuscarContainer.appendChild(servicoCard);
 
 
-        const buttons = servicoCard.querySelectorAll(".card__button");
-        buttons.forEach((button) => {
-          button.addEventListener("click", async (event) => {
-            const buttonType = button.getAttribute("data-button-type");
-            // const servicoAceito = servicoAceitoVolutario()
 
-            if (buttonType === "aceitar") {
-              console.log("Botão Aceitar Serviço clicado");
-              try {
 
-                const requisicao = {
-                  codigoServico: Number(servico.id),
-                  tipoServico: servico.tipoServico,
-                  dataHoraInicio: servico.dataHoraInicio,
-                  dataHoraFim: servico.dataHoraFim,
-                  ordem: servico.ordem,
-                  destino: servico.destino,
-                  status: "ACEITO",
-                  idUsuarioVoluntario: user.usuarioResponseDTO.usuario,
-                };
+      const buttons = servicoCard.querySelectorAll(".card__button");
+      buttons.forEach((button) => {
+        button.addEventListener("click", async (event) => {
+          const buttonType = button.getAttribute("data-button-type");
+          // const servicoAceito = servicoAceitoVolutario()
 
-                console.log("Conteúdo do requestBody:", requisicao);
+          if (buttonType === "aceitar") {
+            console.log("Botão Aceitar Serviço clicado");
+            const requisicao = {
+              codigoServico: Number(servico.id),
+              tipoServico: servico.tipoServico,
+              dataHoraInicio: servico.dataHoraInicio,
+              dataHoraFim: servico.dataHoraFim,
+              ordem: servico.ordem,
+              destino: servico.destino,
+              status: "ACEITO",
+              idUsuarioVoluntario: user.usuarioResponseDTO.usuario,
+            };
 
-                // Chame a função servicoAceitoVolutario com o requestBody
-                console.log("Chamando servicoAceitoVolutario com requestBody:", requisicao);
-                const resposta = await updateService(requisicao);
+            console.log(requisicao);
+            console.log(servico)
+            try {
 
-                console.log("Resposta da função servicoAceitoVolutario:", resposta);
 
-                // Atualize o usuário no localStorage
-                user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
-                localStorage.setItem("user", JSON.stringify(user));
-                // Informe ao usuário que o serviço foi aceito
-                alert("Serviço aceito com sucesso");
+              // Chame a função servicoAceitoVolutario com o requestBody
+              console.log("Chamando servicoAceitoVolutario com requestBody:", requisicao);
+              const resposta = await updateService(requisicao);
 
-                // Redirecione ou atualize a página, se necessário
-                window.location.href = "./pagina-perfil-voluntario.php";
-              } catch (error) {
-                alert(error.message);
-              }
-            } else if (buttonType === "rejeitar") {
+              // servicoResponseDTOList.
+              resposta.idUsuarioIdoso = servico.idUsuarioIdoso;
+              // Atualize o usuário no localStorage
+              user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
+              localStorage.setItem("user", JSON.stringify(user));
+              // Informe ao usuário que o serviço foi aceito
+              alert("Serviço aceito com sucesso");
 
-              const servicoReijeitado = servico.id;
-
-              localStorage.setItem('servicoReijeitado', servicoReijeitado);
-
-              console.log(servicoReijeitado)
-              servicoCard.style.display = 'none';
-              alert("Serviço rejeitado com sucesso");
-
+              // Redirecione ou atualize a página, se necessário
+              window.location.href = "./pagina-perfil-voluntario.php";
+            } catch (error) {
+              alert(error.message);
             }
-            else {
-              historicoCardContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
-            }
+          } else if (buttonType === "rejeitar") {
 
-          });
+            const servicoReijeitado = servico.id;
 
+            localStorage.setItem('servicoReijeitado', servicoReijeitado);
 
+            console.log(servicoReijeitado)
+            servicoCard.style.display = 'none';
+            alert("Serviço rejeitado com sucesso");
+
+          }
+          else {
+            servicoBuscarContainer.innerHTML = "Nenhum serviço não aceito encontrado.";
+          }
 
         });
 
+
+
       });
 
+    });
 
 
 
 
-    } catch (error) {
-      console.error(error.message)
-    };
-  }
-    exibirServicosNaoAceitos();
+
+  } catch (error) {
+    console.error(error.message)
+  };
 }
-);
+exibirServicosNaoAceitos();
 
+// console.log("teste");
 // Chame a função para exibir os serviços não aceitos
 
 // evento excluir conta
