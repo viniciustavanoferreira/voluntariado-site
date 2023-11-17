@@ -53,7 +53,30 @@ function putServicos() {
     console.log(servico);
     console.log("CHEGOU");
     // servicosContainer.innerHTML = "";
-    if (servico.idUsuarioVoluntario)
+    if (servico.status === "CONCLUIDO") {
+      servicosContainer.innerHTML += `
+        <div class="main__servicos__card " id="${servico.id}">
+        <div class="card__text">
+          <h4>${servico.destino}</h4>
+          <h4>${servico.idUsuarioIdoso}</h4>
+          <p>Tipo de Serviço: ${servico.tipoServico}</p>
+          <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+          <p>Data de Fim: ${formatarData(servico.dataHoraFim)}</p>
+          <p>Destino: ${servico.destino}</p>
+          <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
+          <p>Status: ${servico.status}</p>
+        </div>
+        <div id='${servico.id}' class="card__button-group">
+            <div class="card__button" id="btnMostrarServ">
+            </div>
+            <div class="card__button" id="btnEXcluirServ">
+
+            </div>
+        </div>
+    </div>
+    `;
+    }
+    else if (servico.idUsuarioVoluntario)
     {
       servicosContainer.innerHTML += `
         <div class="main__servicos__card " id="${servico.id}">
@@ -68,7 +91,6 @@ function putServicos() {
         </div>
         <div id='${servico.id}' class="card__button-group">
             <div class="card__button" id="btnMostrarServ">
-                <a data-alterar href="#">Editar</a>
             </div>
             <div class="card__button" id="btnEXcluirServ">
                 <a data-deletar href="#">Rejeitar</a>
@@ -92,10 +114,10 @@ function putServicos() {
           </div>
           <div id='${servico.id}' class="card__button-group">
               <div class="card__button" id="btnMostrarServ">
-                  <a data-alterar href="#">Editar</a>
+              ${servico.idUsuarioVoluntario ? '<a data-alterar href="#">Editar</a>' : ''}
               </div>
               <div class="card__button" id="btnEXcluirServ">
-                  <a data-deletar href="#">Rejeitar</a>
+                  <a data-deletar href="#">Excluir</a>
               </div>
           </div>
       </div>
@@ -104,26 +126,33 @@ function putServicos() {
 
     }
   });
+  if (user.servicoResponseDTOList?.length === 0) {
+    servicosContainer.innerHTML = "Nenhum serviço encontrado para este usuário.";
+  }
+
 }
+
+console.log("teste")
 function putEventosServicos() {
-  const alterarServicos = document.querySelectorAll("[data-alterar]");
+  // const alterarServicos = document.querySelectorAll("[data-alterar]");
   const deletarServicos = document.querySelectorAll("[data-deletar]");
-  console.log(alterarServicos);
+  // console.log(alterarServicos);
   console.log(deletarServicos);
 
-  alterarServicos.forEach((servico) => {
-    const idServico = Number(servico.parentElement.parentElement.id);
-    console.log(servico.parentElement.parentElement.id);
-    const servicoSelecionado = user.servicoResponseDTOList.find(
-      (s) => s.id === idServico
-    );
+  // TODO: adicionar evento de alterar
+  // alterarServicos.forEach((servico) => {
+  //   const idServico = Number(servico.parentElement.parentElement.id);
+  //   console.log(servico.parentElement.parentElement.id);
+  //   const servicoSelecionado = user.servicoResponseDTOList.find(
+  //     (s) => s.id === idServico
+  //   );
 
-    servico.addEventListener("click", (event) => {
-      event.preventDefault();
-      console.log("click alterar");
-      console.log(servicoSelecionado);
-    });
-  });
+  //   servico.addEventListener("click", (event) => {
+  //     event.preventDefault();
+  //     console.log("click alterar");
+  //     console.log(servicoSelecionado);
+  //   });
+  // });
 
   deletarServicos.forEach((servico) => {
     const idServico = Number(servico.parentElement.parentElement.id);
@@ -138,6 +167,7 @@ function putEventosServicos() {
         user.servicoResponseDTOList = user.servicoResponseDTOList.filter(
           (s) => s.id !== idServico
         );
+        localStorage.setItem("user", JSON.stringify(user));
         putServicos();
         putEventosServicos();
       } catch (error) {
@@ -622,52 +652,52 @@ function formatarData(data) {
 const historicoCardContainer = document.querySelector("[data-historico]");
 
 if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 0) {
-  user.servicoResponseDTOList.forEach((servico) => {
-    if (servico.idUsuarioVoluntario){
-    const servicoCard = document.createElement("div");
-    servicoCard.className = "main__servicos__card";
+//   user.servicoResponseDTOList.forEach((servico) => {
+//     if (servico.idUsuarioVoluntario){
+//     const servicoCard = document.createElement("div");
+//     servicoCard.className = "main__servicos__card";
 
-    const cardText = document.createElement("div");
-    cardText.className = "card__text";
-    cardText.innerHTML = `
-      <h4>${servico.idUsuarioIdoso}</h4>
-      <p>Tipo de Serviço: ${servico.tipoServico}</p>
-      <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
-      <p>Destino: ${servico.destino}</p>
-      <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
-      <p>Status: ${servico.status}</p>
-    `;
-    const cardButtonGroup = document.createElement("div");
-    cardButtonGroup.className = "card__button-group";
+//     const cardText = document.createElement("div");
+//     cardText.className = "card__text";
+//     cardText.innerHTML = `
+//       <h4>${servico.idUsuarioIdoso}</h4>
+//       <p>Tipo de Serviço: ${servico.tipoServico}</p>
+//       <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+//       <p>Destino: ${servico.destino}</p>
+//       <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
+//       <p>Status: ${servico.status}</p>
+//     `;
+//     const cardButtonGroup = document.createElement("div");
+//     cardButtonGroup.className = "card__button-group";
 
-    const btnAceitarServi = document.createElement("div");
-    btnAceitarServi.className = "card__button";
-    btnAceitarServi.id = "btnConcluirServ"; //
-    btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
+//     const btnAceitarServi = document.createElement("div");
+//     btnAceitarServi.className = "card__button";
+//     btnAceitarServi.id = "btnConcluirServ"; //
+//     btnAceitarServi.innerHTML = `<a href="#">Concluir</a>`;
 
-    const btnMostrarServ = document.createElement("div");
-    btnMostrarServ.className = "card__button";
-    btnMostrarServ.id = "btnMostrarServ"; //
-    btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
+//     const btnMostrarServ = document.createElement("div");
+//     btnMostrarServ.className = "card__button";
+//     btnMostrarServ.id = "btnMostrarServ"; //
+//     btnMostrarServ.innerHTML = `<a href="#">Mostrar</a>`;
 
-    const btnRejeitarServ = document.createElement("div");
-    btnRejeitarServ.className = "card__button";
-    btnRejeitarServ.id = "btnRejeitarServ"; //
-    btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
+//     const btnRejeitarServ = document.createElement("div");
+//     btnRejeitarServ.className = "card__button";
+//     btnRejeitarServ.id = "btnRejeitarServ"; //
+//     btnRejeitarServ.innerHTML = `<a href="#">Excluir</a>`;
 
-    servicoCard.appendChild(cardText);
+//     servicoCard.appendChild(cardText);
 
-    cardButtonGroup.appendChild(btnAceitarServi);
-    cardButtonGroup.appendChild(btnMostrarServ);
-    cardButtonGroup.appendChild(btnRejeitarServ);
-
-
-    servicoCard.appendChild(cardButtonGroup);
+//     cardButtonGroup.appendChild(btnAceitarServi);
+//     cardButtonGroup.appendChild(btnMostrarServ);
+//     cardButtonGroup.appendChild(btnRejeitarServ);
 
 
+//     servicoCard.appendChild(cardButtonGroup);
 
-    historicoCardContainer.appendChild(servicoCard);
-}});
+
+
+//     historicoCardContainer.appendChild(servicoCard);
+// }});
 } else {
   // Se não houver serviços
   historicoCardContainer.innerHTML = "Nenhum serviço encontrado para este usuário.";
@@ -761,6 +791,8 @@ buttonCriarServico.addEventListener("click", async (event) => {
   try {
     const resposta = await createService(servico);
     console.log(resposta);
+    resposta.idUsuarioIdoso = user.usuarioResponseDTO.usuario;
+    resposta.idUsuarioVoluntario = null;
     user.servicoResponseDTOList
       ? user.servicoResponseDTOList.push(resposta)
       : (user.servicoResponseDTOList = [resposta]);
