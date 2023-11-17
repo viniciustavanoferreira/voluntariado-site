@@ -694,7 +694,7 @@ function exibirHistorico() {
       cardButtonGroup.appendChild(btnAceitarServi);
       // cardButtonGroup.appendChild(btnRejeitarServ);
       servicoCard.appendChild(cardButtonGroup);
-      historicoCardContainer.appendChild(servicoCard);
+      historicoCardContainer.insertBefore(servicoCard, historicoCardContainer.firstChild);
 
       const buttons = servicoCard.querySelectorAll("[data-button-type='concluir']");
       console.log(buttons);

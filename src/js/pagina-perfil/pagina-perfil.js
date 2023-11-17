@@ -52,7 +52,62 @@ function putServicos() {
   user.servicoResponseDTOList?.forEach((servico) => {
     console.log(servico);
     console.log("CHEGOU");
-    // servicosContainer.innerHTML = "";
+    // servicosContainer.innerHTML = "<div>teste</div>";
+    if (servico.idUsuarioVoluntario && servico.status !== "CONCLUIDO")
+    {
+      const servicoCard = `
+        <div class="main__servicos__card " id="${servico.id}">
+          <div class="card__text">
+            <h4>${servico.destino}</h4>
+            <h4>${servico.idUsuarioIdoso}</h4>
+            <p>Tipo de Serviço: ${servico.tipoServico}</p>
+            <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+            <p>Destino: ${servico.destino}</p>
+            <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
+            <p>Status: ${servico.status}</p>
+          </div>
+          <div id='${servico.id}' class="card__button-group">
+              <div class="card__button" id="btnMostrarServ">
+              </div>
+              <div class="card__button" id="btnEXcluirServ">
+                  <a data-deletar href="#">Rejeitar</a>
+              </div>
+          </div>
+        </div>
+      `
+      servicosContainer.innerHTML += servicoCard;
+      return;
+    }
+    if (servico.status !== "CONCLUIDO")
+    {
+      const servicoCard = `
+      <div class="main__servicos__card " id="${servico.id}">
+          <div class="card__text">
+            <h4>${servico.destino}</h4>
+            <h4>${servico.idUsuarioIdoso}</h4>
+            <p>Tipo de Serviço: ${servico.tipoServico}</p>
+            <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
+            <p>Destino: ${servico.destino}</p>
+            <p>Status: ${servico.status}</p>
+          </div>
+          <div id='${servico.id}' class="card__button-group">
+              <div class="card__button" id="btnMostrarServ">
+              ${servico.idUsuarioVoluntario ? '<a data-alterar href="#">Editar</a>' : ''}
+              </div>
+              <div class="card__button" id="btnEXcluirServ">
+                  <a data-deletar href="#">Excluir</a>
+              </div>
+          </div>
+      </div>
+
+      `;
+      servicosContainer.innerHTML += servicoCard;
+    }
+  });
+  user.servicoResponseDTOList?.forEach((servico) => {
+    console.log(servico);
+    console.log("CHEGOU");
+    // servicosContainer.innerHTML = "<div>teste</div>";
     if (servico.status === "CONCLUIDO") {
       servicosContainer.innerHTML += `
         <div class="main__servicos__card " id="${servico.id}">
@@ -75,55 +130,7 @@ function putServicos() {
         </div>
     </div>
     `;
-    }
-    else if (servico.idUsuarioVoluntario)
-    {
-      servicosContainer.innerHTML += `
-        <div class="main__servicos__card " id="${servico.id}">
-        <div class="card__text">
-          <h4>${servico.destino}</h4>
-          <h4>${servico.idUsuarioIdoso}</h4>
-          <p>Tipo de Serviço: ${servico.tipoServico}</p>
-          <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
-          <p>Destino: ${servico.destino}</p>
-          <p>Voluntario: ${servico.idUsuarioVoluntario}</p>
-          <p>Status: ${servico.status}</p>
-        </div>
-        <div id='${servico.id}' class="card__button-group">
-            <div class="card__button" id="btnMostrarServ">
-            </div>
-            <div class="card__button" id="btnEXcluirServ">
-                <a data-deletar href="#">Rejeitar</a>
-            </div>
-        </div>
-    </div>
-
-    `;
-    }
-    else
-    {
-      servicosContainer.innerHTML += `
-      <div class="main__servicos__card " id="${servico.id}">
-          <div class="card__text">
-            <h4>${servico.destino}</h4>
-            <h4>${servico.idUsuarioIdoso}</h4>
-            <p>Tipo de Serviço: ${servico.tipoServico}</p>
-            <p>Data de Início: ${formatarData(servico.dataHoraInicio)}</p>
-            <p>Destino: ${servico.destino}</p>
-            <p>Status: ${servico.status}</p>
-          </div>
-          <div id='${servico.id}' class="card__button-group">
-              <div class="card__button" id="btnMostrarServ">
-              ${servico.idUsuarioVoluntario ? '<a data-alterar href="#">Editar</a>' : ''}
-              </div>
-              <div class="card__button" id="btnEXcluirServ">
-                  <a data-deletar href="#">Excluir</a>
-              </div>
-          </div>
-      </div>
-
-      `;
-
+      return;
     }
   });
   if (user.servicoResponseDTOList?.length === 0) {
