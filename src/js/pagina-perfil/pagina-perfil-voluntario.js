@@ -180,9 +180,9 @@ form.addEventListener("submit", async (event) => {
   event.preventDefault();
   // constante que vai armazenar o valor do campo do formulário
   const cadastro = {
-    voluntarioRespondeDTO: {
-      preferencia: cadastro.voluntarioResponseDTO.preferencia,
-      habilidade: cadastro.voluntarioResponseDTO.habilidade,
+    voluntarioResponseDTO: {
+      preferencia: user.voluntarioResponseDTO.preferencia,
+      habilidade: user.voluntarioResponseDTO.habilidade,
     },
     usuarioResponseDTO: {
       nome: username.value,
@@ -194,7 +194,7 @@ form.addEventListener("submit", async (event) => {
       bairro: bairro.value,
       cidade: cidade.value,
       estado: estado.value,
-      complemento: complemento.value,
+      // complemento: complemento.value,
       bloco: bloco.value,
       numeroAp: numeroAp.value,
       // telefone: telefone.value,
@@ -208,7 +208,7 @@ form.addEventListener("submit", async (event) => {
     // constante que vai armazenar a resposta da requisição
     const resposta = await updateVoluntario(cadastro);
     user.usuarioResponseDTO = cadastro.usuarioResponseDTO;
-    user.idosoResponseDTO = cadastro.voluntarioRespondeDTO;
+    user.voluntarioResponseDTO = cadastro.voluntarioResponseDTO;
     localStorage.setItem("user", JSON.stringify(user));
     updateForms(user);
     alert(resposta.message);
