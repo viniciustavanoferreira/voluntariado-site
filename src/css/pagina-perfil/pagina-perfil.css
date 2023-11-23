@@ -532,11 +532,11 @@ main{
   color: #e66b6e;
   font-size: 1.315rem;
   font-weight: 400;
-  padding: 0.2rem 1rem;
+  padding: 20px;
 
   transition: ease-in-out 0.2s;
   text-decoration: none !important;
-  border: 2px solid #e66b6e;
+  /* border: 2px solid #e66b6e; */
 
 }
 
@@ -610,6 +610,7 @@ display: none !important;
   overflow-y: auto; /* Adicione uma barra de rolagem vertical se houver muitos resultados */
   border: 1px solid #ccc;
   background-color: #fff;
+  float: right;
 }
 
 /* Estilize cada item da lista de resultados */
