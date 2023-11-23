@@ -400,9 +400,9 @@
                                 <label for="estado-perfil-display">Estado:</label>
                                 <input type="text" class="form-control item" id="estado-perfil-display" placeholder="Estado" readonly>
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <input type="text" class="form-control item" id="idade-perfil-display" placeholder="Idade" readonly>
-                            </div> -->
+                            </div>
 
                         </form>
                     </div>
@@ -457,9 +457,9 @@
                                 <label for="estado-perfil-display">Novo Estado:</label>
                                 <input type="text" class="form-control item" id="estado-perfil" placeholder="Estado">
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <input type="text" class="form-control item" id="idade-perfil" placeholder="Idade">
-                            </div> -->
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-block create-account">Salvar</button>

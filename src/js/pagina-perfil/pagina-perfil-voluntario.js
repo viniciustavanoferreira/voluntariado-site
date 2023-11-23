@@ -57,8 +57,16 @@ const cidade = document.getElementById("cidade-perfil");
 const estado = document.getElementById("estado-perfil");
 const complemento = document.getElementById("complemento-perfil");
 const bloco = document.getElementById("bloco-perfil");
-const numeroAp = document.getElementById("numero-perfil");
+const numeroAp = document.getElementById("numerocasa-perfil");
+const telefone = document.getElementById("numero-perfil");
+const idade = document.getElementById("idade-perfil");
+const assRequerida = document.getElementById("assRequerida-perfil");
+const condicaoPerfil = document.getElementById("condicao-perfil");
+const habilidade = document.getElementById("habilidade-perfil");
+const preferencia = document.getElementById("preferencia-perfil");
 
+
+// constantes de apenas vizualição
 const usernickRead = document.getElementById("usuario-perfil-display");
 const usernameRead = document.getElementById("nome-perfil-display");
 console.log(usernameRead);
@@ -72,7 +80,7 @@ const estadoRead = document.getElementById("estado-perfil-display");
 const blocoRead = document.getElementById("bloco-perfil-display");
 const numeroApRead = document.getElementById("numerocasa-perfil-display");
 const telefoneRead = document.getElementById("numero-perfil-display");
-// const idadeRead = document.getElementById("idade-perfil-display");
+const idadeRead = document.getElementById("idade-perfil-display");
 
 const nomeApresentacao = document.querySelector("[data-nameuser]");
 console.log(nomeApresentacao.textContent);
@@ -113,12 +121,6 @@ btnSalvarSenha.addEventListener("click", async (event) => {
   }
 });
 
-const telefone = document.getElementById("telefone-perfil");
-const idade = document.getElementById("idade-perfil");
-const assRequerida = document.getElementById("assRequerida-perfil");
-const condicaoPerfil = document.getElementById("condicao-perfil");
-const habilidade = document.getElementById("habilidade-perfil");
-const preferencia = document.getElementById("preferencia-perfil");
 
 
 // associando os valores do usuário logado aos campos do formulário
@@ -135,7 +137,10 @@ function updateForms(user) {
   // complemento.value = user.usuarioResponseDTO.complemento;
   numeroAp.value = user.usuarioResponseDTO.numeroAp;
   bloco.value = user.usuarioResponseDTO.bloco;
-  // telefone.value = user.usuarioResponseDTO.telefone;
+  telefone.value = user.usuarioResponseDTO.telefone;
+  idade.value = `${calcularIdadePorISOString(
+    user.usuarioResponseDTO.dataNascimento
+  )} anos`
   // idade.value = user.usuarioResponseDTO.idade;
   // assRequerida.value = user.idosoResponseDTO.assistenciaRequerida;
   // condicaoPerfil.value = user.idosoResponseDTO.condicaoSaude;
@@ -152,6 +157,9 @@ function updateForms(user) {
   numeroApRead.value = user.usuarioResponseDTO.numeroAp;
   blocoRead.value = user.usuarioResponseDTO.bloco;
   telefoneRead.value = user.usuarioResponseDTO.telefone;
+  idadeRead.value = `${calcularIdadePorISOString(
+    user.usuarioResponseDTO.dataNascimento
+  )} anos`
 
   // idadeRead.value = user.usuarioResponseDTO.idade;
   // idadeRead.value = user.idosoResponseDTO.dataNascimento;
@@ -170,6 +178,8 @@ function updateForms(user) {
 
 }
 updateForms(user);
+
+console.log("MOstrar",  telefoneRead.value = user.usuarioResponseDTO.telefone)
 
 
 
@@ -197,7 +207,7 @@ form.addEventListener("submit", async (event) => {
       // complemento: complemento.value,
       bloco: bloco.value,
       numeroAp: numeroAp.value,
-      // telefone: telefone.value,
+      telefone: telefone.value,
       dataNascimento: user.usuarioResponseDTO.dataNascimento,
       perfil: user.usuarioResponseDTO.perfil,
       disponibilidade: user.usuarioResponseDTO.disponibilidade,
@@ -211,12 +221,12 @@ form.addEventListener("submit", async (event) => {
     user.voluntarioResponseDTO = cadastro.voluntarioResponseDTO;
     localStorage.setItem("user", JSON.stringify(user));
     updateForms(user);
-    alert(resposta.message);
+    alert(`Usuário atualizado com sucesso: ${resposta.message}`)
     // redirecionamento para a página de perfil
-    // window.location.href = "./pagina-perfil-idoso.php";
+    window.location.href = "./pagina-perfil-voluntario.php";
   } catch (error) {
     // mensagem de erro caso a requisição não seja feita
-    alert(error.message);
+    alert(`Erro ao atualizar usuário: ${error.message}`);
   }
 });
 
@@ -303,6 +313,26 @@ buttons.forEach((button, index) => {
 });
 
 bemvindoContainer.classList.remove('esconder');
+
+// função que calcula idade
+function calcularIdadePorISOString(dataNascimentoISO) {
+  const hoje = new Date();
+  const dataNasc = new Date(dataNascimentoISO);
+
+  let idade = hoje.getFullYear() - dataNasc.getFullYear();
+  const mesAtual = hoje.getMonth();
+  const mesNasc = dataNasc.getMonth();
+
+  // Verificar se já fez aniversário neste ano
+  if (
+    mesAtual < mesNasc ||
+    (mesAtual === mesNasc && hoje.getDate() < dataNasc.getDate())
+  ) {
+    idade--;
+  }
+
+  return idade;
+}
 
 
 // função para a chamada do usuario no bemvindoContainer
