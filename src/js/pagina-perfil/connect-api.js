@@ -63,7 +63,6 @@ async function updateVoluntario(cadastro) {
       preferencia: cadastro.voluntarioResponseDTO.preferencia,
       habilidade: cadastro.voluntarioResponseDTO.habilidade,
       usuarioRequestDTO: {
-        id: cadastro.usuarioResponseDTO.id,
         nome: cadastro.usuarioResponseDTO.nome,
         usuario: cadastro.usuarioResponseDTO.usuario,
         senha: cadastro.usuarioResponseDTO.senha,
@@ -76,7 +75,7 @@ async function updateVoluntario(cadastro) {
         complemento: cadastro.usuarioResponseDTO.complemento,
         bloco: cadastro.usuarioResponseDTO.bloco,
         numeroAp: cadastro.usuarioResponseDTO.numeroAp,
-        telefone: cadastro.usuarioResponseDTO.telefone,
+        // telefone: cadastro.usuarioResponseDTO.telefone,
         dataNascimento: cadastro.usuarioResponseDTO.dataNascimento,
         perfil: cadastro.usuarioResponseDTO.perfil,
         disponibilidade: cadastro.usuarioResponseDTO.disponibilidade,
