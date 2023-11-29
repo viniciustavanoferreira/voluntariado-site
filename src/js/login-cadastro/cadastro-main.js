@@ -135,11 +135,16 @@ formVoluntario.addEventListener("submit", (e) => {
 
 // autocomplete de endereço
 cep.addEventListener("blur", async () => {
+
   const valorCEP = removeSimbolos(cep.value);
   let resposta = "";
   if (valorCEP.length === 8) {
     resposta = await getCEP(valorCEP);
-    // console.log(resposta);
+    console.log(resposta.logradouro);
+    if (!resposta.logradouro) {
+      alert("CEP não encontrado");
+      return;
+    }
     endereco.value = resposta.logradouro;
     bairro.value = resposta.bairro;
     cidade.value = resposta.localidade;
@@ -153,7 +158,10 @@ cepV.addEventListener("blur", async () => {
   console.log("clicou")
   if (valorCEP.length === 8) {
     resposta = await getCEP(valorCEP);
-    // console.log(resposta);
+    if (!resposta.logradouro) {
+      alert("CEP não encontrado");
+      return;
+    }
     enderecoV.value = resposta.logradouro;
     bairroV.value = resposta.bairro;
     cidadeV.value = resposta.localidade;
@@ -166,18 +174,13 @@ function removeSimbolos(value) {
   let newValue = "";
   let i = 0;
   while (value[i]) {
-    if (value[i] >= "0" && value[i] <= "9") newValue += value[i];
+    if (isNumeric(value[i])) newValue += value[i];
     i++;
   }
   return newValue;
 }
 function isNumeric(value) {
-  let i = 0;
-  while (value[i]) {
-    if (!(value[i] >= "0" && value[i] <= "9")) return false;
-    i++;
-  }
-  return true;
+  return (value >= '0' && value <= '9');
 }
 
 function checkInputs() {
@@ -263,7 +266,8 @@ async function setFormIdoso() {
     alert("Usuário registrado com sucesso");
     window.location.href = "./login-cadastro.php";
   } catch (err) {
-    console.log("Erro ao registrar");
+    // console.log("Erro ao registrar");
+    alert("Erro ao registrar");
   }
 }
 async function setFormVoluntario() {
@@ -295,7 +299,7 @@ async function setFormVoluntario() {
     alert("Usuário registrado com sucesso");
     window.location.href = "./login-cadastro.php";
   } catch (err) {
-    console.log("Erro ao registrar");
+    alert("Erro ao registrar");
   }
 }
 
