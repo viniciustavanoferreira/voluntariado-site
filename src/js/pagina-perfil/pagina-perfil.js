@@ -105,8 +105,8 @@ function putServicos() {
     }
   });
   user.servicoResponseDTOList?.forEach((servico) => {
-    console.log(servico);
-    console.log("CHEGOU");
+    // console.log(servico);
+    // console.log("CHEGOU");
     // servicosContainer.innerHTML = "<div>teste</div>";
     if (servico.status === "CONCLUIDO") {
       servicosContainer.innerHTML += `
