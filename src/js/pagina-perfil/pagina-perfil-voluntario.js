@@ -41,6 +41,7 @@ if (!user) {
 
 
 
+
 // ATUALIZAÇÃO
 
 // constants com os elementos do formulário para alteração
@@ -573,7 +574,10 @@ async function exibirServicosNaoAceitos() {
               // servicoResponseDTOList.
               resposta.idUsuarioIdoso = servico.idUsuarioIdoso;
               // Atualize o usuário no localStorage
-              user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
+              if (!user.servicoResponseDTOList)
+                user.servicoResponseDTOList = [resposta];
+              else
+                user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
               localStorage.setItem("user", JSON.stringify(user));
               // Informe ao usuário que o serviço foi aceito
               alert("Serviço aceito com sucesso");
@@ -743,26 +747,25 @@ function exibirHistorico() {
               idUsuarioVoluntario: user.usuarioResponseDTO.usuario,
             };
 
-            console.log(requisicao);
-            console.log(servico)
+            // console.log(requisicao);
+            // console.log(servico);
 
             try {
               // Chame a função servicoAceitoVolutario com o requestBody
-              console.log("Chamando servicoAceitoVolutario com requestBody:", requisicao);
+              // console.log("Chamando servicoAceitoVolutario com requestBody:", requisicao);
               const resposta = await updateService(requisicao);
-
-              // servicoResponseDTOList.
               resposta.idUsuarioIdoso = servico.idUsuarioIdoso;
-              console.log(resposta);
+              // console.log(resposta);
               // Atualize o usuário no localStorage
-              user.servicoResponseDTOList = user.servicoResponseDTOList.filter(servicoBuscado => servicoBuscado.id !== servico.id);
-              user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
-              localStorage.setItem("user", JSON.stringify(user));
-              // Informe ao usuário que o serviço foi aceito
-              alert("Serviço concluido!");
+                user.servicoResponseDTOList = user.servicoResponseDTOList.filter(servicoBuscado => servicoBuscado.id !== servico.id);
+                user.servicoResponseDTOList = [...user.servicoResponseDTOList, resposta];
+                localStorage.setItem("user", JSON.stringify(user));
+                // Informe ao usuário que o serviço foi aceito
+                alert("Serviço concluido!");
 
-              // Redirecione ou atualize a página, se necessário
-              window.location.href = "./pagina-perfil-voluntario.php";
+                // Redirecione ou atualize a página, se necessário
+                window.location.href = "./pagina-perfil-voluntario.php";
+
             } catch (error) {
               alert(error.message);
             }
@@ -772,7 +775,16 @@ function exibirHistorico() {
 
 
 
-  });
+    });
+}
+
+// user.servicoResponseDTOList = null;
+// console.log(user.servicoResponseDTOList);
+if (!user.servicoResponseDTOList)
+{
+  console.log("teste2")
+  // user.servicoResponseDTOList = [];
+  console.log(user.servicoResponseDTOList);
 }
 
 if (user && user.servicoResponseDTOList && user.servicoResponseDTOList.length > 0)

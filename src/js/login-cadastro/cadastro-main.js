@@ -258,10 +258,10 @@ async function setFormIdoso() {
     disponibilidade: disponibilidade.value,
   };
 
-  console.log(form);
+  // console.log(form);
   //chamando função aonde será registrado
   try {
-    console.log("Registrando");
+    // console.log("Registrando");
     const registro = await register(form);
     alert("Usuário registrado com sucesso");
     window.location.href = "./login-cadastro.php";
@@ -291,7 +291,7 @@ async function setFormVoluntario() {
     disponibilidade: disponibilidadeV.value,
   };
 
-  console.log(form);
+  // console.log(form);
   //chamando função aonde será registrado
   try {
     console.log("Registrando");
@@ -302,7 +302,7 @@ async function setFormVoluntario() {
     alert(err.message);
   }
 }
-console.log("mudou")
+// console.log("mudou")
 
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
