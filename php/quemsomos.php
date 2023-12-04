@@ -72,19 +72,22 @@
 
                     <ul id="bl-work-items">
                         <li data-panel="panel-1">
-                            <a href="#"><img src="images/1.jpg"></a>
+                            <a href="#"><img src="../src/img/nat1.jpeg"></a>
                         </li>
 
                         <li data-panel="panel-2">
-                            <a href="#"><img src="../src/img/leo.jpeg"></a>
+                            <a href="#"><img src="../src/img/leo2.jpg"></a>
                         </li>
 
                         <li data-panel="panel-3">
-                            <a href="#"><img src="images/3.jpg"></a>
+                            <a href="#"><img src="../src/img/vinicius1.jpg"></a>
                         </li>
 
                         <li data-panel="panel-4">
-                            <a href="#"><img src="images/4.jpg"></a>
+                        <a href="#"><img src="../src/img/nat1.jpeg"></a>
+                        </li>
+                        <li data-panel="panel-5">
+                            <a href="#"><img src="images/5.jpg"></a>
                         </li>
                     </ul>
                 </div><span class="bl-icon bl-icon-close">Fechar</span>

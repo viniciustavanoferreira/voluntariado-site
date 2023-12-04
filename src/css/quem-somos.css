@@ -236,12 +236,13 @@ div.bl-panel-items > div > div {
 .bl-content > ul li a {
 	display: block;
 	padding: 0;
-	border: 8px solid rgba(0,0,0,0.1);
+	
 }
 
 .bl-content > ul li a img {
 	display: block;
 	max-width: 100%;
+	border-radius: 50%;
 }
 
 /* Panel Items */
