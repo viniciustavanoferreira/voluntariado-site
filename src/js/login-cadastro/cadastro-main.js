@@ -267,7 +267,7 @@ async function setFormIdoso() {
     window.location.href = "./login-cadastro.php";
   } catch (err) {
     // console.log("Erro ao registrar");
-    alert("Erro ao registrar");
+    alert(err.message);
   }
 }
 async function setFormVoluntario() {
@@ -299,9 +299,10 @@ async function setFormVoluntario() {
     alert("Usuário registrado com sucesso");
     window.location.href = "./login-cadastro.php";
   } catch (err) {
-    alert("Erro ao registrar");
+    alert(err.message);
   }
 }
+console.log("mudou")
 
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
