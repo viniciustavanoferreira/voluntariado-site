@@ -56,12 +56,13 @@ async function register(cadastro) {
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
-  if (!conexao.ok) {
-    throw new Error("Não foi possível conexão. Tente novamente");
-  }
+  console.log(conexao)
   // constante que será armazenada o arquivo .json que vem da API.
-  const conexaoResposta = await conexao.text();
+  const conexaoResposta = await conexao.json();
   console.log(conexaoResposta);
+  if (!conexao.ok) {
+    throw new Error(conexaoResposta.exception);
+  }
   // retorno da constante com o json transformado em objeto
   return conexaoResposta;
 }
