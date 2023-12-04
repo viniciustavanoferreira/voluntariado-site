@@ -16,7 +16,7 @@ async function login(email, password) {
   }
   // constante que será armazenada o arquivo .json que vem da API como um objeto.
   const conexaoTexto = await conexao.json();
-  console.log(conexaoTexto.usuarioResponseDTO);
+  // console.log(conexaoTexto.usuarioResponseDTO);
   // retorno da constante com o json transformado em objeto
   return conexaoTexto;
 }
@@ -56,10 +56,10 @@ async function register(cadastro) {
     requestOptions
   );
   // verificar se a conexão foi feita com sucesso. Caso não seja, será retornado um erro
-  console.log(conexao)
+  // console.log(conexao)
   // constante que será armazenada o arquivo .json que vem da API.
   const conexaoResposta = await conexao.json();
-  console.log(conexaoResposta);
+  // console.log(conexaoResposta);
   if (!conexao.ok) {
     throw new Error(conexaoResposta.exception);
   }
