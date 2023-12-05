@@ -244,7 +244,7 @@ div.bl-panel-items > div > div {
 
 .bl-content > ul li a img {
 	display: block;
-	max-width: 100%;
+	max-width: 65%;
 	border-radius: 50%;
 }
 
@@ -389,7 +389,8 @@ div.bl-panel-items > div.bl-hide-current-work {
 	background: #4BBE8E;
 }
 .bl-main > section:nth-child(4).bl-expand {
-	background: #ebac8b;
+	background: linear-gradient(to right, #ebac8b, #e66b6e, navajowhite);
+	;
 	
 }
 
@@ -460,5 +461,28 @@ section.bl-expand .bl-icon-close {
 }
 
 #bl-work-items > li > h3{
-	justify-content: center;
+	
     display: flex;}
+/* 
+cores do bg */
+
+.texto1{
+ 
+  position: absolute;
+  
+  background-image: linear-gradient(gold, gold);
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+   transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+.texto1:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}
+
+.control-panel{
+	padding: 10px;
+}
