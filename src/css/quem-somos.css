@@ -196,12 +196,15 @@ div.bl-panel-items > div > div {
 	padding-bottom: 15px;
 	font-size: 1.7em;
 	line-height: 1.8;
+	
 }
 
 .bl-content h2 {
 	font-size: 3em;
-	font-weight: 300;
+	/* font-weight: 300; */
 	margin: 0 0 20px 0;
+	display: flex;
+	justify-content: center
 }
 
 .bl-content article {
@@ -386,7 +389,8 @@ div.bl-panel-items > div.bl-hide-current-work {
 	background: #4BBE8E;
 }
 .bl-main > section:nth-child(4).bl-expand {
-	background: #0D8278;
+	background: #ebac8b;
+	
 }
 
 .bl-main.bl-expand-item > section:not(.bl-expand),
@@ -455,3 +459,6 @@ section.bl-expand .bl-icon-close {
 	}
 }
 
+#bl-work-items > li > h3{
+	justify-content: center;
+    display: flex;}

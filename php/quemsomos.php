@@ -67,28 +67,42 @@
                 <div class="bl-content">
                     <h2>Integrantes</h2>
 
-                    <p>Da esquerda a direita: Damião, Leandro, Luis, Natalia, Vinicius  
-                    </p>
+    
 
-                    <ul id="bl-work-items">
+                    <ul id="bl-work-items" style=" position: absolute;
+    display: flex;
+    top: 200px;">
                         <li data-panel="panel-1">
-                            <a href="#"><img src="../src/img/nat1.jpeg"></a>
+                            <a href="#"><img src="../src/img/nat2.jpg"></a>
+                            <h2> Damião </h2>
+                            <h3> Documentação & Frontend<h3>
                         </li>
 
                         <li data-panel="panel-2">
                             <a href="#"><img src="../src/img/leo2.jpg"></a>
+                            <h2> Leandro </h2>
+                            <h3> Design, Frontend & Gerenciamento de Dados<h3>
                         </li>
 
                         <li data-panel="panel-3">
-                            <a href="#"><img src="../src/img/vinicius1.jpg"></a>
-                        </li>
-
-                        <li data-panel="panel-4">
-                        <a href="#"><img src="../src/img/nat1.jpeg"></a>
-                        </li>
-                        <li data-panel="panel-5">
                             <a href="#"><img src="images/5.jpg"></a>
                         </li>
+                        <h2> Luis </h2>
+                        <h3> Frontend <h3>
+
+
+                        <li data-panel="panel-4">
+                            <a href="#"><img src="../src/img/nat1.jpeg"></a>
+                            <h2> Nathalia </h2>
+                            <h3> Documentação & Frontend <h3>
+                        </li>
+
+                        <li data-panel="panel-5">
+                        <a href="#"><img src="../src/img/vinicius1.jpg"></a>
+                        <h2> Vinicius </h2>
+                        <h3> Backend & Gerencimaneto de Dados<h3>
+                        </li>
+                        
                     </ul>
                 </div><span class="bl-icon bl-icon-close">Fechar</span>
             </section>
