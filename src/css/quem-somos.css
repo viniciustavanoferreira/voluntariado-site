@@ -196,12 +196,15 @@ div.bl-panel-items > div > div {
 	padding-bottom: 15px;
 	font-size: 1.7em;
 	line-height: 1.8;
+	
 }
 
 .bl-content h2 {
 	font-size: 3em;
-	font-weight: 300;
+	/* font-weight: 300; */
 	margin: 0 0 20px 0;
+	display: flex;
+	justify-content: center
 }
 
 .bl-content article {
@@ -236,12 +239,13 @@ div.bl-panel-items > div > div {
 .bl-content > ul li a {
 	display: block;
 	padding: 0;
-	border: 8px solid rgba(0,0,0,0.1);
+	
 }
 
 .bl-content > ul li a img {
 	display: block;
-	max-width: 100%;
+	max-width: 65%;
+	border-radius: 50%;
 }
 
 /* Panel Items */
@@ -385,7 +389,9 @@ div.bl-panel-items > div.bl-hide-current-work {
 	background: #4BBE8E;
 }
 .bl-main > section:nth-child(4).bl-expand {
-	background: #0D8278;
+	background: linear-gradient(to right, #ebac8b, #e66b6e, navajowhite);
+	;
+	
 }
 
 .bl-main.bl-expand-item > section:not(.bl-expand),
@@ -454,3 +460,29 @@ section.bl-expand .bl-icon-close {
 	}
 }
 
+#bl-work-items > li > h3{
+	
+    display: flex;}
+/* 
+cores do bg */
+
+.texto1{
+ 
+  position: absolute;
+  
+  background-image: linear-gradient(gold, gold);
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+   transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+.texto1:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}
+
+.control-panel{
+	padding: 10px;
+}
