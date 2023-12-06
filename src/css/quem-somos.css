@@ -248,6 +248,8 @@ div.bl-panel-items > div > div {
 	border-radius: 50%;
 }
 
+
+
 /* Panel Items */
 
 div.bl-panel-items,
@@ -389,7 +391,8 @@ div.bl-panel-items > div.bl-hide-current-work {
 	background: #4BBE8E;
 }
 .bl-main > section:nth-child(4).bl-expand {
-	background: linear-gradient(to right, #ebac8b, #e66b6e, navajowhite);
+	background-image: url("../img/fundo1.png");
+	background-repeat: no-repeat;
 	;
 	
 }
@@ -483,6 +486,28 @@ cores do bg */
   transition: background-position .7s, background-size .5s ease-in-out;
 }
 
+
+
 .control-panel{
 	padding: 10px;
 }
+
+
+@media screen and (max-width: 574px) {
+	#bl-work-section {
+	  word-break: break-all;
+	}
+
+	.texto1{
+		max-width: 50px;
+	}
+  }
+
+  @media screen and (max-width: 924px) {
+	
+
+	.texto1{
+		max-width: 50px;
+	}
+  }
+  
