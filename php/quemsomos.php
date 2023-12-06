@@ -91,7 +91,7 @@
                             </li>
 
                             <li data-panel="panel-2">
-                                <a href="#"><img src="../src/img/leo2.jpg"></a>
+                                <a href="#"><img src="../src/img/leo2.jpg" style="--color:#0B486B">></a>
                                 <div class="control-panel">
                                 <span class="texto1" style="background-image: linear-gradient(red,red) !important;"> <h3> Leandro </h3>
                                 <h3>>  Design, Frontend <br>& Gerenciamento de Dados</span> <h3></div>
@@ -120,7 +120,7 @@
                                 <a href="#"><img src="../src/img/vinicius1.jpg"></a>
                                 <div class="control-panel">
                                 <span class="texto1"><h3> Vinicius </h3>
-                                <h3>> Backend &<br> Gerencimaneto de Dados</span>
+                                <h3>> Backend &<br> Gerenciamento de Dados</span>
                                     <h3>
 </div>
                             </li>
